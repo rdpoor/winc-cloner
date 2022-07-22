@@ -23,6 +23,9 @@ To run `winc-update` you will need:
 * A microSD card
 * [Microchip MPLAB.X](https://www.microchip.com/en-us/tools-resources/develop/mplab-x-ide) or some means to load a .hex file into the SAME54
 
-Connect the components as shown, with the WINC XPRO on the EXT1 connector and the IO1 XPRO on EXT2:
+Connect the components as shown, with:
+* the WINC XPRO on the EXT1 connector 
+* the IO1 XPRO on EXT2
+* the USB cable connecting the "Debug USB" port to your PC or laptop
 
-![Physical Setup](/docs/physical_setup.png)
+![Physical Setup](/docs/IMG_5907.jpg)
