@@ -1,5 +1,5 @@
 /**
- * @file app.h
+ * @file template.c
  *
  * MIT License
  *
@@ -22,50 +22,31 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
+ *
  */
-
- /**
-  * @brief Main application initialization and loop
-  */
-
-#ifndef _APP_H_
-#define _APP_H_
 
 // *****************************************************************************
 // Includes
 
+#include "template.h"
+
+#include <stdbool.h>
 #include <stdint.h>
 
 // *****************************************************************************
-// C++ compatibility
-
-#ifdef __cplusplus
-extern "C" {
-#endif
+// Private types and definitions
 
 // *****************************************************************************
-// Public types and definitions
-
-#define WINC_IMAGER_VERSION "0.0.1"
+// Private (static, forward) declarations
 
 // *****************************************************************************
-// Public declarations
+// Private (static) storage
 
-/**
- * @brief Called once at initialization.
- */
-void APP_Initialize(void);
+// *****************************************************************************
+// Public code
 
-/**
- * @brief Called repeatedly from main super-loop.
- */
-void APP_Tasks(void);
+// *****************************************************************************
+// Private (static) code
 
 // *****************************************************************************
 // End of file
-
-#ifdef __cplusplus
-}
-#endif
-
-#endif /* #ifndef _APP_H_ */

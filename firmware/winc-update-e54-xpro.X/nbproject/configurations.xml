@@ -5,186 +5,189 @@
                    displayName="Header Files"
                    projectFiles="true">
       <logicalFolder name="f1" displayName="config" projectFiles="true">
-        <logicalFolder name="f1" displayName="e54-xpro" projectFiles="true">
+        <logicalFolder name="f1" displayName="e54_xpro" projectFiles="true">
           <logicalFolder name="f4" displayName="bsp" projectFiles="true">
-            <itemPath>../src/config/e54-xpro/bsp/bsp.h</itemPath>
+            <itemPath>../src/config/e54_xpro/bsp/bsp.h</itemPath>
           </logicalFolder>
           <logicalFolder name="f2" displayName="driver" projectFiles="true">
             <logicalFolder name="f1" displayName="sdspi" projectFiles="true">
-              <itemPath>../src/config/e54-xpro/driver/sdspi/drv_sdspi_definitions.h</itemPath>
-              <itemPath>../src/config/e54-xpro/driver/sdspi/src/drv_sdspi_local.h</itemPath>
-              <itemPath>../src/config/e54-xpro/driver/sdspi/src/drv_sdspi_plib_interface.h</itemPath>
-              <itemPath>../src/config/e54-xpro/driver/sdspi/drv_sdspi.h</itemPath>
+              <itemPath>../src/config/e54_xpro/driver/sdspi/drv_sdspi_definitions.h</itemPath>
+              <itemPath>../src/config/e54_xpro/driver/sdspi/src/drv_sdspi_local.h</itemPath>
+              <itemPath>../src/config/e54_xpro/driver/sdspi/src/drv_sdspi_plib_interface.h</itemPath>
+              <itemPath>../src/config/e54_xpro/driver/sdspi/drv_sdspi.h</itemPath>
             </logicalFolder>
             <logicalFolder name="f3" displayName="spi" projectFiles="true">
-              <itemPath>../src/config/e54-xpro/driver/spi/drv_spi.h</itemPath>
-              <itemPath>../src/config/e54-xpro/driver/spi/drv_spi_definitions.h</itemPath>
+              <itemPath>../src/config/e54_xpro/driver/spi/drv_spi.h</itemPath>
+              <itemPath>../src/config/e54_xpro/driver/spi/drv_spi_definitions.h</itemPath>
             </logicalFolder>
             <logicalFolder name="f2" displayName="winc" projectFiles="true">
               <logicalFolder name="f1" displayName="include" projectFiles="true">
                 <logicalFolder name="f1" displayName="dev" projectFiles="true">
-                  <itemPath>../src/config/e54-xpro/driver/winc/include/dev/wdrv_winc_gpio.h</itemPath>
-                  <itemPath>../src/config/e54-xpro/driver/winc/include/dev/wdrv_winc_spi.h</itemPath>
+                  <itemPath>../src/config/e54_xpro/driver/winc/include/dev/wdrv_winc_gpio.h</itemPath>
+                  <itemPath>../src/config/e54_xpro/driver/winc/include/dev/wdrv_winc_spi.h</itemPath>
                 </logicalFolder>
                 <logicalFolder name="f2" displayName="drv" projectFiles="true">
                   <logicalFolder name="f1" displayName="bsp" projectFiles="true">
-                    <itemPath>../src/config/e54-xpro/driver/winc/include/drv/bsp/nm_bsp.h</itemPath>
+                    <itemPath>../src/config/e54_xpro/driver/winc/include/drv/bsp/nm_bsp.h</itemPath>
                   </logicalFolder>
                   <logicalFolder name="f2" displayName="common" projectFiles="true">
-                    <itemPath>../src/config/e54-xpro/driver/winc/include/drv/common/nm_common.h</itemPath>
-                    <itemPath>../src/config/e54-xpro/driver/winc/include/drv/common/nm_debug.h</itemPath>
+                    <itemPath>../src/config/e54_xpro/driver/winc/include/drv/common/nm_common.h</itemPath>
+                    <itemPath>../src/config/e54_xpro/driver/winc/include/drv/common/nm_debug.h</itemPath>
                   </logicalFolder>
                   <logicalFolder name="f3" displayName="driver" projectFiles="true">
-                    <itemPath>../src/config/e54-xpro/driver/winc/include/drv/driver/m2m_hif.h</itemPath>
-                    <itemPath>../src/config/e54-xpro/driver/winc/include/drv/driver/m2m_periph.h</itemPath>
-                    <itemPath>../src/config/e54-xpro/driver/winc/include/drv/driver/m2m_types.h</itemPath>
-                    <itemPath>../src/config/e54-xpro/driver/winc/include/drv/driver/m2m_wifi.h</itemPath>
-                    <itemPath>../src/config/e54-xpro/driver/winc/include/drv/driver/nmasic.h</itemPath>
-                    <itemPath>../src/config/e54-xpro/driver/winc/include/drv/driver/nmbus.h</itemPath>
-                    <itemPath>../src/config/e54-xpro/driver/winc/include/drv/driver/nmdrv.h</itemPath>
-                    <itemPath>../src/config/e54-xpro/driver/winc/include/drv/driver/nmspi.h</itemPath>
-                    <itemPath>../src/config/e54-xpro/driver/winc/include/drv/driver/m2m_ota.h</itemPath>
-                    <itemPath>../src/config/e54-xpro/driver/winc/include/drv/driver/m2m_ssl.h</itemPath>
-                    <itemPath>../src/config/e54-xpro/driver/winc/include/drv/driver/ecc_types.h</itemPath>
+                    <itemPath>../src/config/e54_xpro/driver/winc/include/drv/driver/m2m_hif.h</itemPath>
+                    <itemPath>../src/config/e54_xpro/driver/winc/include/drv/driver/m2m_periph.h</itemPath>
+                    <itemPath>../src/config/e54_xpro/driver/winc/include/drv/driver/m2m_types.h</itemPath>
+                    <itemPath>../src/config/e54_xpro/driver/winc/include/drv/driver/m2m_wifi.h</itemPath>
+                    <itemPath>../src/config/e54_xpro/driver/winc/include/drv/driver/nmasic.h</itemPath>
+                    <itemPath>../src/config/e54_xpro/driver/winc/include/drv/driver/nmbus.h</itemPath>
+                    <itemPath>../src/config/e54_xpro/driver/winc/include/drv/driver/nmdrv.h</itemPath>
+                    <itemPath>../src/config/e54_xpro/driver/winc/include/drv/driver/nmspi.h</itemPath>
+                    <itemPath>../src/config/e54_xpro/driver/winc/include/drv/driver/m2m_ota.h</itemPath>
+                    <itemPath>../src/config/e54_xpro/driver/winc/include/drv/driver/m2m_ssl.h</itemPath>
+                    <itemPath>../src/config/e54_xpro/driver/winc/include/drv/driver/ecc_types.h</itemPath>
                   </logicalFolder>
                   <logicalFolder name="f5" displayName="socket" projectFiles="true">
-                    <itemPath>../src/config/e54-xpro/driver/winc/include/drv/socket/m2m_socket_host_if.h</itemPath>
-                    <itemPath>../src/config/e54-xpro/driver/winc/include/drv/socket/socket.h</itemPath>
-                    <itemPath>../src/config/e54-xpro/driver/winc/include/drv/socket/netinet_in.h</itemPath>
+                    <itemPath>../src/config/e54_xpro/driver/winc/include/drv/socket/m2m_socket_host_if.h</itemPath>
+                    <itemPath>../src/config/e54_xpro/driver/winc/include/drv/socket/socket.h</itemPath>
+                    <itemPath>../src/config/e54_xpro/driver/winc/include/drv/socket/netinet_in.h</itemPath>
                   </logicalFolder>
                   <logicalFolder name="f4" displayName="spi_flash" projectFiles="true">
-                    <itemPath>../src/config/e54-xpro/driver/winc/include/drv/spi_flash/spi_flash.h</itemPath>
-                    <itemPath>../src/config/e54-xpro/driver/winc/include/drv/spi_flash/spi_flash_map.h</itemPath>
-                    <itemPath>../src/config/e54-xpro/driver/winc/include/drv/spi_flash/flexible_flash.h</itemPath>
+                    <itemPath>../src/config/e54_xpro/driver/winc/include/drv/spi_flash/spi_flash.h</itemPath>
+                    <itemPath>../src/config/e54_xpro/driver/winc/include/drv/spi_flash/spi_flash_map.h</itemPath>
+                    <itemPath>../src/config/e54_xpro/driver/winc/include/drv/spi_flash/flexible_flash.h</itemPath>
                   </logicalFolder>
                 </logicalFolder>
-                <itemPath>../src/config/e54-xpro/driver/winc/include/wdrv_winc.h</itemPath>
-                <itemPath>../src/config/e54-xpro/driver/winc/include/wdrv_winc_api.h</itemPath>
-                <itemPath>../src/config/e54-xpro/driver/winc/include/wdrv_winc_assoc.h</itemPath>
-                <itemPath>../src/config/e54-xpro/driver/winc/include/wdrv_winc_authctx.h</itemPath>
-                <itemPath>../src/config/e54-xpro/driver/winc/include/wdrv_winc_bssctx.h</itemPath>
-                <itemPath>../src/config/e54-xpro/driver/winc/include/wdrv_winc_bssfind.h</itemPath>
-                <itemPath>../src/config/e54-xpro/driver/winc/include/wdrv_winc_client_api.h</itemPath>
-                <itemPath>../src/config/e54-xpro/driver/winc/include/wdrv_winc_common.h</itemPath>
-                <itemPath>../src/config/e54-xpro/driver/winc/include/wdrv_winc_custie.h</itemPath>
-                <itemPath>../src/config/e54-xpro/driver/winc/include/wdrv_winc_debug.h</itemPath>
-                <itemPath>../src/config/e54-xpro/driver/winc/include/wdrv_winc_host_file.h</itemPath>
-                <itemPath>../src/config/e54-xpro/driver/winc/include/wdrv_winc_httpprovctx.h</itemPath>
-                <itemPath>../src/config/e54-xpro/driver/winc/include/wdrv_winc_nvm.h</itemPath>
-                <itemPath>../src/config/e54-xpro/driver/winc/include/wdrv_winc_powersave.h</itemPath>
-                <itemPath>../src/config/e54-xpro/driver/winc/include/wdrv_winc_socket.h</itemPath>
-                <itemPath>../src/config/e54-xpro/driver/winc/include/wdrv_winc_softap.h</itemPath>
-                <itemPath>../src/config/e54-xpro/driver/winc/include/wdrv_winc_ssl.h</itemPath>
-                <itemPath>../src/config/e54-xpro/driver/winc/include/wdrv_winc_sta.h</itemPath>
-                <itemPath>../src/config/e54-xpro/driver/winc/include/wdrv_winc_systime.h</itemPath>
-                <itemPath>../src/config/e54-xpro/driver/winc/include/wdrv_winc_wps.h</itemPath>
+                <itemPath>../src/config/e54_xpro/driver/winc/include/wdrv_winc.h</itemPath>
+                <itemPath>../src/config/e54_xpro/driver/winc/include/wdrv_winc_api.h</itemPath>
+                <itemPath>../src/config/e54_xpro/driver/winc/include/wdrv_winc_assoc.h</itemPath>
+                <itemPath>../src/config/e54_xpro/driver/winc/include/wdrv_winc_authctx.h</itemPath>
+                <itemPath>../src/config/e54_xpro/driver/winc/include/wdrv_winc_bssctx.h</itemPath>
+                <itemPath>../src/config/e54_xpro/driver/winc/include/wdrv_winc_bssfind.h</itemPath>
+                <itemPath>../src/config/e54_xpro/driver/winc/include/wdrv_winc_client_api.h</itemPath>
+                <itemPath>../src/config/e54_xpro/driver/winc/include/wdrv_winc_common.h</itemPath>
+                <itemPath>../src/config/e54_xpro/driver/winc/include/wdrv_winc_custie.h</itemPath>
+                <itemPath>../src/config/e54_xpro/driver/winc/include/wdrv_winc_debug.h</itemPath>
+                <itemPath>../src/config/e54_xpro/driver/winc/include/wdrv_winc_host_file.h</itemPath>
+                <itemPath>../src/config/e54_xpro/driver/winc/include/wdrv_winc_httpprovctx.h</itemPath>
+                <itemPath>../src/config/e54_xpro/driver/winc/include/wdrv_winc_nvm.h</itemPath>
+                <itemPath>../src/config/e54_xpro/driver/winc/include/wdrv_winc_powersave.h</itemPath>
+                <itemPath>../src/config/e54_xpro/driver/winc/include/wdrv_winc_socket.h</itemPath>
+                <itemPath>../src/config/e54_xpro/driver/winc/include/wdrv_winc_softap.h</itemPath>
+                <itemPath>../src/config/e54_xpro/driver/winc/include/wdrv_winc_ssl.h</itemPath>
+                <itemPath>../src/config/e54_xpro/driver/winc/include/wdrv_winc_sta.h</itemPath>
+                <itemPath>../src/config/e54_xpro/driver/winc/include/wdrv_winc_systime.h</itemPath>
+                <itemPath>../src/config/e54_xpro/driver/winc/include/wdrv_winc_wps.h</itemPath>
               </logicalFolder>
             </logicalFolder>
-            <itemPath>../src/config/e54-xpro/driver/driver.h</itemPath>
-            <itemPath>../src/config/e54-xpro/driver/driver_common.h</itemPath>
+            <itemPath>../src/config/e54_xpro/driver/driver.h</itemPath>
+            <itemPath>../src/config/e54_xpro/driver/driver_common.h</itemPath>
           </logicalFolder>
           <logicalFolder name="f5" displayName="osal" projectFiles="true">
-            <itemPath>../src/config/e54-xpro/osal/osal.h</itemPath>
-            <itemPath>../src/config/e54-xpro/osal/osal_definitions.h</itemPath>
-            <itemPath>../src/config/e54-xpro/osal/osal_impl_basic.h</itemPath>
+            <itemPath>../src/config/e54_xpro/osal/osal.h</itemPath>
+            <itemPath>../src/config/e54_xpro/osal/osal_definitions.h</itemPath>
+            <itemPath>../src/config/e54_xpro/osal/osal_impl_basic.h</itemPath>
           </logicalFolder>
           <logicalFolder name="f1" displayName="peripheral" projectFiles="true">
             <logicalFolder name="f4" displayName="clock" projectFiles="true">
-              <itemPath>../src/config/e54-xpro/peripheral/clock/plib_clock.h</itemPath>
+              <itemPath>../src/config/e54_xpro/peripheral/clock/plib_clock.h</itemPath>
             </logicalFolder>
             <logicalFolder name="f7" displayName="cmcc" projectFiles="true">
-              <itemPath>../src/config/e54-xpro/peripheral/cmcc/plib_cmcc.h</itemPath>
+              <itemPath>../src/config/e54_xpro/peripheral/cmcc/plib_cmcc.h</itemPath>
             </logicalFolder>
             <logicalFolder name="f6" displayName="dmac" projectFiles="true">
-              <itemPath>../src/config/e54-xpro/peripheral/dmac/plib_dmac.h</itemPath>
+              <itemPath>../src/config/e54_xpro/peripheral/dmac/plib_dmac.h</itemPath>
             </logicalFolder>
             <logicalFolder name="f8" displayName="eic" projectFiles="true">
-              <itemPath>../src/config/e54-xpro/peripheral/eic/plib_eic.h</itemPath>
+              <itemPath>../src/config/e54_xpro/peripheral/eic/plib_eic.h</itemPath>
+            </logicalFolder>
+            <logicalFolder name="f11" displayName="evsys" projectFiles="true">
+              <itemPath>../src/config/e54_xpro/peripheral/evsys/plib_evsys.h</itemPath>
             </logicalFolder>
             <logicalFolder name="f5" displayName="nvic" projectFiles="true">
-              <itemPath>../src/config/e54-xpro/peripheral/nvic/plib_nvic.h</itemPath>
+              <itemPath>../src/config/e54_xpro/peripheral/nvic/plib_nvic.h</itemPath>
             </logicalFolder>
             <logicalFolder name="f1" displayName="nvmctrl" projectFiles="true">
-              <itemPath>../src/config/e54-xpro/peripheral/nvmctrl/plib_nvmctrl.h</itemPath>
+              <itemPath>../src/config/e54_xpro/peripheral/nvmctrl/plib_nvmctrl.h</itemPath>
             </logicalFolder>
             <logicalFolder name="f3" displayName="port" projectFiles="true">
-              <itemPath>../src/config/e54-xpro/peripheral/port/plib_port.h</itemPath>
+              <itemPath>../src/config/e54_xpro/peripheral/port/plib_port.h</itemPath>
             </logicalFolder>
             <logicalFolder name="f10" displayName="rstc" projectFiles="true">
-              <itemPath>../src/config/e54-xpro/peripheral/rstc/plib_rstc.h</itemPath>
+              <itemPath>../src/config/e54_xpro/peripheral/rstc/plib_rstc.h</itemPath>
             </logicalFolder>
             <logicalFolder name="f2" displayName="sercom" projectFiles="true">
               <logicalFolder name="f2" displayName="spi_master" projectFiles="true">
-                <itemPath>../src/config/e54-xpro/peripheral/sercom/spi_master/plib_sercom6_spi_master.h</itemPath>
-                <itemPath>../src/config/e54-xpro/peripheral/sercom/spi_master/plib_sercom_spi_master_common.h</itemPath>
-                <itemPath>../src/config/e54-xpro/peripheral/sercom/spi_master/plib_sercom4_spi_master.h</itemPath>
+                <itemPath>../src/config/e54_xpro/peripheral/sercom/spi_master/plib_sercom6_spi_master.h</itemPath>
+                <itemPath>../src/config/e54_xpro/peripheral/sercom/spi_master/plib_sercom_spi_master_common.h</itemPath>
+                <itemPath>../src/config/e54_xpro/peripheral/sercom/spi_master/plib_sercom4_spi_master.h</itemPath>
               </logicalFolder>
               <logicalFolder name="f1" displayName="usart" projectFiles="true">
-                <itemPath>../src/config/e54-xpro/peripheral/sercom/usart/plib_sercom2_usart.h</itemPath>
-                <itemPath>../src/config/e54-xpro/peripheral/sercom/usart/plib_sercom_usart_common.h</itemPath>
+                <itemPath>../src/config/e54_xpro/peripheral/sercom/usart/plib_sercom2_usart.h</itemPath>
+                <itemPath>../src/config/e54_xpro/peripheral/sercom/usart/plib_sercom_usart_common.h</itemPath>
               </logicalFolder>
             </logicalFolder>
             <logicalFolder name="f9" displayName="tc" projectFiles="true">
-              <itemPath>../src/config/e54-xpro/peripheral/tc/plib_tc_common.h</itemPath>
-              <itemPath>../src/config/e54-xpro/peripheral/tc/plib_tc0.h</itemPath>
+              <itemPath>../src/config/e54_xpro/peripheral/tc/plib_tc_common.h</itemPath>
+              <itemPath>../src/config/e54_xpro/peripheral/tc/plib_tc0.h</itemPath>
             </logicalFolder>
           </logicalFolder>
           <logicalFolder name="f3" displayName="system" projectFiles="true">
             <logicalFolder name="f6" displayName="cache" projectFiles="true">
-              <itemPath>../src/config/e54-xpro/system/cache/sys_cache.h</itemPath>
+              <itemPath>../src/config/e54_xpro/system/cache/sys_cache.h</itemPath>
             </logicalFolder>
             <logicalFolder name="f3" displayName="console" projectFiles="true">
-              <itemPath>../src/config/e54-xpro/system/console/sys_console.h</itemPath>
+              <itemPath>../src/config/e54_xpro/system/console/sys_console.h</itemPath>
             </logicalFolder>
             <logicalFolder name="f8" displayName="debug" projectFiles="true">
-              <itemPath>../src/config/e54-xpro/system/debug/sys_debug.h</itemPath>
+              <itemPath>../src/config/e54_xpro/system/debug/sys_debug.h</itemPath>
             </logicalFolder>
             <logicalFolder name="f7" displayName="dma" projectFiles="true">
-              <itemPath>../src/config/e54-xpro/system/dma/sys_dma.h</itemPath>
-              <itemPath>../src/config/e54-xpro/system/dma/sys_dma_mapping.h</itemPath>
+              <itemPath>../src/config/e54_xpro/system/dma/sys_dma.h</itemPath>
+              <itemPath>../src/config/e54_xpro/system/dma/sys_dma_mapping.h</itemPath>
             </logicalFolder>
             <logicalFolder name="f2" displayName="fs" projectFiles="true">
               <logicalFolder name="f1" displayName="fat_fs" projectFiles="true">
                 <logicalFolder name="f1" displayName="file_system" projectFiles="true">
-                  <itemPath>../src/config/e54-xpro/system/fs/fat_fs/file_system/ff.h</itemPath>
-                  <itemPath>../src/config/e54-xpro/system/fs/fat_fs/file_system/ffconf.h</itemPath>
+                  <itemPath>../src/config/e54_xpro/system/fs/fat_fs/file_system/ff.h</itemPath>
+                  <itemPath>../src/config/e54_xpro/system/fs/fat_fs/file_system/ffconf.h</itemPath>
                 </logicalFolder>
                 <logicalFolder name="f2" displayName="hardware_access" projectFiles="true">
-                  <itemPath>../src/config/e54-xpro/system/fs/fat_fs/hardware_access/diskio.h</itemPath>
+                  <itemPath>../src/config/e54_xpro/system/fs/fat_fs/hardware_access/diskio.h</itemPath>
                 </logicalFolder>
               </logicalFolder>
-              <itemPath>../src/config/e54-xpro/system/fs/sys_fs.h</itemPath>
-              <itemPath>../src/config/e54-xpro/system/fs/src/sys_fs_local.h</itemPath>
-              <itemPath>../src/config/e54-xpro/system/fs/sys_fs_media_manager.h</itemPath>
-              <itemPath>../src/config/e54-xpro/system/fs/src/sys_fs_media_manager_local.h</itemPath>
-              <itemPath>../src/config/e54-xpro/system/fs/sys_fs_fat_interface.h</itemPath>
+              <itemPath>../src/config/e54_xpro/system/fs/sys_fs.h</itemPath>
+              <itemPath>../src/config/e54_xpro/system/fs/src/sys_fs_local.h</itemPath>
+              <itemPath>../src/config/e54_xpro/system/fs/sys_fs_media_manager.h</itemPath>
+              <itemPath>../src/config/e54_xpro/system/fs/src/sys_fs_media_manager_local.h</itemPath>
+              <itemPath>../src/config/e54_xpro/system/fs/sys_fs_fat_interface.h</itemPath>
             </logicalFolder>
             <logicalFolder name="f4" displayName="int" projectFiles="true">
-              <itemPath>../src/config/e54-xpro/system/int/sys_int.h</itemPath>
-              <itemPath>../src/config/e54-xpro/system/int/sys_int_mapping.h</itemPath>
+              <itemPath>../src/config/e54_xpro/system/int/sys_int.h</itemPath>
+              <itemPath>../src/config/e54_xpro/system/int/sys_int_mapping.h</itemPath>
             </logicalFolder>
             <logicalFolder name="f5" displayName="ports" projectFiles="true">
-              <itemPath>../src/config/e54-xpro/system/ports/sys_ports.h</itemPath>
-              <itemPath>../src/config/e54-xpro/system/ports/sys_ports_mapping.h</itemPath>
+              <itemPath>../src/config/e54_xpro/system/ports/sys_ports.h</itemPath>
+              <itemPath>../src/config/e54_xpro/system/ports/sys_ports_mapping.h</itemPath>
             </logicalFolder>
             <logicalFolder name="f1" displayName="time" projectFiles="true">
-              <itemPath>../src/config/e54-xpro/system/time/sys_time.h</itemPath>
-              <itemPath>../src/config/e54-xpro/system/time/sys_time_definitions.h</itemPath>
-              <itemPath>../src/config/e54-xpro/system/time/src/sys_time_local.h</itemPath>
+              <itemPath>../src/config/e54_xpro/system/time/sys_time.h</itemPath>
+              <itemPath>../src/config/e54_xpro/system/time/sys_time_definitions.h</itemPath>
+              <itemPath>../src/config/e54_xpro/system/time/src/sys_time_local.h</itemPath>
             </logicalFolder>
-            <itemPath>../src/config/e54-xpro/system/system.h</itemPath>
-            <itemPath>../src/config/e54-xpro/system/system_common.h</itemPath>
-            <itemPath>../src/config/e54-xpro/system/system_module.h</itemPath>
-            <itemPath>../src/config/e54-xpro/system/system_media.h</itemPath>
+            <itemPath>../src/config/e54_xpro/system/system.h</itemPath>
+            <itemPath>../src/config/e54_xpro/system/system_common.h</itemPath>
+            <itemPath>../src/config/e54_xpro/system/system_module.h</itemPath>
+            <itemPath>../src/config/e54_xpro/system/system_media.h</itemPath>
           </logicalFolder>
-          <itemPath>../src/config/e54-xpro/device_cache.h</itemPath>
-          <itemPath>../src/config/e54-xpro/toolchain_specifics.h</itemPath>
-          <itemPath>../src/config/e54-xpro/definitions.h</itemPath>
-          <itemPath>../src/config/e54-xpro/interrupts.h</itemPath>
-          <itemPath>../src/config/e54-xpro/device_vectors.h</itemPath>
-          <itemPath>../src/config/e54-xpro/device.h</itemPath>
-          <itemPath>../src/config/e54-xpro/user.h</itemPath>
-          <itemPath>../src/config/e54-xpro/configuration.h</itemPath>
+          <itemPath>../src/config/e54_xpro/device_cache.h</itemPath>
+          <itemPath>../src/config/e54_xpro/toolchain_specifics.h</itemPath>
+          <itemPath>../src/config/e54_xpro/definitions.h</itemPath>
+          <itemPath>../src/config/e54_xpro/interrupts.h</itemPath>
+          <itemPath>../src/config/e54_xpro/device_vectors.h</itemPath>
+          <itemPath>../src/config/e54_xpro/device.h</itemPath>
+          <itemPath>../src/config/e54_xpro/user.h</itemPath>
+          <itemPath>../src/config/e54_xpro/configuration.h</itemPath>
         </logicalFolder>
       </logicalFolder>
       <logicalFolder name="f2" displayName="packs" projectFiles="true">
@@ -323,8 +326,8 @@
                    displayName="Linker Files"
                    projectFiles="true">
       <logicalFolder name="f1" displayName="config" projectFiles="true">
-        <logicalFolder name="f1" displayName="e54-xpro" projectFiles="true">
-          <itemPath>../src/config/e54-xpro/ATSAME54P20A.ld</itemPath>
+        <logicalFolder name="f1" displayName="e54_xpro" projectFiles="true">
+          <itemPath>../src/config/e54_xpro/ATSAME54P20A.ld</itemPath>
         </logicalFolder>
       </logicalFolder>
     </logicalFolder>
@@ -332,162 +335,165 @@
                    displayName="Source Files"
                    projectFiles="true">
       <logicalFolder name="f1" displayName="config" projectFiles="true">
-        <logicalFolder name="f1" displayName="e54-xpro" projectFiles="true">
+        <logicalFolder name="f1" displayName="e54_xpro" projectFiles="true">
           <logicalFolder name="f5" displayName="bsp" projectFiles="true">
-            <itemPath>../src/config/e54-xpro/bsp/bsp.c</itemPath>
+            <itemPath>../src/config/e54_xpro/bsp/bsp.c</itemPath>
           </logicalFolder>
           <logicalFolder name="f2" displayName="driver" projectFiles="true">
             <logicalFolder name="f1" displayName="sdspi" projectFiles="true">
-              <itemPath>../src/config/e54-xpro/driver/sdspi/src/drv_sdspi.c</itemPath>
-              <itemPath>../src/config/e54-xpro/driver/sdspi/src/drv_sdspi_plib_interface.c</itemPath>
-              <itemPath>../src/config/e54-xpro/driver/sdspi/src/drv_sdspi_file_system.c</itemPath>
+              <itemPath>../src/config/e54_xpro/driver/sdspi/src/drv_sdspi.c</itemPath>
+              <itemPath>../src/config/e54_xpro/driver/sdspi/src/drv_sdspi_plib_interface.c</itemPath>
+              <itemPath>../src/config/e54_xpro/driver/sdspi/src/drv_sdspi_file_system.c</itemPath>
             </logicalFolder>
             <logicalFolder name="f3" displayName="spi" projectFiles="true">
-              <itemPath>../src/config/e54-xpro/driver/spi/src/drv_spi.c</itemPath>
-              <itemPath>../src/config/e54-xpro/driver/spi/src/drv_spi_local.h</itemPath>
+              <itemPath>../src/config/e54_xpro/driver/spi/src/drv_spi.c</itemPath>
+              <itemPath>../src/config/e54_xpro/driver/spi/src/drv_spi_local.h</itemPath>
             </logicalFolder>
             <logicalFolder name="f2" displayName="winc" projectFiles="true">
               <logicalFolder name="f1" displayName="dev" projectFiles="true">
                 <logicalFolder name="f1" displayName="gpio" projectFiles="true">
-                  <itemPath>../src/config/e54-xpro/driver/winc/dev/gpio/wdrv_winc_eint.c</itemPath>
-                  <itemPath>../src/config/e54-xpro/driver/winc/dev/gpio/wdrv_winc_gpio.c</itemPath>
+                  <itemPath>../src/config/e54_xpro/driver/winc/dev/gpio/wdrv_winc_eint.c</itemPath>
+                  <itemPath>../src/config/e54_xpro/driver/winc/dev/gpio/wdrv_winc_gpio.c</itemPath>
                 </logicalFolder>
                 <logicalFolder name="f2" displayName="spi" projectFiles="true">
-                  <itemPath>../src/config/e54-xpro/driver/winc/dev/spi/wdrv_winc_spi.c</itemPath>
+                  <itemPath>../src/config/e54_xpro/driver/winc/dev/spi/wdrv_winc_spi.c</itemPath>
                 </logicalFolder>
               </logicalFolder>
               <logicalFolder name="f2" displayName="drv" projectFiles="true">
                 <logicalFolder name="f1" displayName="common" projectFiles="true">
-                  <itemPath>../src/config/e54-xpro/driver/winc/drv/common/nm_common.c</itemPath>
+                  <itemPath>../src/config/e54_xpro/driver/winc/drv/common/nm_common.c</itemPath>
                 </logicalFolder>
                 <logicalFolder name="f2" displayName="driver" projectFiles="true">
-                  <itemPath>../src/config/e54-xpro/driver/winc/drv/driver/m2m_hif.c</itemPath>
-                  <itemPath>../src/config/e54-xpro/driver/winc/drv/driver/m2m_periph.c</itemPath>
-                  <itemPath>../src/config/e54-xpro/driver/winc/drv/driver/m2m_wifi.c</itemPath>
-                  <itemPath>../src/config/e54-xpro/driver/winc/drv/driver/nmasic.c</itemPath>
-                  <itemPath>../src/config/e54-xpro/driver/winc/drv/driver/nmbus.c</itemPath>
-                  <itemPath>../src/config/e54-xpro/driver/winc/drv/driver/nmdrv.c</itemPath>
-                  <itemPath>../src/config/e54-xpro/driver/winc/drv/driver/nmspi.c</itemPath>
-                  <itemPath>../src/config/e54-xpro/driver/winc/drv/driver/m2m_ota.c</itemPath>
-                  <itemPath>../src/config/e54-xpro/driver/winc/drv/driver/m2m_ssl.c</itemPath>
+                  <itemPath>../src/config/e54_xpro/driver/winc/drv/driver/m2m_hif.c</itemPath>
+                  <itemPath>../src/config/e54_xpro/driver/winc/drv/driver/m2m_periph.c</itemPath>
+                  <itemPath>../src/config/e54_xpro/driver/winc/drv/driver/m2m_wifi.c</itemPath>
+                  <itemPath>../src/config/e54_xpro/driver/winc/drv/driver/nmasic.c</itemPath>
+                  <itemPath>../src/config/e54_xpro/driver/winc/drv/driver/nmbus.c</itemPath>
+                  <itemPath>../src/config/e54_xpro/driver/winc/drv/driver/nmdrv.c</itemPath>
+                  <itemPath>../src/config/e54_xpro/driver/winc/drv/driver/nmspi.c</itemPath>
+                  <itemPath>../src/config/e54_xpro/driver/winc/drv/driver/m2m_ota.c</itemPath>
+                  <itemPath>../src/config/e54_xpro/driver/winc/drv/driver/m2m_ssl.c</itemPath>
                 </logicalFolder>
                 <logicalFolder name="f4" displayName="socket" projectFiles="true">
-                  <itemPath>../src/config/e54-xpro/driver/winc/drv/socket/socket.c</itemPath>
-                  <itemPath>../src/config/e54-xpro/driver/winc/drv/socket/inet_ntop.c</itemPath>
-                  <itemPath>../src/config/e54-xpro/driver/winc/drv/socket/inet_addr.c</itemPath>
+                  <itemPath>../src/config/e54_xpro/driver/winc/drv/socket/socket.c</itemPath>
+                  <itemPath>../src/config/e54_xpro/driver/winc/drv/socket/inet_ntop.c</itemPath>
+                  <itemPath>../src/config/e54_xpro/driver/winc/drv/socket/inet_addr.c</itemPath>
                 </logicalFolder>
                 <logicalFolder name="f3" displayName="spi_flash" projectFiles="true">
-                  <itemPath>../src/config/e54-xpro/driver/winc/drv/spi_flash/spi_flash.c</itemPath>
-                  <itemPath>../src/config/e54-xpro/driver/winc/drv/spi_flash/flexible_flash.c</itemPath>
+                  <itemPath>../src/config/e54_xpro/driver/winc/drv/spi_flash/spi_flash.c</itemPath>
+                  <itemPath>../src/config/e54_xpro/driver/winc/drv/spi_flash/flexible_flash.c</itemPath>
                 </logicalFolder>
               </logicalFolder>
               <logicalFolder name="f3" displayName="osal" projectFiles="true">
-                <itemPath>../src/config/e54-xpro/driver/winc/osal/wdrv_winc_osal.c</itemPath>
+                <itemPath>../src/config/e54_xpro/driver/winc/osal/wdrv_winc_osal.c</itemPath>
               </logicalFolder>
-              <itemPath>../src/config/e54-xpro/driver/winc/wdrv_winc.c</itemPath>
-              <itemPath>../src/config/e54-xpro/driver/winc/wdrv_winc_assoc.c</itemPath>
-              <itemPath>../src/config/e54-xpro/driver/winc/wdrv_winc_authctx.c</itemPath>
-              <itemPath>../src/config/e54-xpro/driver/winc/wdrv_winc_bssctx.c</itemPath>
-              <itemPath>../src/config/e54-xpro/driver/winc/wdrv_winc_bssfind.c</itemPath>
-              <itemPath>../src/config/e54-xpro/driver/winc/wdrv_winc_custie.c</itemPath>
-              <itemPath>../src/config/e54-xpro/driver/winc/wdrv_winc_host_file.c</itemPath>
-              <itemPath>../src/config/e54-xpro/driver/winc/wdrv_winc_httpprovctx.c</itemPath>
-              <itemPath>../src/config/e54-xpro/driver/winc/wdrv_winc_nvm.c</itemPath>
-              <itemPath>../src/config/e54-xpro/driver/winc/wdrv_winc_powersave.c</itemPath>
-              <itemPath>../src/config/e54-xpro/driver/winc/wdrv_winc_socket.c</itemPath>
-              <itemPath>../src/config/e54-xpro/driver/winc/wdrv_winc_softap.c</itemPath>
-              <itemPath>../src/config/e54-xpro/driver/winc/wdrv_winc_ssl.c</itemPath>
-              <itemPath>../src/config/e54-xpro/driver/winc/wdrv_winc_sta.c</itemPath>
-              <itemPath>../src/config/e54-xpro/driver/winc/wdrv_winc_systime.c</itemPath>
-              <itemPath>../src/config/e54-xpro/driver/winc/wdrv_winc_wps.c</itemPath>
+              <itemPath>../src/config/e54_xpro/driver/winc/wdrv_winc.c</itemPath>
+              <itemPath>../src/config/e54_xpro/driver/winc/wdrv_winc_assoc.c</itemPath>
+              <itemPath>../src/config/e54_xpro/driver/winc/wdrv_winc_authctx.c</itemPath>
+              <itemPath>../src/config/e54_xpro/driver/winc/wdrv_winc_bssctx.c</itemPath>
+              <itemPath>../src/config/e54_xpro/driver/winc/wdrv_winc_bssfind.c</itemPath>
+              <itemPath>../src/config/e54_xpro/driver/winc/wdrv_winc_custie.c</itemPath>
+              <itemPath>../src/config/e54_xpro/driver/winc/wdrv_winc_host_file.c</itemPath>
+              <itemPath>../src/config/e54_xpro/driver/winc/wdrv_winc_httpprovctx.c</itemPath>
+              <itemPath>../src/config/e54_xpro/driver/winc/wdrv_winc_nvm.c</itemPath>
+              <itemPath>../src/config/e54_xpro/driver/winc/wdrv_winc_powersave.c</itemPath>
+              <itemPath>../src/config/e54_xpro/driver/winc/wdrv_winc_socket.c</itemPath>
+              <itemPath>../src/config/e54_xpro/driver/winc/wdrv_winc_softap.c</itemPath>
+              <itemPath>../src/config/e54_xpro/driver/winc/wdrv_winc_ssl.c</itemPath>
+              <itemPath>../src/config/e54_xpro/driver/winc/wdrv_winc_sta.c</itemPath>
+              <itemPath>../src/config/e54_xpro/driver/winc/wdrv_winc_systime.c</itemPath>
+              <itemPath>../src/config/e54_xpro/driver/winc/wdrv_winc_wps.c</itemPath>
             </logicalFolder>
           </logicalFolder>
           <logicalFolder name="f1" displayName="peripheral" projectFiles="true">
             <logicalFolder name="f4" displayName="clock" projectFiles="true">
-              <itemPath>../src/config/e54-xpro/peripheral/clock/plib_clock.c</itemPath>
+              <itemPath>../src/config/e54_xpro/peripheral/clock/plib_clock.c</itemPath>
             </logicalFolder>
             <logicalFolder name="f7" displayName="cmcc" projectFiles="true">
-              <itemPath>../src/config/e54-xpro/peripheral/cmcc/plib_cmcc.c</itemPath>
+              <itemPath>../src/config/e54_xpro/peripheral/cmcc/plib_cmcc.c</itemPath>
             </logicalFolder>
             <logicalFolder name="f6" displayName="dmac" projectFiles="true">
-              <itemPath>../src/config/e54-xpro/peripheral/dmac/plib_dmac.c</itemPath>
+              <itemPath>../src/config/e54_xpro/peripheral/dmac/plib_dmac.c</itemPath>
             </logicalFolder>
             <logicalFolder name="f8" displayName="eic" projectFiles="true">
-              <itemPath>../src/config/e54-xpro/peripheral/eic/plib_eic.c</itemPath>
+              <itemPath>../src/config/e54_xpro/peripheral/eic/plib_eic.c</itemPath>
+            </logicalFolder>
+            <logicalFolder name="f11" displayName="evsys" projectFiles="true">
+              <itemPath>../src/config/e54_xpro/peripheral/evsys/plib_evsys.c</itemPath>
             </logicalFolder>
             <logicalFolder name="f5" displayName="nvic" projectFiles="true">
-              <itemPath>../src/config/e54-xpro/peripheral/nvic/plib_nvic.c</itemPath>
+              <itemPath>../src/config/e54_xpro/peripheral/nvic/plib_nvic.c</itemPath>
             </logicalFolder>
             <logicalFolder name="f1" displayName="nvmctrl" projectFiles="true">
-              <itemPath>../src/config/e54-xpro/peripheral/nvmctrl/plib_nvmctrl.c</itemPath>
+              <itemPath>../src/config/e54_xpro/peripheral/nvmctrl/plib_nvmctrl.c</itemPath>
             </logicalFolder>
             <logicalFolder name="f3" displayName="port" projectFiles="true">
-              <itemPath>../src/config/e54-xpro/peripheral/port/plib_port.c</itemPath>
+              <itemPath>../src/config/e54_xpro/peripheral/port/plib_port.c</itemPath>
             </logicalFolder>
             <logicalFolder name="f10" displayName="rstc" projectFiles="true">
-              <itemPath>../src/config/e54-xpro/peripheral/rstc/plib_rstc.c</itemPath>
+              <itemPath>../src/config/e54_xpro/peripheral/rstc/plib_rstc.c</itemPath>
             </logicalFolder>
             <logicalFolder name="f2" displayName="sercom" projectFiles="true">
               <logicalFolder name="f2" displayName="spi_master" projectFiles="true">
-                <itemPath>../src/config/e54-xpro/peripheral/sercom/spi_master/plib_sercom6_spi_master.c</itemPath>
-                <itemPath>../src/config/e54-xpro/peripheral/sercom/spi_master/plib_sercom4_spi_master.c</itemPath>
+                <itemPath>../src/config/e54_xpro/peripheral/sercom/spi_master/plib_sercom6_spi_master.c</itemPath>
+                <itemPath>../src/config/e54_xpro/peripheral/sercom/spi_master/plib_sercom4_spi_master.c</itemPath>
               </logicalFolder>
               <logicalFolder name="f1" displayName="usart" projectFiles="true">
-                <itemPath>../src/config/e54-xpro/peripheral/sercom/usart/plib_sercom2_usart.c</itemPath>
+                <itemPath>../src/config/e54_xpro/peripheral/sercom/usart/plib_sercom2_usart.c</itemPath>
               </logicalFolder>
             </logicalFolder>
             <logicalFolder name="f9" displayName="tc" projectFiles="true">
-              <itemPath>../src/config/e54-xpro/peripheral/tc/plib_tc0.c</itemPath>
+              <itemPath>../src/config/e54_xpro/peripheral/tc/plib_tc0.c</itemPath>
             </logicalFolder>
           </logicalFolder>
           <logicalFolder name="f3" displayName="stdio" projectFiles="true">
-            <itemPath>../src/config/e54-xpro/stdio/xc32_monitor.c</itemPath>
+            <itemPath>../src/config/e54_xpro/stdio/xc32_monitor.c</itemPath>
           </logicalFolder>
           <logicalFolder name="f4" displayName="system" projectFiles="true">
             <logicalFolder name="f6" displayName="cache" projectFiles="true">
-              <itemPath>../src/config/e54-xpro/system/cache/sys_cache.c</itemPath>
+              <itemPath>../src/config/e54_xpro/system/cache/sys_cache.c</itemPath>
             </logicalFolder>
             <logicalFolder name="f4" displayName="console" projectFiles="true">
-              <itemPath>../src/config/e54-xpro/system/console/src/sys_console.c</itemPath>
-              <itemPath>../src/config/e54-xpro/system/console/src/sys_console_local.h</itemPath>
-              <itemPath>../src/config/e54-xpro/system/console/src/sys_console_uart.h</itemPath>
-              <itemPath>../src/config/e54-xpro/system/console/src/sys_console_uart_definitions.h</itemPath>
-              <itemPath>../src/config/e54-xpro/system/console/src/sys_console_uart.c</itemPath>
+              <itemPath>../src/config/e54_xpro/system/console/src/sys_console.c</itemPath>
+              <itemPath>../src/config/e54_xpro/system/console/src/sys_console_local.h</itemPath>
+              <itemPath>../src/config/e54_xpro/system/console/src/sys_console_uart.h</itemPath>
+              <itemPath>../src/config/e54_xpro/system/console/src/sys_console_uart_definitions.h</itemPath>
+              <itemPath>../src/config/e54_xpro/system/console/src/sys_console_uart.c</itemPath>
             </logicalFolder>
             <logicalFolder name="f2" displayName="debug" projectFiles="true">
-              <itemPath>../src/config/e54-xpro/system/debug/src/sys_debug_local.h</itemPath>
-              <itemPath>../src/config/e54-xpro/system/debug/src/sys_debug.c</itemPath>
+              <itemPath>../src/config/e54_xpro/system/debug/src/sys_debug_local.h</itemPath>
+              <itemPath>../src/config/e54_xpro/system/debug/src/sys_debug.c</itemPath>
             </logicalFolder>
             <logicalFolder name="f7" displayName="dma" projectFiles="true">
-              <itemPath>../src/config/e54-xpro/system/dma/sys_dma.c</itemPath>
+              <itemPath>../src/config/e54_xpro/system/dma/sys_dma.c</itemPath>
             </logicalFolder>
             <logicalFolder name="f3" displayName="fs" projectFiles="true">
               <logicalFolder name="f1" displayName="fat_fs" projectFiles="true">
                 <logicalFolder name="f1" displayName="file_system" projectFiles="true">
-                  <itemPath>../src/config/e54-xpro/system/fs/fat_fs/file_system/ff.c</itemPath>
-                  <itemPath>../src/config/e54-xpro/system/fs/fat_fs/file_system/ffunicode.c</itemPath>
+                  <itemPath>../src/config/e54_xpro/system/fs/fat_fs/file_system/ff.c</itemPath>
+                  <itemPath>../src/config/e54_xpro/system/fs/fat_fs/file_system/ffunicode.c</itemPath>
                 </logicalFolder>
                 <logicalFolder name="f2" displayName="hardware_access" projectFiles="true">
-                  <itemPath>../src/config/e54-xpro/system/fs/fat_fs/hardware_access/diskio.c</itemPath>
+                  <itemPath>../src/config/e54_xpro/system/fs/fat_fs/hardware_access/diskio.c</itemPath>
                 </logicalFolder>
               </logicalFolder>
-              <itemPath>../src/config/e54-xpro/system/fs/src/sys_fs.c</itemPath>
-              <itemPath>../src/config/e54-xpro/system/fs/src/sys_fs_media_manager.c</itemPath>
-              <itemPath>../src/config/e54-xpro/system/fs/src/sys_fs_fat_interface.c</itemPath>
+              <itemPath>../src/config/e54_xpro/system/fs/src/sys_fs.c</itemPath>
+              <itemPath>../src/config/e54_xpro/system/fs/src/sys_fs_media_manager.c</itemPath>
+              <itemPath>../src/config/e54_xpro/system/fs/src/sys_fs_fat_interface.c</itemPath>
             </logicalFolder>
             <logicalFolder name="f5" displayName="int" projectFiles="true">
-              <itemPath>../src/config/e54-xpro/system/int/src/sys_int.c</itemPath>
+              <itemPath>../src/config/e54_xpro/system/int/src/sys_int.c</itemPath>
             </logicalFolder>
             <logicalFolder name="f1" displayName="time" projectFiles="true">
-              <itemPath>../src/config/e54-xpro/system/time/src/sys_time.c</itemPath>
+              <itemPath>../src/config/e54_xpro/system/time/src/sys_time.c</itemPath>
             </logicalFolder>
           </logicalFolder>
-          <itemPath>../src/config/e54-xpro/initialization.c</itemPath>
-          <itemPath>../src/config/e54-xpro/interrupts.c</itemPath>
-          <itemPath>../src/config/e54-xpro/exceptions.c</itemPath>
-          <itemPath>../src/config/e54-xpro/startup_xc32.c</itemPath>
-          <itemPath>../src/config/e54-xpro/libc_syscalls.c</itemPath>
-          <itemPath>../src/config/e54-xpro/tasks.c</itemPath>
+          <itemPath>../src/config/e54_xpro/initialization.c</itemPath>
+          <itemPath>../src/config/e54_xpro/interrupts.c</itemPath>
+          <itemPath>../src/config/e54_xpro/exceptions.c</itemPath>
+          <itemPath>../src/config/e54_xpro/startup_xc32.c</itemPath>
+          <itemPath>../src/config/e54_xpro/libc_syscalls.c</itemPath>
+          <itemPath>../src/config/e54_xpro/tasks.c</itemPath>
         </logicalFolder>
       </logicalFolder>
       <itemPath>../src/main.c</itemPath>
@@ -496,32 +502,33 @@
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
                    projectFiles="false">
-      <logicalFolder name="f1" displayName="e54-xpro.mhc" projectFiles="true">
-        <itemPath>../src/config/e54-xpro/e54-xpro.mhc/BSP_SAM_E54_Xplained_Pro.yml</itemPath>
-        <itemPath>../src/config/e54-xpro/e54-xpro.mhc/cmsis.yml</itemPath>
-        <itemPath>../src/config/e54-xpro/e54-xpro.mhc/core.yml</itemPath>
-        <itemPath>../src/config/e54-xpro/e54-xpro.mhc/dfp.yml</itemPath>
-        <itemPath>../src/config/e54-xpro/e54-xpro.mhc/drvWifiWinc.yml</itemPath>
-        <itemPath>../src/config/e54-xpro/e54-xpro.mhc/drv_sdspi.yml</itemPath>
-        <itemPath>../src/config/e54-xpro/e54-xpro.mhc/drv_spi.yml</itemPath>
-        <itemPath>../src/config/e54-xpro/e54-xpro.mhc/eic.yml</itemPath>
-        <itemPath>../src/config/e54-xpro/e54-xpro.mhc/GraphSettings.yml</itemPath>
-        <itemPath>../src/config/e54-xpro/e54-xpro.mhc/HarmonyCore.yml</itemPath>
-        <itemPath>../src/config/e54-xpro/e54-xpro.mhc/nvmctrl.yml</itemPath>
-        <itemPath>../src/config/e54-xpro/e54-xpro.mhc/project.yml</itemPath>
-        <itemPath>../src/config/e54-xpro/e54-xpro.mhc/rstc.yml</itemPath>
-        <itemPath>../src/config/e54-xpro/e54-xpro.mhc/sercom2.yml</itemPath>
-        <itemPath>../src/config/e54-xpro/e54-xpro.mhc/sercom4.yml</itemPath>
-        <itemPath>../src/config/e54-xpro/e54-xpro.mhc/sercom6.yml</itemPath>
-        <itemPath>../src/config/e54-xpro/e54-xpro.mhc/settings.yml</itemPath>
-        <itemPath>../src/config/e54-xpro/e54-xpro.mhc/sys_console.yml</itemPath>
-        <itemPath>../src/config/e54-xpro/e54-xpro.mhc/sys_debug.yml</itemPath>
-        <itemPath>../src/config/e54-xpro/e54-xpro.mhc/sys_fs.yml</itemPath>
-        <itemPath>../src/config/e54-xpro/e54-xpro.mhc/sys_time.yml</itemPath>
-        <itemPath>../src/config/e54-xpro/e54-xpro.mhc/tc0.yml</itemPath>
+      <logicalFolder name="f1" displayName="e54_xpro.mhc" projectFiles="true">
+        <itemPath>../src/config/e54_xpro/e54_xpro.mhc/BSP_SAM_E54_Xplained_Pro.yml</itemPath>
+        <itemPath>../src/config/e54_xpro/e54_xpro.mhc/cmsis.yml</itemPath>
+        <itemPath>../src/config/e54_xpro/e54_xpro.mhc/core.yml</itemPath>
+        <itemPath>../src/config/e54_xpro/e54_xpro.mhc/dfp.yml</itemPath>
+        <itemPath>../src/config/e54_xpro/e54_xpro.mhc/drvWifiWinc.yml</itemPath>
+        <itemPath>../src/config/e54_xpro/e54_xpro.mhc/drv_sdspi.yml</itemPath>
+        <itemPath>../src/config/e54_xpro/e54_xpro.mhc/drv_spi.yml</itemPath>
+        <itemPath>../src/config/e54_xpro/e54_xpro.mhc/eic.yml</itemPath>
+        <itemPath>../src/config/e54_xpro/e54_xpro.mhc/evsys.yml</itemPath>
+        <itemPath>../src/config/e54_xpro/e54_xpro.mhc/GraphSettings.yml</itemPath>
+        <itemPath>../src/config/e54_xpro/e54_xpro.mhc/HarmonyCore.yml</itemPath>
+        <itemPath>../src/config/e54_xpro/e54_xpro.mhc/nvmctrl.yml</itemPath>
+        <itemPath>../src/config/e54_xpro/e54_xpro.mhc/project.yml</itemPath>
+        <itemPath>../src/config/e54_xpro/e54_xpro.mhc/rstc.yml</itemPath>
+        <itemPath>../src/config/e54_xpro/e54_xpro.mhc/sercom2.yml</itemPath>
+        <itemPath>../src/config/e54_xpro/e54_xpro.mhc/sercom4.yml</itemPath>
+        <itemPath>../src/config/e54_xpro/e54_xpro.mhc/sercom6.yml</itemPath>
+        <itemPath>../src/config/e54_xpro/e54_xpro.mhc/settings.yml</itemPath>
+        <itemPath>../src/config/e54_xpro/e54_xpro.mhc/sys_console.yml</itemPath>
+        <itemPath>../src/config/e54_xpro/e54_xpro.mhc/sys_debug.yml</itemPath>
+        <itemPath>../src/config/e54_xpro/e54_xpro.mhc/sys_fs.yml</itemPath>
+        <itemPath>../src/config/e54_xpro/e54_xpro.mhc/sys_time.yml</itemPath>
+        <itemPath>../src/config/e54_xpro/e54_xpro.mhc/tc0.yml</itemPath>
       </logicalFolder>
       <itemPath>Makefile</itemPath>
-      <itemPath>../src/config/e54-xpro/harmony-manifest-success.yml</itemPath>
+      <itemPath>../src/config/e54_xpro/harmony-manifest-success.yml</itemPath>
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>
@@ -535,7 +542,7 @@
         <targetDevice>ATSAME54P20A</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>Simulator</platformTool>
+        <platformTool>EdbgTool</platformTool>
         <languageToolchain>XC32</languageToolchain>
         <languageToolchainVersion>3.01</languageToolchainVersion>
         <platform>3</platform>
@@ -604,7 +611,7 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src;../src/config/e54-xpro;../src/config/e54-xpro/driver/winc/include/;../src/config/e54-xpro/driver/winc/include/dev;../src/config/e54-xpro/driver/winc/include/drv/bsp;../src/config/e54-xpro/driver/winc/include/drv/bsp/include;../src/config/e54-xpro/driver/winc/include/drv/common;../src/config/e54-xpro/driver/winc/include/drv/driver;../src/config/e54-xpro/driver/winc/include/drv/socket;../src/config/e54-xpro/driver/winc/include/drv/spi_flash;../src/config/e54-xpro/system/fs/fat_fs/file_system;../src/config/e54-xpro/system/fs/fat_fs/hardware_access;../src/packs/ATSAME54P20A_DFP;../src/packs/CMSIS/;../src/packs/CMSIS/CMSIS/Core/Include"/>
+                  value="../src;../src/config/e54_xpro;../src/config/e54_xpro/driver/winc/include/;../src/config/e54_xpro/driver/winc/include/dev;../src/config/e54_xpro/driver/winc/include/drv/bsp;../src/config/e54_xpro/driver/winc/include/drv/bsp/include;../src/config/e54_xpro/driver/winc/include/drv/common;../src/config/e54_xpro/driver/winc/include/drv/driver;../src/config/e54_xpro/driver/winc/include/drv/socket;../src/config/e54_xpro/driver/winc/include/drv/spi_flash;../src/config/e54_xpro/system/fs/fat_fs/file_system;../src/config/e54_xpro/system/fs/fat_fs/hardware_access;../src/packs/ATSAME54P20A_DFP;../src/packs/CMSIS/;../src/packs/CMSIS/CMSIS/Core/Include"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -702,7 +709,7 @@
         <property key="exceptions" value="true"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src;../src/config/e54-xpro;../src/config/e54-xpro/system/fs/fat_fs/file_system;../src/config/e54-xpro/system/fs/fat_fs/hardware_access;../src/packs/ATSAME54P20A_DFP;../src/packs/CMSIS/;../src/packs/CMSIS/CMSIS/Core/Include"/>
+                  value="../src;../src/config/e54_xpro;../src/config/e54_xpro/system/fs/fat_fs/file_system;../src/config/e54_xpro/system/fs/fat_fs/hardware_access;../src/packs/ATSAME54P20A_DFP;../src/packs/CMSIS/;../src/packs/CMSIS/CMSIS/Core/Include"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -733,6 +740,61 @@
         <property key="stack-smashing" value=""/>
         <property key="wpo-lto" value="false"/>
       </C32Global>
+      <EdbgTool>
+        <property key="AutoSelectMemRanges" value="auto"/>
+        <property key="arm.use_vtor" value="false"/>
+        <property key="arm.vtor_adr" value="exception_table"/>
+        <property key="communication.activationmode" value="nohv"/>
+        <property key="communication.interface" value="swd"/>
+        <property key="communication.speed" value="2.000"/>
+        <property key="debugoptions.debug-startup" value="Use system settings"/>
+        <property key="debugoptions.reset-behaviour" value="Use system settings"/>
+        <property key="debugoptions.useswbreakpoints" value="false"/>
+        <property key="firmware.path"
+                  value="Press to browse for a specific firmware version"/>
+        <property key="firmware.toolpack"
+                  value="Press to select which tool pack to use"/>
+        <property key="firmware.update.action" value="firmware.update.use.latest"/>
+        <property key="freeze.timers" value="false"/>
+        <property key="lastid" value=""/>
+        <property key="loader.board_file" value="${ProjectDir}/board.xboard"/>
+        <property key="memories.aux" value="false"/>
+        <property key="memories.bootflash" value="true"/>
+        <property key="memories.configurationmemory" value="true"/>
+        <property key="memories.configurationmemory2" value="true"/>
+        <property key="memories.dataflash" value="true"/>
+        <property key="memories.eeprom" value="true"/>
+        <property key="memories.exclude.configurationmemory" value="true"/>
+        <property key="memories.flashdata" value="true"/>
+        <property key="memories.id" value="true"/>
+        <property key="memories.instruction.ram.ranges"
+                  value="${memories.instruction.ram.ranges}"/>
+        <property key="memories.programmemory" value="true"/>
+        <property key="memories.programmemory.ranges" value="0-fffff"/>
+        <property key="poweroptions.powerenable" value="false"/>
+        <property key="programmerToGoFilePath"
+                  value="C:/Users/r/Projects/winc-update/firmware/winc-update-e54-xpro.X/debug/e54_xpro/winc-update-e54-xpro_ptg"/>
+        <property key="programoptions.eraseb4program" value="true"/>
+        <property key="programoptions.preservedataflash" value="false"/>
+        <property key="programoptions.preservedataflash.ranges"
+                  value="${memories.dataflash.default}"/>
+        <property key="programoptions.preserveeeprom" value="false"/>
+        <property key="programoptions.preserveeeprom.ranges" value=""/>
+        <property key="programoptions.preserveprogram.ranges" value=""/>
+        <property key="programoptions.preserveprogramrange" value="false"/>
+        <property key="programoptions.preserveuserid" value="false"/>
+        <property key="programoptions.programuserotp" value="false"/>
+        <property key="script.has_reset" value="true"/>
+        <property key="script.log_level" value="1"/>
+        <property key="script.reset_delay" value="0"/>
+        <property key="script.show_output" value="false"/>
+        <property key="toolpack.updateoptions"
+                  value="toolpack.updateoptions.uselatestoolpack"/>
+        <property key="toolpack.updateoptions.packversion"
+                  value="Press to select which tool pack to use"/>
+        <property key="voltagevalue" value=""/>
+        <property key="x.erase.clearprot" value="true"/>
+      </EdbgTool>
       <PICkit3PlatformTool>
         <property key="ADC 1" value="true"/>
         <property key="AutoSelectMemRanges" value="auto"/>
@@ -1267,12 +1329,39 @@
         <property key="warningmessagebreakoptions.warningmessages" value="holdstate"/>
       </Simulator>
       <Tool>
+        <property key="AutoSelectMemRanges" value="auto"/>
+        <property key="arm.use_vtor" value="false"/>
+        <property key="arm.vtor_adr" value="exception_table"/>
         <property key="codecoverage.enabled" value="Disable"/>
         <property key="codecoverage.enableoutputtofile" value="false"/>
         <property key="codecoverage.outputfile" value=""/>
+        <property key="communication.activationmode" value="nohv"/>
+        <property key="communication.interface" value="swd"/>
+        <property key="communication.speed" value="2.000"/>
         <property key="debugoptions.debug-startup" value="Use system settings"/>
         <property key="debugoptions.reset-behaviour" value="Use system settings"/>
+        <property key="debugoptions.useswbreakpoints" value="false"/>
+        <property key="firmware.path"
+                  value="Press to browse for a specific firmware version"/>
+        <property key="firmware.toolpack"
+                  value="Press to select which tool pack to use"/>
+        <property key="firmware.update.action" value="firmware.update.use.latest"/>
+        <property key="freeze.timers" value="false"/>
         <property key="lastid" value=""/>
+        <property key="loader.board_file" value="${ProjectDir}/board.xboard"/>
+        <property key="memories.aux" value="false"/>
+        <property key="memories.bootflash" value="true"/>
+        <property key="memories.configurationmemory" value="true"/>
+        <property key="memories.configurationmemory2" value="true"/>
+        <property key="memories.dataflash" value="true"/>
+        <property key="memories.eeprom" value="true"/>
+        <property key="memories.exclude.configurationmemory" value="true"/>
+        <property key="memories.flashdata" value="true"/>
+        <property key="memories.id" value="true"/>
+        <property key="memories.instruction.ram.ranges"
+                  value="${memories.instruction.ram.ranges}"/>
+        <property key="memories.programmemory" value="true"/>
+        <property key="memories.programmemory.ranges" value="0-fffff"/>
         <property key="oscillator.auxfrequency" value="120"/>
         <property key="oscillator.auxfrequencyunit" value="Mega"/>
         <property key="oscillator.frequency" value="1"/>
@@ -1291,8 +1380,23 @@
         <property key="periphComp4.gte" value="gt"/>
         <property key="periphComp5.gte" value="gt"/>
         <property key="periphComp6.gte" value="gt"/>
+        <property key="poweroptions.powerenable" value="false"/>
+        <property key="programoptions.eraseb4program" value="true"/>
+        <property key="programoptions.preservedataflash" value="false"/>
+        <property key="programoptions.preservedataflash.ranges"
+                  value="${memories.dataflash.default}"/>
+        <property key="programoptions.preserveeeprom" value="false"/>
+        <property key="programoptions.preserveeeprom.ranges" value=""/>
+        <property key="programoptions.preserveprogram.ranges" value=""/>
+        <property key="programoptions.preserveprogramrange" value="false"/>
+        <property key="programoptions.preserveuserid" value="false"/>
+        <property key="programoptions.programuserotp" value="false"/>
         <property key="reset.scl" value="false"/>
         <property key="reset.type" value="MCLR"/>
+        <property key="script.has_reset" value="true"/>
+        <property key="script.log_level" value="1"/>
+        <property key="script.reset_delay" value="0"/>
+        <property key="script.show_output" value="false"/>
         <property key="toolpack.updateoptions"
                   value="toolpack.updateoptions.uselatestoolpack"/>
         <property key="toolpack.updateoptions.packversion"
@@ -1367,6 +1471,7 @@
         <property key="usartf1io.output" value="window"/>
         <property key="usartf1io.outputfile" value=""/>
         <property key="usartf1io.uartioenabled" value="false"/>
+        <property key="voltagevalue" value=""/>
         <property key="warningmessagebreakoptions.W0001_CORE_BITREV_MODULO_EN"
                   value="report"/>
         <property key="warningmessagebreakoptions.W0002_CORE_SECURE_MEMORYACCESS"
@@ -1737,6 +1842,7 @@
         <property key="warningmessagebreakoptions.displaywarningmessagesoption"
                   value=""/>
         <property key="warningmessagebreakoptions.warningmessages" value="holdstate"/>
+        <property key="x.erase.clearprot" value="true"/>
       </Tool>
     </conf>
   </confs>

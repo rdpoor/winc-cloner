@@ -1,552 +1,559 @@
 files:
-- generatedChecksum: 3C13720844166A5D97CF4EAD9DDB9FE2
+- generatedChecksum: null
   logicalPath: ''
   name: app.c
   physicalPath: ../..
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 3C13720844166A5D97CF4EAD9DDB9FE2
+  userChecksum: null
 - generatedChecksum: 1A81761E8B71DEB8D8FBEA31DBFD4738
-  logicalPath: config/e54-xpro/bsp
+  logicalPath: config/e54_xpro/bsp
   name: bsp.c
   physicalPath: bsp
   security: NON_SECURE
   type: SOURCE
   userChecksum: 1A81761E8B71DEB8D8FBEA31DBFD4738
 - generatedChecksum: 4F1E691F70878F4E114F5C6BDB4BD606
-  logicalPath: config/e54-xpro/system/fs/fat_fs/hardware_access
+  logicalPath: config/e54_xpro/system/fs/fat_fs/hardware_access
   name: diskio.c
   physicalPath: system/fs/fat_fs/hardware_access
   security: NON_SECURE
   type: SOURCE
   userChecksum: 4F1E691F70878F4E114F5C6BDB4BD606
 - generatedChecksum: 449FA563F541ED0A81DDDC36E11FA960
-  logicalPath: config/e54-xpro/driver/sdspi
+  logicalPath: config/e54_xpro/driver/sdspi
   name: drv_sdspi.c
   physicalPath: driver/sdspi/src
   security: NON_SECURE
   type: SOURCE
   userChecksum: 449FA563F541ED0A81DDDC36E11FA960
 - generatedChecksum: 997ACCDD95519138D9B4922484450937
-  logicalPath: config/e54-xpro/driver/sdspi
+  logicalPath: config/e54_xpro/driver/sdspi
   name: drv_sdspi_file_system.c
   physicalPath: driver/sdspi/src
   security: NON_SECURE
   type: SOURCE
   userChecksum: 997ACCDD95519138D9B4922484450937
 - generatedChecksum: E2B55682069B9DC7BE9F6E87B4ACDEE3
-  logicalPath: config/e54-xpro/driver/sdspi
+  logicalPath: config/e54_xpro/driver/sdspi
   name: drv_sdspi_plib_interface.c
   physicalPath: driver/sdspi/src
   security: NON_SECURE
   type: SOURCE
   userChecksum: E2B55682069B9DC7BE9F6E87B4ACDEE3
 - generatedChecksum: 20EC657CE27B6AA7940F9E7C32673ABF
-  logicalPath: config/e54-xpro/driver/spi
+  logicalPath: config/e54_xpro/driver/spi
   name: drv_spi.c
   physicalPath: driver/spi/src
   security: NON_SECURE
   type: SOURCE
   userChecksum: 20EC657CE27B6AA7940F9E7C32673ABF
 - generatedChecksum: 17DED26B37D0965EDE1D2B3ABA53A38B
-  logicalPath: config/e54-xpro/driver/spi
+  logicalPath: config/e54_xpro/driver/spi
   name: drv_spi_local.h
   physicalPath: driver/spi/src
   security: NON_SECURE
   type: SOURCE
   userChecksum: 17DED26B37D0965EDE1D2B3ABA53A38B
 - generatedChecksum: 6069C4FD56993BDA3B1FC223DD5BAA4A
-  logicalPath: config/e54-xpro
+  logicalPath: config/e54_xpro
   name: exceptions.c
   physicalPath: ''
   security: NON_SECURE
   type: SOURCE
   userChecksum: 6069C4FD56993BDA3B1FC223DD5BAA4A
 - generatedChecksum: B2ADAD943E1B2BEEFF974468E2509BD5
-  logicalPath: config/e54-xpro/system/fs/fat_fs/file_system
+  logicalPath: config/e54_xpro/system/fs/fat_fs/file_system
   name: ff.c
   physicalPath: system/fs/fat_fs/file_system
   security: NON_SECURE
   type: SOURCE
   userChecksum: B2ADAD943E1B2BEEFF974468E2509BD5
 - generatedChecksum: 9E153A6D4F8E0EA1F6901BAED7DD80FD
-  logicalPath: config/e54-xpro/system/fs/fat_fs/file_system
+  logicalPath: config/e54_xpro/system/fs/fat_fs/file_system
   name: ffunicode.c
   physicalPath: system/fs/fat_fs/file_system
   security: NON_SECURE
   type: SOURCE
   userChecksum: 9E153A6D4F8E0EA1F6901BAED7DD80FD
 - generatedChecksum: 65B15B619BAEA6AA9DDF6ED9C12D15FB
-  logicalPath: config/e54-xpro/driver/winc/drv/spi_flash
+  logicalPath: config/e54_xpro/driver/winc/drv/spi_flash
   name: flexible_flash.c
   physicalPath: driver/winc/drv/spi_flash
   security: NON_SECURE
   type: SOURCE
   userChecksum: 65B15B619BAEA6AA9DDF6ED9C12D15FB
 - generatedChecksum: 42E9114F4574E86D8B903DEB748B20BA
-  logicalPath: config/e54-xpro/driver/winc/drv/socket
+  logicalPath: config/e54_xpro/driver/winc/drv/socket
   name: inet_addr.c
   physicalPath: driver/winc/drv/socket
   security: NON_SECURE
   type: SOURCE
   userChecksum: 42E9114F4574E86D8B903DEB748B20BA
 - generatedChecksum: AF984BE0991599B02E1D672FDFDA2D8E
-  logicalPath: config/e54-xpro/driver/winc/drv/socket
+  logicalPath: config/e54_xpro/driver/winc/drv/socket
   name: inet_ntop.c
   physicalPath: driver/winc/drv/socket
   security: NON_SECURE
   type: SOURCE
   userChecksum: AF984BE0991599B02E1D672FDFDA2D8E
-- generatedChecksum: 3724B7C1225257763E6F7730F4B0DBF7
-  logicalPath: config/e54-xpro
+- generatedChecksum: 67CA2DEF5750799B8911BF1C1E0C3F9F
+  logicalPath: config/e54_xpro
   name: initialization.c
   physicalPath: ''
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 3724B7C1225257763E6F7730F4B0DBF7
+  userChecksum: 67CA2DEF5750799B8911BF1C1E0C3F9F
 - generatedChecksum: 78511C62E9DB7F4222F4FA8F7077F70A
-  logicalPath: config/e54-xpro
+  logicalPath: config/e54_xpro
   name: interrupts.c
   physicalPath: ''
   security: NON_SECURE
   type: SOURCE
   userChecksum: 78511C62E9DB7F4222F4FA8F7077F70A
 - generatedChecksum: 6513F2461B8F476B68CA73906086047F
-  logicalPath: config/e54-xpro
+  logicalPath: config/e54_xpro
   name: libc_syscalls.c
   physicalPath: ''
   security: NON_SECURE
   type: SOURCE
   userChecksum: 6513F2461B8F476B68CA73906086047F
 - generatedChecksum: 9B1CA7A0B1348DDC08948436FA93A94C
-  logicalPath: config/e54-xpro/driver/winc/drv/driver
+  logicalPath: config/e54_xpro/driver/winc/drv/driver
   name: m2m_hif.c
   physicalPath: driver/winc/drv/driver
   security: NON_SECURE
   type: SOURCE
   userChecksum: 9B1CA7A0B1348DDC08948436FA93A94C
 - generatedChecksum: F648EDA2CC1B6E679A5B09A57B11546D
-  logicalPath: config/e54-xpro/driver/winc/drv/driver
+  logicalPath: config/e54_xpro/driver/winc/drv/driver
   name: m2m_ota.c
   physicalPath: driver/winc/drv/driver
   security: NON_SECURE
   type: SOURCE
   userChecksum: F648EDA2CC1B6E679A5B09A57B11546D
 - generatedChecksum: 55B7E9D0C22558D4A28395AECD15AC50
-  logicalPath: config/e54-xpro/driver/winc/drv/driver
+  logicalPath: config/e54_xpro/driver/winc/drv/driver
   name: m2m_periph.c
   physicalPath: driver/winc/drv/driver
   security: NON_SECURE
   type: SOURCE
   userChecksum: 55B7E9D0C22558D4A28395AECD15AC50
 - generatedChecksum: B28F2D201F92EA4A2107425F13F45516
-  logicalPath: config/e54-xpro/driver/winc/drv/driver
+  logicalPath: config/e54_xpro/driver/winc/drv/driver
   name: m2m_ssl.c
   physicalPath: driver/winc/drv/driver
   security: NON_SECURE
   type: SOURCE
   userChecksum: B28F2D201F92EA4A2107425F13F45516
 - generatedChecksum: 7A57A09EF9EDB4FBA6074CBC90CCE8F6
-  logicalPath: config/e54-xpro/driver/winc/drv/driver
+  logicalPath: config/e54_xpro/driver/winc/drv/driver
   name: m2m_wifi.c
   physicalPath: driver/winc/drv/driver
   security: NON_SECURE
   type: SOURCE
   userChecksum: 7A57A09EF9EDB4FBA6074CBC90CCE8F6
-- generatedChecksum: F81A00E640818EDFB9E79C9BD241AEF4
+- generatedChecksum: null
   logicalPath: ''
   name: main.c
   physicalPath: ../..
   security: NON_SECURE
   type: SOURCE
-  userChecksum: F81A00E640818EDFB9E79C9BD241AEF4
+  userChecksum: null
 - generatedChecksum: 5BB451997FAC1DAD779E92B0F37B1C09
-  logicalPath: config/e54-xpro/driver/winc/drv/common
+  logicalPath: config/e54_xpro/driver/winc/drv/common
   name: nm_common.c
   physicalPath: driver/winc/drv/common
   security: NON_SECURE
   type: SOURCE
   userChecksum: 5BB451997FAC1DAD779E92B0F37B1C09
 - generatedChecksum: 4CB01D94B778FD8215712467BD55B4FD
-  logicalPath: config/e54-xpro/driver/winc/drv/driver
+  logicalPath: config/e54_xpro/driver/winc/drv/driver
   name: nmasic.c
   physicalPath: driver/winc/drv/driver
   security: NON_SECURE
   type: SOURCE
   userChecksum: 4CB01D94B778FD8215712467BD55B4FD
 - generatedChecksum: E5BF3FAE3FA2C006285DAE58E2C0D0A0
-  logicalPath: config/e54-xpro/driver/winc/drv/driver
+  logicalPath: config/e54_xpro/driver/winc/drv/driver
   name: nmbus.c
   physicalPath: driver/winc/drv/driver
   security: NON_SECURE
   type: SOURCE
   userChecksum: E5BF3FAE3FA2C006285DAE58E2C0D0A0
 - generatedChecksum: 36F0143131B212203AB99CED4DB550AD
-  logicalPath: config/e54-xpro/driver/winc/drv/driver
+  logicalPath: config/e54_xpro/driver/winc/drv/driver
   name: nmdrv.c
   physicalPath: driver/winc/drv/driver
   security: NON_SECURE
   type: SOURCE
   userChecksum: 36F0143131B212203AB99CED4DB550AD
 - generatedChecksum: B56EBF1E3BD433AE1A8077C631C13B22
-  logicalPath: config/e54-xpro/driver/winc/drv/driver
+  logicalPath: config/e54_xpro/driver/winc/drv/driver
   name: nmspi.c
   physicalPath: driver/winc/drv/driver
   security: NON_SECURE
   type: SOURCE
   userChecksum: B56EBF1E3BD433AE1A8077C631C13B22
 - generatedChecksum: 3844DE5E051D741F46512B5BF342F9AA
-  logicalPath: config/e54-xpro/peripheral/clock
+  logicalPath: config/e54_xpro/peripheral/clock
   name: plib_clock.c
   physicalPath: peripheral/clock
   security: NON_SECURE
   type: SOURCE
   userChecksum: 3844DE5E051D741F46512B5BF342F9AA
 - generatedChecksum: D903E8D9DCBC4107D0AA841E07F653BA
-  logicalPath: config/e54-xpro/peripheral/cmcc
+  logicalPath: config/e54_xpro/peripheral/cmcc
   name: plib_cmcc.c
   physicalPath: peripheral/cmcc
   security: NON_SECURE
   type: SOURCE
   userChecksum: D903E8D9DCBC4107D0AA841E07F653BA
 - generatedChecksum: FD1DED4355E1F25E748980115FA306E5
-  logicalPath: config/e54-xpro/peripheral/dmac
+  logicalPath: config/e54_xpro/peripheral/dmac
   name: plib_dmac.c
   physicalPath: peripheral/dmac
   security: NON_SECURE
   type: SOURCE
   userChecksum: FD1DED4355E1F25E748980115FA306E5
 - generatedChecksum: 0FC2EA05ACA32A17A5AC975D3882448C
-  logicalPath: config/e54-xpro/peripheral/eic
+  logicalPath: config/e54_xpro/peripheral/eic
   name: plib_eic.c
   physicalPath: peripheral/eic
   security: NON_SECURE
   type: SOURCE
   userChecksum: 0FC2EA05ACA32A17A5AC975D3882448C
+- generatedChecksum: C3ECDED3D6301DB0DE622293ED615D21
+  logicalPath: config/e54_xpro/peripheral/evsys
+  name: plib_evsys.c
+  physicalPath: peripheral/evsys
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: C3ECDED3D6301DB0DE622293ED615D21
 - generatedChecksum: 3BE87050ABC310EC6862FBA02CEABD3F
-  logicalPath: config/e54-xpro/peripheral/nvic
+  logicalPath: config/e54_xpro/peripheral/nvic
   name: plib_nvic.c
   physicalPath: peripheral/nvic
   security: NON_SECURE
   type: SOURCE
   userChecksum: 3BE87050ABC310EC6862FBA02CEABD3F
 - generatedChecksum: 903E0413B53BA9E8980C740E65F59966
-  logicalPath: config/e54-xpro/peripheral/nvmctrl
+  logicalPath: config/e54_xpro/peripheral/nvmctrl
   name: plib_nvmctrl.c
   physicalPath: peripheral/nvmctrl
   security: NON_SECURE
   type: SOURCE
   userChecksum: 903E0413B53BA9E8980C740E65F59966
 - generatedChecksum: 7339F29AFAB2539963D0243B2C04850A
-  logicalPath: config/e54-xpro/peripheral/port
+  logicalPath: config/e54_xpro/peripheral/port
   name: plib_port.c
   physicalPath: peripheral/port
   security: NON_SECURE
   type: SOURCE
   userChecksum: 7339F29AFAB2539963D0243B2C04850A
 - generatedChecksum: 7A0E59547A76E4DC776C520B76A4A2AD
-  logicalPath: config/e54-xpro/peripheral/rstc
+  logicalPath: config/e54_xpro/peripheral/rstc
   name: plib_rstc.c
   physicalPath: peripheral/rstc
   security: NON_SECURE
   type: SOURCE
   userChecksum: 7A0E59547A76E4DC776C520B76A4A2AD
 - generatedChecksum: 84CF61AB19C08BE15EA26265D4BEFAA4
-  logicalPath: config/e54-xpro/peripheral/sercom/usart
+  logicalPath: config/e54_xpro/peripheral/sercom/usart
   name: plib_sercom2_usart.c
   physicalPath: peripheral/sercom/usart
   security: NON_SECURE
   type: SOURCE
   userChecksum: 84CF61AB19C08BE15EA26265D4BEFAA4
 - generatedChecksum: 75BCCBBB886DE2D86217F7F9B849F0F6
-  logicalPath: config/e54-xpro/peripheral/sercom/spi_master
+  logicalPath: config/e54_xpro/peripheral/sercom/spi_master
   name: plib_sercom4_spi_master.c
   physicalPath: peripheral/sercom/spi_master
   security: NON_SECURE
   type: SOURCE
   userChecksum: 75BCCBBB886DE2D86217F7F9B849F0F6
 - generatedChecksum: 338FA77F0DD2CA4AE91FAA35F345D045
-  logicalPath: config/e54-xpro/peripheral/sercom/spi_master
+  logicalPath: config/e54_xpro/peripheral/sercom/spi_master
   name: plib_sercom6_spi_master.c
   physicalPath: peripheral/sercom/spi_master
   security: NON_SECURE
   type: SOURCE
   userChecksum: 338FA77F0DD2CA4AE91FAA35F345D045
 - generatedChecksum: 39AD0CE048AF3B0EED5D1AF9913A5F63
-  logicalPath: config/e54-xpro/peripheral/tc
+  logicalPath: config/e54_xpro/peripheral/tc
   name: plib_tc0.c
   physicalPath: peripheral/tc
   security: NON_SECURE
   type: SOURCE
   userChecksum: 39AD0CE048AF3B0EED5D1AF9913A5F63
 - generatedChecksum: AB6DE23857CE8D0981759DB8EE634D5F
-  logicalPath: config/e54-xpro/driver/winc/drv/socket
+  logicalPath: config/e54_xpro/driver/winc/drv/socket
   name: socket.c
   physicalPath: driver/winc/drv/socket
   security: NON_SECURE
   type: SOURCE
   userChecksum: AB6DE23857CE8D0981759DB8EE634D5F
 - generatedChecksum: 435447DE263266936D8977310F0C8D7F
-  logicalPath: config/e54-xpro/driver/winc/drv/spi_flash
+  logicalPath: config/e54_xpro/driver/winc/drv/spi_flash
   name: spi_flash.c
   physicalPath: driver/winc/drv/spi_flash
   security: NON_SECURE
   type: SOURCE
   userChecksum: 435447DE263266936D8977310F0C8D7F
 - generatedChecksum: F90BC31146188C748D0CEBFE196F2CAA
-  logicalPath: config/e54-xpro
+  logicalPath: config/e54_xpro
   name: startup_xc32.c
   physicalPath: ''
   security: NON_SECURE
   type: SOURCE
   userChecksum: F90BC31146188C748D0CEBFE196F2CAA
 - generatedChecksum: 92901E4C07604DD5EC594B58CEC2720B
-  logicalPath: config/e54-xpro/system/cache
+  logicalPath: config/e54_xpro/system/cache
   name: sys_cache.c
   physicalPath: system/cache
   security: NON_SECURE
   type: SOURCE
   userChecksum: 92901E4C07604DD5EC594B58CEC2720B
 - generatedChecksum: 20C22A19D5DC74DEBFC4CCCA83B6F603
-  logicalPath: config/e54-xpro/system/console
+  logicalPath: config/e54_xpro/system/console
   name: sys_console.c
   physicalPath: system/console/src
   security: NON_SECURE
   type: SOURCE
   userChecksum: 20C22A19D5DC74DEBFC4CCCA83B6F603
 - generatedChecksum: 5BA0902794A8669B3FE37E8A8BEE9D65
-  logicalPath: config/e54-xpro/system/console
+  logicalPath: config/e54_xpro/system/console
   name: sys_console_local.h
   physicalPath: system/console/src
   security: NON_SECURE
   type: SOURCE
   userChecksum: 5BA0902794A8669B3FE37E8A8BEE9D65
 - generatedChecksum: CA5E9B63704372DE5FBC0BDC006B16C3
-  logicalPath: config/e54-xpro/system/console
+  logicalPath: config/e54_xpro/system/console
   name: sys_console_uart.c
   physicalPath: system/console/src
   security: NON_SECURE
   type: SOURCE
   userChecksum: CA5E9B63704372DE5FBC0BDC006B16C3
 - generatedChecksum: 767495C6A39617A915D8107093DC1A72
-  logicalPath: config/e54-xpro/system/console
+  logicalPath: config/e54_xpro/system/console
   name: sys_console_uart.h
   physicalPath: system/console/src
   security: NON_SECURE
   type: SOURCE
   userChecksum: 767495C6A39617A915D8107093DC1A72
 - generatedChecksum: 5D10B9438117B64220180660AB022150
-  logicalPath: config/e54-xpro/system/console
+  logicalPath: config/e54_xpro/system/console
   name: sys_console_uart_definitions.h
   physicalPath: system/console/src
   security: NON_SECURE
   type: SOURCE
   userChecksum: 5D10B9438117B64220180660AB022150
 - generatedChecksum: 68C0D499B9EDAA3BFD7E131A48514212
-  logicalPath: config/e54-xpro/system/debug
+  logicalPath: config/e54_xpro/system/debug
   name: sys_debug.c
   physicalPath: system/debug/src
   security: NON_SECURE
   type: SOURCE
   userChecksum: 68C0D499B9EDAA3BFD7E131A48514212
 - generatedChecksum: B8C6C7356AC7841AECC7C779040F745C
-  logicalPath: config/e54-xpro/system/debug
+  logicalPath: config/e54_xpro/system/debug
   name: sys_debug_local.h
   physicalPath: system/debug/src
   security: NON_SECURE
   type: SOURCE
   userChecksum: B8C6C7356AC7841AECC7C779040F745C
 - generatedChecksum: 5182754E707E008E4C8788FCAB430380
-  logicalPath: config/e54-xpro/system/dma
+  logicalPath: config/e54_xpro/system/dma
   name: sys_dma.c
   physicalPath: system/dma
   security: NON_SECURE
   type: SOURCE
   userChecksum: 5182754E707E008E4C8788FCAB430380
 - generatedChecksum: 64197587C5A197FD05E94AB039A2DD66
-  logicalPath: config/e54-xpro/system/fs
+  logicalPath: config/e54_xpro/system/fs
   name: sys_fs.c
   physicalPath: system/fs/src
   security: NON_SECURE
   type: SOURCE
   userChecksum: 64197587C5A197FD05E94AB039A2DD66
 - generatedChecksum: 1F79CD9E378D98E657FCEB0552B2B659
-  logicalPath: config/e54-xpro/system/fs
+  logicalPath: config/e54_xpro/system/fs
   name: sys_fs_fat_interface.c
   physicalPath: system/fs/src
   security: NON_SECURE
   type: SOURCE
   userChecksum: 1F79CD9E378D98E657FCEB0552B2B659
 - generatedChecksum: 8A608E11F4981AA9CC52EA5EF5C76F4A
-  logicalPath: config/e54-xpro/system/fs
+  logicalPath: config/e54_xpro/system/fs
   name: sys_fs_media_manager.c
   physicalPath: system/fs/src
   security: NON_SECURE
   type: SOURCE
   userChecksum: 8A608E11F4981AA9CC52EA5EF5C76F4A
 - generatedChecksum: 02C3C1B519E59992810626BB6098CF56
-  logicalPath: config/e54-xpro/system/int
+  logicalPath: config/e54_xpro/system/int
   name: sys_int.c
   physicalPath: system/int/src
   security: NON_SECURE
   type: SOURCE
   userChecksum: 02C3C1B519E59992810626BB6098CF56
 - generatedChecksum: DBC3FFA1F53A676024E28EEA2F25E2FE
-  logicalPath: config/e54-xpro/system/time
+  logicalPath: config/e54_xpro/system/time
   name: sys_time.c
   physicalPath: system/time/src
   security: NON_SECURE
   type: SOURCE
   userChecksum: DBC3FFA1F53A676024E28EEA2F25E2FE
 - generatedChecksum: CCEEC829C4500EB875901467265A88B8
-  logicalPath: config/e54-xpro
+  logicalPath: config/e54_xpro
   name: tasks.c
   physicalPath: ''
   security: NON_SECURE
   type: SOURCE
   userChecksum: CCEEC829C4500EB875901467265A88B8
 - generatedChecksum: 68A3E0078CA2FB09DAF4DB9152E42F8B
-  logicalPath: config/e54-xpro/driver/winc
+  logicalPath: config/e54_xpro/driver/winc
   name: wdrv_winc.c
   physicalPath: driver/winc
   security: NON_SECURE
   type: SOURCE
   userChecksum: 68A3E0078CA2FB09DAF4DB9152E42F8B
 - generatedChecksum: 1C250277649C756DDA1BF1A3DFF46C83
-  logicalPath: config/e54-xpro/driver/winc
+  logicalPath: config/e54_xpro/driver/winc
   name: wdrv_winc_assoc.c
   physicalPath: driver/winc
   security: NON_SECURE
   type: SOURCE
   userChecksum: 1C250277649C756DDA1BF1A3DFF46C83
 - generatedChecksum: F693A78C00C9813FA76E142C59EA9B90
-  logicalPath: config/e54-xpro/driver/winc
+  logicalPath: config/e54_xpro/driver/winc
   name: wdrv_winc_authctx.c
   physicalPath: driver/winc
   security: NON_SECURE
   type: SOURCE
   userChecksum: F693A78C00C9813FA76E142C59EA9B90
 - generatedChecksum: 23D94F4BD1C11F40C9C2EBF80D6B216C
-  logicalPath: config/e54-xpro/driver/winc
+  logicalPath: config/e54_xpro/driver/winc
   name: wdrv_winc_bssctx.c
   physicalPath: driver/winc
   security: NON_SECURE
   type: SOURCE
   userChecksum: 23D94F4BD1C11F40C9C2EBF80D6B216C
 - generatedChecksum: 2E3D0002E340212CD288B40ED6C46241
-  logicalPath: config/e54-xpro/driver/winc
+  logicalPath: config/e54_xpro/driver/winc
   name: wdrv_winc_bssfind.c
   physicalPath: driver/winc
   security: NON_SECURE
   type: SOURCE
   userChecksum: 2E3D0002E340212CD288B40ED6C46241
 - generatedChecksum: 85251A7D979B2FDF1E1D25E84F0AB99A
-  logicalPath: config/e54-xpro/driver/winc
+  logicalPath: config/e54_xpro/driver/winc
   name: wdrv_winc_custie.c
   physicalPath: driver/winc
   security: NON_SECURE
   type: SOURCE
   userChecksum: 85251A7D979B2FDF1E1D25E84F0AB99A
 - generatedChecksum: F74B94AB0B0039A0F5784FB54E8D6F15
-  logicalPath: config/e54-xpro/driver/winc/dev/gpio
+  logicalPath: config/e54_xpro/driver/winc/dev/gpio
   name: wdrv_winc_eint.c
   physicalPath: driver/winc/dev/gpio
   security: NON_SECURE
   type: SOURCE
   userChecksum: F74B94AB0B0039A0F5784FB54E8D6F15
 - generatedChecksum: 08BEBE8A13076E61A844A43D2A7D2F16
-  logicalPath: config/e54-xpro/driver/winc/dev/gpio
+  logicalPath: config/e54_xpro/driver/winc/dev/gpio
   name: wdrv_winc_gpio.c
   physicalPath: driver/winc/dev/gpio
   security: NON_SECURE
   type: SOURCE
   userChecksum: 08BEBE8A13076E61A844A43D2A7D2F16
 - generatedChecksum: F18A50E6DB2A037301F58A914EE28F59
-  logicalPath: config/e54-xpro/driver/winc
+  logicalPath: config/e54_xpro/driver/winc
   name: wdrv_winc_host_file.c
   physicalPath: driver/winc
   security: NON_SECURE
   type: SOURCE
   userChecksum: F18A50E6DB2A037301F58A914EE28F59
 - generatedChecksum: 8EC1AFE5482D0690045233EE8F1243FF
-  logicalPath: config/e54-xpro/driver/winc
+  logicalPath: config/e54_xpro/driver/winc
   name: wdrv_winc_httpprovctx.c
   physicalPath: driver/winc
   security: NON_SECURE
   type: SOURCE
   userChecksum: 8EC1AFE5482D0690045233EE8F1243FF
 - generatedChecksum: 036ED0AD91DDEED319B9717BB2F0FD34
-  logicalPath: config/e54-xpro/driver/winc
+  logicalPath: config/e54_xpro/driver/winc
   name: wdrv_winc_nvm.c
   physicalPath: driver/winc
   security: NON_SECURE
   type: SOURCE
   userChecksum: 036ED0AD91DDEED319B9717BB2F0FD34
 - generatedChecksum: 19535E0E7E0B64E047D749293AB999D2
-  logicalPath: config/e54-xpro/driver/winc/osal
+  logicalPath: config/e54_xpro/driver/winc/osal
   name: wdrv_winc_osal.c
   physicalPath: driver/winc/osal
   security: NON_SECURE
   type: SOURCE
   userChecksum: 19535E0E7E0B64E047D749293AB999D2
 - generatedChecksum: E6978BADAFB1B4D18E10CE9203CEFEBF
-  logicalPath: config/e54-xpro/driver/winc
+  logicalPath: config/e54_xpro/driver/winc
   name: wdrv_winc_powersave.c
   physicalPath: driver/winc
   security: NON_SECURE
   type: SOURCE
   userChecksum: E6978BADAFB1B4D18E10CE9203CEFEBF
 - generatedChecksum: 4DBAFA0ED6522507AB21F9CD4B9D9513
-  logicalPath: config/e54-xpro/driver/winc
+  logicalPath: config/e54_xpro/driver/winc
   name: wdrv_winc_socket.c
   physicalPath: driver/winc
   security: NON_SECURE
   type: SOURCE
   userChecksum: 4DBAFA0ED6522507AB21F9CD4B9D9513
 - generatedChecksum: C55DE3FF63F2631DB47C9F5ABA0AF975
-  logicalPath: config/e54-xpro/driver/winc
+  logicalPath: config/e54_xpro/driver/winc
   name: wdrv_winc_softap.c
   physicalPath: driver/winc
   security: NON_SECURE
   type: SOURCE
   userChecksum: C55DE3FF63F2631DB47C9F5ABA0AF975
 - generatedChecksum: BBD7FECCBFCB49AE5B15DCA0B9F182D2
-  logicalPath: config/e54-xpro/driver/winc/dev/spi
+  logicalPath: config/e54_xpro/driver/winc/dev/spi
   name: wdrv_winc_spi.c
   physicalPath: driver/winc/dev/spi
   security: NON_SECURE
   type: SOURCE
   userChecksum: BBD7FECCBFCB49AE5B15DCA0B9F182D2
 - generatedChecksum: C10080B1E0B43C51F7553E8985831817
-  logicalPath: config/e54-xpro/driver/winc
+  logicalPath: config/e54_xpro/driver/winc
   name: wdrv_winc_ssl.c
   physicalPath: driver/winc
   security: NON_SECURE
   type: SOURCE
   userChecksum: C10080B1E0B43C51F7553E8985831817
 - generatedChecksum: 721C3EC3C8A9BD4819D1C3C3C458641B
-  logicalPath: config/e54-xpro/driver/winc
+  logicalPath: config/e54_xpro/driver/winc
   name: wdrv_winc_sta.c
   physicalPath: driver/winc
   security: NON_SECURE
   type: SOURCE
   userChecksum: 721C3EC3C8A9BD4819D1C3C3C458641B
 - generatedChecksum: 0E05FA2D3237381C3C0217A9C86A7003
-  logicalPath: config/e54-xpro/driver/winc
+  logicalPath: config/e54_xpro/driver/winc
   name: wdrv_winc_systime.c
   physicalPath: driver/winc
   security: NON_SECURE
   type: SOURCE
   userChecksum: 0E05FA2D3237381C3C0217A9C86A7003
 - generatedChecksum: D8399AAD9B69D69A67A8F188A0862F1C
-  logicalPath: config/e54-xpro/driver/winc
+  logicalPath: config/e54_xpro/driver/winc
   name: wdrv_winc_wps.c
   physicalPath: driver/winc
   security: NON_SECURE
   type: SOURCE
   userChecksum: D8399AAD9B69D69A67A8F188A0862F1C
 - generatedChecksum: 7806B30ECAE0D18D08CD583D8775530D
-  logicalPath: config/e54-xpro/stdio
+  logicalPath: config/e54_xpro/stdio
   name: xc32_monitor.c
   physicalPath: stdio
   security: NON_SECURE
@@ -601,15 +608,15 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: 629924581C7130E0F4D89E73EC2F6006
-- generatedChecksum: 452F7AB915EEA4B1529959D0FF80C3F7
+- generatedChecksum: null
   logicalPath: ''
   name: app.h
   physicalPath: ../..
   security: NON_SECURE
   type: HEADER
-  userChecksum: 452F7AB915EEA4B1529959D0FF80C3F7
+  userChecksum: null
 - generatedChecksum: BEB9A13A97519CF2A5F78A99E0318FB5
-  logicalPath: config/e54-xpro/bsp
+  logicalPath: config/e54_xpro/bsp
   name: bsp.h
   physicalPath: bsp
   security: NON_SECURE
@@ -720,13 +727,13 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: 52F91AC0727F2311EDA0E3BAA7719A9F
-- generatedChecksum: 3C4BADED6A262C99E2F8CC3C3E87696E
-  logicalPath: config/e54-xpro
+- generatedChecksum: 36297F201FE5AB1C17EE6924E24D7D8B
+  logicalPath: config/e54_xpro
   name: configuration.h
   physicalPath: ''
   security: NON_SECURE
   type: HEADER
-  userChecksum: 3C4BADED6A262C99E2F8CC3C3E87696E
+  userChecksum: 36297F201FE5AB1C17EE6924E24D7D8B
 - generatedChecksum: 7EF1FAD7778FEEAC9467270306D7F7C0
   logicalPath: packs/CMSIS/CMSIS/Core/Include
   name: core_cm4.h
@@ -748,36 +755,36 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: 3F95A1A7B1479E80077C092E2AA1755F
-- generatedChecksum: 266FFF959B2668D1BE8617E3B5D3397E
-  logicalPath: config/e54-xpro
+- generatedChecksum: D17AA5AD8D0EB1D38C98E76291FE9D54
+  logicalPath: config/e54_xpro
   name: definitions.h
   physicalPath: ''
   security: NON_SECURE
   type: HEADER
-  userChecksum: 266FFF959B2668D1BE8617E3B5D3397E
+  userChecksum: D17AA5AD8D0EB1D38C98E76291FE9D54
 - generatedChecksum: AA255350342164F392C52E11EFC2A7F3
-  logicalPath: config/e54-xpro
+  logicalPath: config/e54_xpro
   name: device.h
   physicalPath: ''
   security: NON_SECURE
   type: HEADER
   userChecksum: AA255350342164F392C52E11EFC2A7F3
 - generatedChecksum: 85D3482D395C59BDFF268B01940CDDDE
-  logicalPath: config/e54-xpro
+  logicalPath: config/e54_xpro
   name: device_cache.h
   physicalPath: ''
   security: NON_SECURE
   type: HEADER
   userChecksum: 85D3482D395C59BDFF268B01940CDDDE
 - generatedChecksum: B1F5DFAFF94F9B4E6DD87A5DA5CBB525
-  logicalPath: config/e54-xpro
+  logicalPath: config/e54_xpro
   name: device_vectors.h
   physicalPath: ''
   security: NON_SECURE
   type: HEADER
   userChecksum: B1F5DFAFF94F9B4E6DD87A5DA5CBB525
 - generatedChecksum: 630DFA1824A5279838B4330DA2FF3E5E
-  logicalPath: config/e54-xpro/system/fs/fat_fs/hardware_access
+  logicalPath: config/e54_xpro/system/fs/fat_fs/hardware_access
   name: diskio.h
   physicalPath: system/fs/fat_fs/hardware_access
   security: NON_SECURE
@@ -798,56 +805,56 @@ files:
   type: HEADER
   userChecksum: EB95F6D2A5B5462B6A644279D43B4792
 - generatedChecksum: 1D2094DFA60F847FFD4E8153B6E78027
-  logicalPath: config/e54-xpro/driver
+  logicalPath: config/e54_xpro/driver
   name: driver.h
   physicalPath: driver
   security: NON_SECURE
   type: HEADER
   userChecksum: 1D2094DFA60F847FFD4E8153B6E78027
 - generatedChecksum: CC7DFCC51CD25171A3E400E18969354F
-  logicalPath: config/e54-xpro/driver
+  logicalPath: config/e54_xpro/driver
   name: driver_common.h
   physicalPath: driver
   security: NON_SECURE
   type: HEADER
   userChecksum: CC7DFCC51CD25171A3E400E18969354F
 - generatedChecksum: 341441BD242D06D0382178FB46ECDAC1
-  logicalPath: config/e54-xpro/driver/sdspi
+  logicalPath: config/e54_xpro/driver/sdspi
   name: drv_sdspi.h
   physicalPath: driver/sdspi
   security: NON_SECURE
   type: HEADER
   userChecksum: 341441BD242D06D0382178FB46ECDAC1
 - generatedChecksum: D9AADD16BD31DAD2FFDE8F5B5761F407
-  logicalPath: config/e54-xpro/driver/sdspi
+  logicalPath: config/e54_xpro/driver/sdspi
   name: drv_sdspi_definitions.h
   physicalPath: driver/sdspi
   security: NON_SECURE
   type: HEADER
   userChecksum: D9AADD16BD31DAD2FFDE8F5B5761F407
 - generatedChecksum: 201F6FE6245BB954615B746E45F27DF3
-  logicalPath: config/e54-xpro/driver/sdspi
+  logicalPath: config/e54_xpro/driver/sdspi
   name: drv_sdspi_local.h
   physicalPath: driver/sdspi/src
   security: NON_SECURE
   type: HEADER
   userChecksum: 201F6FE6245BB954615B746E45F27DF3
 - generatedChecksum: 5E207CAE2C7AD361284B04C40F28E26C
-  logicalPath: config/e54-xpro/driver/sdspi
+  logicalPath: config/e54_xpro/driver/sdspi
   name: drv_sdspi_plib_interface.h
   physicalPath: driver/sdspi/src
   security: NON_SECURE
   type: HEADER
   userChecksum: 5E207CAE2C7AD361284B04C40F28E26C
 - generatedChecksum: F454D5E0E6162B53958549B1D524C549
-  logicalPath: config/e54-xpro/driver/spi
+  logicalPath: config/e54_xpro/driver/spi
   name: drv_spi.h
   physicalPath: driver/spi
   security: NON_SECURE
   type: HEADER
   userChecksum: F454D5E0E6162B53958549B1D524C549
 - generatedChecksum: 992AF23C7154368CE0228A613D173EE1
-  logicalPath: config/e54-xpro/driver/spi
+  logicalPath: config/e54_xpro/driver/spi
   name: drv_spi_definitions.h
   physicalPath: driver/spi
   security: NON_SECURE
@@ -868,7 +875,7 @@ files:
   type: HEADER
   userChecksum: D8714A1E5933AAD5B37DE73058C04B3E
 - generatedChecksum: FB9E509090AF63A2F7846EA5C4197718
-  logicalPath: config/e54-xpro/driver/winc/include/drv/driver
+  logicalPath: config/e54_xpro/driver/winc/include/drv/driver
   name: ecc_types.h
   physicalPath: driver/winc/include/drv/driver
   security: NON_SECURE
@@ -903,21 +910,21 @@ files:
   type: HEADER
   userChecksum: 130E8B74E1550940D873B3C32C633017
 - generatedChecksum: 2D3A9FC37968F5000CB45C6B4AD965D6
-  logicalPath: config/e54-xpro/system/fs/fat_fs/file_system
+  logicalPath: config/e54_xpro/system/fs/fat_fs/file_system
   name: ff.h
   physicalPath: system/fs/fat_fs/file_system
   security: NON_SECURE
   type: HEADER
   userChecksum: 2D3A9FC37968F5000CB45C6B4AD965D6
 - generatedChecksum: 4E1DC558E64EF7706189FC3224899E86
-  logicalPath: config/e54-xpro/system/fs/fat_fs/file_system
+  logicalPath: config/e54_xpro/system/fs/fat_fs/file_system
   name: ffconf.h
   physicalPath: system/fs/fat_fs/file_system
   security: NON_SECURE
   type: HEADER
   userChecksum: 4E1DC558E64EF7706189FC3224899E86
 - generatedChecksum: F7AC4244EA5DD393238A8937D9F95003
-  logicalPath: config/e54-xpro/driver/winc/include/drv/spi_flash
+  logicalPath: config/e54_xpro/driver/winc/include/drv/spi_flash
   name: flexible_flash.h
   physicalPath: driver/winc/include/drv/spi_flash
   security: NON_SECURE
@@ -1022,56 +1029,56 @@ files:
   type: HEADER
   userChecksum: A25CDAA1015B6F4D86DDA6F4F98FADAE
 - generatedChecksum: 2A4931312134BA5ED2AEC632B4807660
-  logicalPath: config/e54-xpro
+  logicalPath: config/e54_xpro
   name: interrupts.h
   physicalPath: ''
   security: NON_SECURE
   type: HEADER
   userChecksum: 2A4931312134BA5ED2AEC632B4807660
 - generatedChecksum: 67425BB33C9075607E40580599779775
-  logicalPath: config/e54-xpro/driver/winc/include/drv/driver
+  logicalPath: config/e54_xpro/driver/winc/include/drv/driver
   name: m2m_hif.h
   physicalPath: driver/winc/include/drv/driver
   security: NON_SECURE
   type: HEADER
   userChecksum: 67425BB33C9075607E40580599779775
 - generatedChecksum: 54A73E55DF56C60B4E67E108183AB851
-  logicalPath: config/e54-xpro/driver/winc/include/drv/driver
+  logicalPath: config/e54_xpro/driver/winc/include/drv/driver
   name: m2m_ota.h
   physicalPath: driver/winc/include/drv/driver
   security: NON_SECURE
   type: HEADER
   userChecksum: 54A73E55DF56C60B4E67E108183AB851
 - generatedChecksum: E9B15B7E86659E4E2EC3B170D30A8DE0
-  logicalPath: config/e54-xpro/driver/winc/include/drv/driver
+  logicalPath: config/e54_xpro/driver/winc/include/drv/driver
   name: m2m_periph.h
   physicalPath: driver/winc/include/drv/driver
   security: NON_SECURE
   type: HEADER
   userChecksum: E9B15B7E86659E4E2EC3B170D30A8DE0
 - generatedChecksum: 8897007B4F6EBDAF8137051408F381D3
-  logicalPath: config/e54-xpro/driver/winc/include/drv/socket
+  logicalPath: config/e54_xpro/driver/winc/include/drv/socket
   name: m2m_socket_host_if.h
   physicalPath: driver/winc/include/drv/socket
   security: NON_SECURE
   type: HEADER
   userChecksum: 8897007B4F6EBDAF8137051408F381D3
 - generatedChecksum: 483D615B9081DBBEE79FDCD2FEF1979A
-  logicalPath: config/e54-xpro/driver/winc/include/drv/driver
+  logicalPath: config/e54_xpro/driver/winc/include/drv/driver
   name: m2m_ssl.h
   physicalPath: driver/winc/include/drv/driver
   security: NON_SECURE
   type: HEADER
   userChecksum: 483D615B9081DBBEE79FDCD2FEF1979A
 - generatedChecksum: EDF2346EF8202122DFC13067C78F8B69
-  logicalPath: config/e54-xpro/driver/winc/include/drv/driver
+  logicalPath: config/e54_xpro/driver/winc/include/drv/driver
   name: m2m_types.h
   physicalPath: driver/winc/include/drv/driver
   security: NON_SECURE
   type: HEADER
   userChecksum: EDF2346EF8202122DFC13067C78F8B69
 - generatedChecksum: F6DD4E8AABBD29C4ABE52EEE29778259
-  logicalPath: config/e54-xpro/driver/winc/include/drv/driver
+  logicalPath: config/e54_xpro/driver/winc/include/drv/driver
   name: m2m_wifi.h
   physicalPath: driver/winc/include/drv/driver
   security: NON_SECURE
@@ -1099,56 +1106,56 @@ files:
   type: HEADER
   userChecksum: 47E760D36E42A7B436306A9CB4E72A0E
 - generatedChecksum: 9F3CD712F2D7A993DEAE278DE8F7E8E3
-  logicalPath: config/e54-xpro/driver/winc/include/drv/socket
+  logicalPath: config/e54_xpro/driver/winc/include/drv/socket
   name: netinet_in.h
   physicalPath: driver/winc/include/drv/socket
   security: NON_SECURE
   type: HEADER
   userChecksum: 9F3CD712F2D7A993DEAE278DE8F7E8E3
 - generatedChecksum: 8F2BD643CF1D6CD462DDE81B698B43E3
-  logicalPath: config/e54-xpro/driver/winc/include/drv/bsp
+  logicalPath: config/e54_xpro/driver/winc/include/drv/bsp
   name: nm_bsp.h
   physicalPath: driver/winc/include/drv/bsp
   security: NON_SECURE
   type: HEADER
   userChecksum: 8F2BD643CF1D6CD462DDE81B698B43E3
 - generatedChecksum: E555740324B3E2541849DD558A31CA08
-  logicalPath: config/e54-xpro/driver/winc/include/drv/common
+  logicalPath: config/e54_xpro/driver/winc/include/drv/common
   name: nm_common.h
   physicalPath: driver/winc/include/drv/common
   security: NON_SECURE
   type: HEADER
   userChecksum: E555740324B3E2541849DD558A31CA08
 - generatedChecksum: 2E73E0802ED89EEF8A0A96C652CB40F4
-  logicalPath: config/e54-xpro/driver/winc/include/drv/common
+  logicalPath: config/e54_xpro/driver/winc/include/drv/common
   name: nm_debug.h
   physicalPath: driver/winc/include/drv/common
   security: NON_SECURE
   type: HEADER
   userChecksum: 2E73E0802ED89EEF8A0A96C652CB40F4
 - generatedChecksum: C15347C108D8FF952AE56C165A2CF34E
-  logicalPath: config/e54-xpro/driver/winc/include/drv/driver
+  logicalPath: config/e54_xpro/driver/winc/include/drv/driver
   name: nmasic.h
   physicalPath: driver/winc/include/drv/driver
   security: NON_SECURE
   type: HEADER
   userChecksum: C15347C108D8FF952AE56C165A2CF34E
 - generatedChecksum: A0234F0899A89A28C49C4152BDF3E2B6
-  logicalPath: config/e54-xpro/driver/winc/include/drv/driver
+  logicalPath: config/e54_xpro/driver/winc/include/drv/driver
   name: nmbus.h
   physicalPath: driver/winc/include/drv/driver
   security: NON_SECURE
   type: HEADER
   userChecksum: A0234F0899A89A28C49C4152BDF3E2B6
 - generatedChecksum: 2F2C7E281087A408134926B780916C56
-  logicalPath: config/e54-xpro/driver/winc/include/drv/driver
+  logicalPath: config/e54_xpro/driver/winc/include/drv/driver
   name: nmdrv.h
   physicalPath: driver/winc/include/drv/driver
   security: NON_SECURE
   type: HEADER
   userChecksum: 2F2C7E281087A408134926B780916C56
 - generatedChecksum: F860FE242115BAEC707A7E749AD8F390
-  logicalPath: config/e54-xpro/driver/winc/include/drv/driver
+  logicalPath: config/e54_xpro/driver/winc/include/drv/driver
   name: nmspi.h
   physicalPath: driver/winc/include/drv/driver
   security: NON_SECURE
@@ -1169,21 +1176,21 @@ files:
   type: HEADER
   userChecksum: E8A2704F363F67280CEFFA92E9DE7BF3
 - generatedChecksum: F0AD88762263B7CB89B02AB4F5876059
-  logicalPath: config/e54-xpro/osal
+  logicalPath: config/e54_xpro/osal
   name: osal.h
   physicalPath: osal
   security: NON_SECURE
   type: HEADER
   userChecksum: F0AD88762263B7CB89B02AB4F5876059
 - generatedChecksum: 0AC88C49E4585B606FD5AC6804F0C340
-  logicalPath: config/e54-xpro/osal
+  logicalPath: config/e54_xpro/osal
   name: osal_definitions.h
   physicalPath: osal
   security: NON_SECURE
   type: HEADER
   userChecksum: 0AC88C49E4585B606FD5AC6804F0C340
 - generatedChecksum: B040122CCA94A0636810D6F15F13B751
-  logicalPath: config/e54-xpro/osal
+  logicalPath: config/e54_xpro/osal
   name: osal_impl_basic.h
   physicalPath: osal
   security: NON_SECURE
@@ -1260,105 +1267,112 @@ files:
   type: HEADER
   userChecksum: C56B7883D74345063F12A20E25E46449
 - generatedChecksum: 0416F129713FDF989ACC1FC57065125C
-  logicalPath: config/e54-xpro/peripheral/clock
+  logicalPath: config/e54_xpro/peripheral/clock
   name: plib_clock.h
   physicalPath: peripheral/clock
   security: NON_SECURE
   type: HEADER
   userChecksum: 0416F129713FDF989ACC1FC57065125C
 - generatedChecksum: 95A89CFFC2B67EA718036EF9B8805872
-  logicalPath: config/e54-xpro/peripheral/cmcc
+  logicalPath: config/e54_xpro/peripheral/cmcc
   name: plib_cmcc.h
   physicalPath: peripheral/cmcc
   security: NON_SECURE
   type: HEADER
   userChecksum: 95A89CFFC2B67EA718036EF9B8805872
 - generatedChecksum: 37D836F27FF1CF524CCA9F754521BB7D
-  logicalPath: config/e54-xpro/peripheral/dmac
+  logicalPath: config/e54_xpro/peripheral/dmac
   name: plib_dmac.h
   physicalPath: peripheral/dmac
   security: NON_SECURE
   type: HEADER
   userChecksum: 37D836F27FF1CF524CCA9F754521BB7D
 - generatedChecksum: 7B0047FE6925F2558CEAE5ACFD7E4677
-  logicalPath: config/e54-xpro/peripheral/eic
+  logicalPath: config/e54_xpro/peripheral/eic
   name: plib_eic.h
   physicalPath: peripheral/eic
   security: NON_SECURE
   type: HEADER
   userChecksum: 7B0047FE6925F2558CEAE5ACFD7E4677
+- generatedChecksum: CCAEF942C66AF995876DFD85CEFF611F
+  logicalPath: config/e54_xpro/peripheral/evsys
+  name: plib_evsys.h
+  physicalPath: peripheral/evsys
+  security: NON_SECURE
+  type: HEADER
+  userChecksum: CCAEF942C66AF995876DFD85CEFF611F
 - generatedChecksum: 55ECCC7FA71BD15B46EF80DC0515ED7A
-  logicalPath: config/e54-xpro/peripheral/nvic
+  logicalPath: config/e54_xpro/peripheral/nvic
   name: plib_nvic.h
   physicalPath: peripheral/nvic
   security: NON_SECURE
   type: HEADER
   userChecksum: 55ECCC7FA71BD15B46EF80DC0515ED7A
 - generatedChecksum: 265847151EACC813B7C7825442C21A32
-  logicalPath: config/e54-xpro/peripheral/nvmctrl
+  logicalPath: config/e54_xpro/peripheral/nvmctrl
   name: plib_nvmctrl.h
   physicalPath: peripheral/nvmctrl
   security: NON_SECURE
   type: HEADER
   userChecksum: 265847151EACC813B7C7825442C21A32
 - generatedChecksum: 56079EEE7E5453789772D9ED55C38104
-  logicalPath: config/e54-xpro/peripheral/port
+  logicalPath: config/e54_xpro/peripheral/port
   name: plib_port.h
   physicalPath: peripheral/port
   security: NON_SECURE
   type: HEADER
   userChecksum: 56079EEE7E5453789772D9ED55C38104
 - generatedChecksum: 19E1B66EA17326A862433B89B83463D2
-  logicalPath: config/e54-xpro/peripheral/rstc
+  logicalPath: config/e54_xpro/peripheral/rstc
   name: plib_rstc.h
   physicalPath: peripheral/rstc
   security: NON_SECURE
   type: HEADER
   userChecksum: 19E1B66EA17326A862433B89B83463D2
 - generatedChecksum: 5918A5D1BACBE04FC667A4255E7CC97C
-  logicalPath: config/e54-xpro/peripheral/sercom/usart
+  logicalPath: config/e54_xpro/peripheral/sercom/usart
   name: plib_sercom2_usart.h
   physicalPath: peripheral/sercom/usart
   security: NON_SECURE
   type: HEADER
   userChecksum: 5918A5D1BACBE04FC667A4255E7CC97C
 - generatedChecksum: 42F88900EEB53795E252A6A8AAFDCA7C
-  logicalPath: config/e54-xpro/peripheral/sercom/spi_master
+  logicalPath: config/e54_xpro/peripheral/sercom/spi_master
   name: plib_sercom4_spi_master.h
   physicalPath: peripheral/sercom/spi_master
   security: NON_SECURE
   type: HEADER
   userChecksum: 42F88900EEB53795E252A6A8AAFDCA7C
 - generatedChecksum: BB036D2CE131C1D7AC290F4DB55A1EC3
-  logicalPath: config/e54-xpro/peripheral/sercom/spi_master
+  logicalPath: config/e54_xpro/peripheral/sercom/spi_master
   name: plib_sercom6_spi_master.h
   physicalPath: peripheral/sercom/spi_master
   security: NON_SECURE
   type: HEADER
   userChecksum: BB036D2CE131C1D7AC290F4DB55A1EC3
 - generatedChecksum: BED7AF34A8D633C6994B780C19D7157F
-  logicalPath: config/e54-xpro/peripheral/sercom/spi_master
+  logicalPath: config/e54_xpro/peripheral/sercom/spi_master
   name: plib_sercom_spi_master_common.h
   physicalPath: peripheral/sercom/spi_master
   security: NON_SECURE
   type: HEADER
   userChecksum: BED7AF34A8D633C6994B780C19D7157F
 - generatedChecksum: 881B1D67FA4C320BBD6AC86344695C9C
-  logicalPath: config/e54-xpro/peripheral/sercom/usart
+  logicalPath: config/e54_xpro/peripheral/sercom/usart
   name: plib_sercom_usart_common.h
   physicalPath: peripheral/sercom/usart
   security: NON_SECURE
   type: HEADER
   userChecksum: 881B1D67FA4C320BBD6AC86344695C9C
 - generatedChecksum: 8D0960B1F9AEC2A8F11E66FA2A6B010D
-  logicalPath: config/e54-xpro/peripheral/tc
+  logicalPath: config/e54_xpro/peripheral/tc
   name: plib_tc0.h
   physicalPath: peripheral/tc
   security: NON_SECURE
   type: HEADER
   userChecksum: 8D0960B1F9AEC2A8F11E66FA2A6B010D
 - generatedChecksum: C0A6E5B99D379FC08247B5FA465A54B3
-  logicalPath: config/e54-xpro/peripheral/tc
+  logicalPath: config/e54_xpro/peripheral/tc
   name: plib_tc_common.h
   physicalPath: peripheral/tc
   security: NON_SECURE
@@ -1554,21 +1568,21 @@ files:
   type: HEADER
   userChecksum: 312873ADAD96916740147B61566161AC
 - generatedChecksum: FFB28AB4424E2AA32C28B9BBD25932E4
-  logicalPath: config/e54-xpro/driver/winc/include/drv/socket
+  logicalPath: config/e54_xpro/driver/winc/include/drv/socket
   name: socket.h
   physicalPath: driver/winc/include/drv/socket
   security: NON_SECURE
   type: HEADER
   userChecksum: FFB28AB4424E2AA32C28B9BBD25932E4
 - generatedChecksum: 60CF08E7ACC796D94BD7DFE110FE995D
-  logicalPath: config/e54-xpro/driver/winc/include/drv/spi_flash
+  logicalPath: config/e54_xpro/driver/winc/include/drv/spi_flash
   name: spi_flash.h
   physicalPath: driver/winc/include/drv/spi_flash
   security: NON_SECURE
   type: HEADER
   userChecksum: 60CF08E7ACC796D94BD7DFE110FE995D
 - generatedChecksum: 4331D2261FE1B93252555E47A4D02E42
-  logicalPath: config/e54-xpro/driver/winc/include/drv/spi_flash
+  logicalPath: config/e54_xpro/driver/winc/include/drv/spi_flash
   name: spi_flash_map.h
   physicalPath: driver/winc/include/drv/spi_flash
   security: NON_SECURE
@@ -1589,147 +1603,147 @@ files:
   type: HEADER
   userChecksum: 63EB97B27EEC590AC968A2DFC3CC9CAB
 - generatedChecksum: AFAAF7D896D57569CA4CF73BB3339481
-  logicalPath: config/e54-xpro/system/cache
+  logicalPath: config/e54_xpro/system/cache
   name: sys_cache.h
   physicalPath: system/cache
   security: NON_SECURE
   type: HEADER
   userChecksum: AFAAF7D896D57569CA4CF73BB3339481
 - generatedChecksum: 91CB36F6EC29DAA7C584282A875E5CBA
-  logicalPath: config/e54-xpro/system/console
+  logicalPath: config/e54_xpro/system/console
   name: sys_console.h
   physicalPath: system/console
   security: NON_SECURE
   type: HEADER
   userChecksum: 91CB36F6EC29DAA7C584282A875E5CBA
 - generatedChecksum: 6BB6C54C5CD963A5A940CF7BB28F4E10
-  logicalPath: config/e54-xpro/system/debug
+  logicalPath: config/e54_xpro/system/debug
   name: sys_debug.h
   physicalPath: system/debug
   security: NON_SECURE
   type: HEADER
   userChecksum: 6BB6C54C5CD963A5A940CF7BB28F4E10
 - generatedChecksum: DF645F165662D33674AC573BC61A12C5
-  logicalPath: config/e54-xpro/system/dma
+  logicalPath: config/e54_xpro/system/dma
   name: sys_dma.h
   physicalPath: system/dma
   security: NON_SECURE
   type: HEADER
   userChecksum: DF645F165662D33674AC573BC61A12C5
 - generatedChecksum: 33CFF9B17F00BDAE39FD8EC48112B9EF
-  logicalPath: config/e54-xpro/system/dma
+  logicalPath: config/e54_xpro/system/dma
   name: sys_dma_mapping.h
   physicalPath: system/dma
   security: NON_SECURE
   type: HEADER
   userChecksum: 33CFF9B17F00BDAE39FD8EC48112B9EF
 - generatedChecksum: 4A8DA7BC60B438CE161462CB299CCC9D
-  logicalPath: config/e54-xpro/system/fs
+  logicalPath: config/e54_xpro/system/fs
   name: sys_fs.h
   physicalPath: system/fs
   security: NON_SECURE
   type: HEADER
   userChecksum: 4A8DA7BC60B438CE161462CB299CCC9D
 - generatedChecksum: 0D9FE9035E3AA8082C5657240106F2DC
-  logicalPath: config/e54-xpro/system/fs
+  logicalPath: config/e54_xpro/system/fs
   name: sys_fs_fat_interface.h
   physicalPath: system/fs
   security: NON_SECURE
   type: HEADER
   userChecksum: 0D9FE9035E3AA8082C5657240106F2DC
 - generatedChecksum: 0D162D1868A187FDC092657020E668D8
-  logicalPath: config/e54-xpro/system/fs
+  logicalPath: config/e54_xpro/system/fs
   name: sys_fs_local.h
   physicalPath: system/fs/src
   security: NON_SECURE
   type: HEADER
   userChecksum: 0D162D1868A187FDC092657020E668D8
 - generatedChecksum: D0DEC824B933722219A05F00A4CD5BB4
-  logicalPath: config/e54-xpro/system/fs
+  logicalPath: config/e54_xpro/system/fs
   name: sys_fs_media_manager.h
   physicalPath: system/fs
   security: NON_SECURE
   type: HEADER
   userChecksum: D0DEC824B933722219A05F00A4CD5BB4
 - generatedChecksum: E50782BD59B15F2EAAF53AAD818793EE
-  logicalPath: config/e54-xpro/system/fs
+  logicalPath: config/e54_xpro/system/fs
   name: sys_fs_media_manager_local.h
   physicalPath: system/fs/src
   security: NON_SECURE
   type: HEADER
   userChecksum: E50782BD59B15F2EAAF53AAD818793EE
 - generatedChecksum: 1329D2DEB6E5AC9515AD4D165C60DC74
-  logicalPath: config/e54-xpro/system/int
+  logicalPath: config/e54_xpro/system/int
   name: sys_int.h
   physicalPath: system/int
   security: NON_SECURE
   type: HEADER
   userChecksum: 1329D2DEB6E5AC9515AD4D165C60DC74
 - generatedChecksum: 00278F169FFB0CBBAB3A68B5D647F093
-  logicalPath: config/e54-xpro/system/int
+  logicalPath: config/e54_xpro/system/int
   name: sys_int_mapping.h
   physicalPath: system/int
   security: NON_SECURE
   type: HEADER
   userChecksum: 00278F169FFB0CBBAB3A68B5D647F093
 - generatedChecksum: 8508D70F81EB39B710413D405BCD3074
-  logicalPath: config/e54-xpro/system/ports
+  logicalPath: config/e54_xpro/system/ports
   name: sys_ports.h
   physicalPath: system/ports
   security: NON_SECURE
   type: HEADER
   userChecksum: 8508D70F81EB39B710413D405BCD3074
 - generatedChecksum: 0077CD2365E6F28D76DF1D212FF80059
-  logicalPath: config/e54-xpro/system/ports
+  logicalPath: config/e54_xpro/system/ports
   name: sys_ports_mapping.h
   physicalPath: system/ports
   security: NON_SECURE
   type: HEADER
   userChecksum: 0077CD2365E6F28D76DF1D212FF80059
 - generatedChecksum: 466D676839280C0E7FC2CC6F78BA6EE9
-  logicalPath: config/e54-xpro/system/time
+  logicalPath: config/e54_xpro/system/time
   name: sys_time.h
   physicalPath: system/time
   security: NON_SECURE
   type: HEADER
   userChecksum: 466D676839280C0E7FC2CC6F78BA6EE9
 - generatedChecksum: B58591FCD5BA49079131647BE54112A2
-  logicalPath: config/e54-xpro/system/time
+  logicalPath: config/e54_xpro/system/time
   name: sys_time_definitions.h
   physicalPath: system/time
   security: NON_SECURE
   type: HEADER
   userChecksum: B58591FCD5BA49079131647BE54112A2
 - generatedChecksum: D0C1F2390BDD59E74ACC6ACDE6A1495C
-  logicalPath: config/e54-xpro/system/time
+  logicalPath: config/e54_xpro/system/time
   name: sys_time_local.h
   physicalPath: system/time/src
   security: NON_SECURE
   type: HEADER
   userChecksum: D0C1F2390BDD59E74ACC6ACDE6A1495C
 - generatedChecksum: BE95B4F134C5C929787B9DA6FDBF3501
-  logicalPath: config/e54-xpro/system
+  logicalPath: config/e54_xpro/system
   name: system.h
   physicalPath: system
   security: NON_SECURE
   type: HEADER
   userChecksum: BE95B4F134C5C929787B9DA6FDBF3501
 - generatedChecksum: C3F5136D520DAC4416512EBFCCA023C3
-  logicalPath: config/e54-xpro/system
+  logicalPath: config/e54_xpro/system
   name: system_common.h
   physicalPath: system
   security: NON_SECURE
   type: HEADER
   userChecksum: C3F5136D520DAC4416512EBFCCA023C3
 - generatedChecksum: A1CB3454D5A9393479E09211BEEDDD49
-  logicalPath: config/e54-xpro/system
+  logicalPath: config/e54_xpro/system
   name: system_media.h
   physicalPath: system
   security: NON_SECURE
   type: HEADER
   userChecksum: A1CB3454D5A9393479E09211BEEDDD49
 - generatedChecksum: 1C75A8A6B60598A2FD0D533F57839B72
-  logicalPath: config/e54-xpro/system
+  logicalPath: config/e54_xpro/system
   name: system_module.h
   physicalPath: system
   security: NON_SECURE
@@ -1841,7 +1855,7 @@ files:
   type: HEADER
   userChecksum: A62DE8650C9B201A514CBBFAD0D4AAA2
 - generatedChecksum: 267E11FBC03D0FD88E7330DDB79B19FC
-  logicalPath: config/e54-xpro
+  logicalPath: config/e54_xpro
   name: toolchain_specifics.h
   physicalPath: ''
   security: NON_SECURE
@@ -1875,162 +1889,162 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: 71C4C16E628224292602C3194BEFFC5D
-- generatedChecksum: 4B3C3EF8A318908A22B78500515C3288
-  logicalPath: config/e54-xpro
+- generatedChecksum: null
+  logicalPath: config/e54_xpro
   name: user.h
   physicalPath: ''
   security: NON_SECURE
   type: HEADER
-  userChecksum: 4B3C3EF8A318908A22B78500515C3288
+  userChecksum: null
 - generatedChecksum: E078DB5A068FC94AC501021A8AAED412
-  logicalPath: config/e54-xpro/driver/winc/include
+  logicalPath: config/e54_xpro/driver/winc/include
   name: wdrv_winc.h
   physicalPath: driver/winc/include
   security: NON_SECURE
   type: HEADER
   userChecksum: E078DB5A068FC94AC501021A8AAED412
 - generatedChecksum: C3BE476E2A3338FC87BCC424CDB0FD27
-  logicalPath: config/e54-xpro/driver/winc/include
+  logicalPath: config/e54_xpro/driver/winc/include
   name: wdrv_winc_api.h
   physicalPath: driver/winc/include
   security: NON_SECURE
   type: HEADER
   userChecksum: C3BE476E2A3338FC87BCC424CDB0FD27
 - generatedChecksum: E59D88313B67DE2CEA6F7D0BEE5F61A9
-  logicalPath: config/e54-xpro/driver/winc/include
+  logicalPath: config/e54_xpro/driver/winc/include
   name: wdrv_winc_assoc.h
   physicalPath: driver/winc/include
   security: NON_SECURE
   type: HEADER
   userChecksum: E59D88313B67DE2CEA6F7D0BEE5F61A9
 - generatedChecksum: 422C113E1DC55B034A044101F51E0A6A
-  logicalPath: config/e54-xpro/driver/winc/include
+  logicalPath: config/e54_xpro/driver/winc/include
   name: wdrv_winc_authctx.h
   physicalPath: driver/winc/include
   security: NON_SECURE
   type: HEADER
   userChecksum: 422C113E1DC55B034A044101F51E0A6A
 - generatedChecksum: 9CB4C8148FBEC1422E85410A1754935E
-  logicalPath: config/e54-xpro/driver/winc/include
+  logicalPath: config/e54_xpro/driver/winc/include
   name: wdrv_winc_bssctx.h
   physicalPath: driver/winc/include
   security: NON_SECURE
   type: HEADER
   userChecksum: 9CB4C8148FBEC1422E85410A1754935E
 - generatedChecksum: 1A09A1E2933FB272AC441BF0EB0B43E5
-  logicalPath: config/e54-xpro/driver/winc/include
+  logicalPath: config/e54_xpro/driver/winc/include
   name: wdrv_winc_bssfind.h
   physicalPath: driver/winc/include
   security: NON_SECURE
   type: HEADER
   userChecksum: 1A09A1E2933FB272AC441BF0EB0B43E5
 - generatedChecksum: B117332A9D5A92CB9D3A57B30921F9E0
-  logicalPath: config/e54-xpro/driver/winc/include
+  logicalPath: config/e54_xpro/driver/winc/include
   name: wdrv_winc_client_api.h
   physicalPath: driver/winc/include
   security: NON_SECURE
   type: HEADER
   userChecksum: B117332A9D5A92CB9D3A57B30921F9E0
 - generatedChecksum: B647336EEF00889171B455CC9D8E4B3A
-  logicalPath: config/e54-xpro/driver/winc/include
+  logicalPath: config/e54_xpro/driver/winc/include
   name: wdrv_winc_common.h
   physicalPath: driver/winc/include
   security: NON_SECURE
   type: HEADER
   userChecksum: B647336EEF00889171B455CC9D8E4B3A
 - generatedChecksum: ADB81872B1C02AAA29834AF1452AEA03
-  logicalPath: config/e54-xpro/driver/winc/include
+  logicalPath: config/e54_xpro/driver/winc/include
   name: wdrv_winc_custie.h
   physicalPath: driver/winc/include
   security: NON_SECURE
   type: HEADER
   userChecksum: ADB81872B1C02AAA29834AF1452AEA03
 - generatedChecksum: 64F8DF83B137E462F595A5501401D8CF
-  logicalPath: config/e54-xpro/driver/winc/include
+  logicalPath: config/e54_xpro/driver/winc/include
   name: wdrv_winc_debug.h
   physicalPath: driver/winc/include
   security: NON_SECURE
   type: HEADER
   userChecksum: 64F8DF83B137E462F595A5501401D8CF
 - generatedChecksum: D1BE44448B9DB014BA1243C35D01B3B1
-  logicalPath: config/e54-xpro/driver/winc/include/dev
+  logicalPath: config/e54_xpro/driver/winc/include/dev
   name: wdrv_winc_gpio.h
   physicalPath: driver/winc/include/dev
   security: NON_SECURE
   type: HEADER
   userChecksum: D1BE44448B9DB014BA1243C35D01B3B1
 - generatedChecksum: 76E11A9BB21E12895904A3AE3113E30C
-  logicalPath: config/e54-xpro/driver/winc/include
+  logicalPath: config/e54_xpro/driver/winc/include
   name: wdrv_winc_host_file.h
   physicalPath: driver/winc/include
   security: NON_SECURE
   type: HEADER
   userChecksum: 76E11A9BB21E12895904A3AE3113E30C
 - generatedChecksum: C44FEE06CF9D7796C6736E1FE5018876
-  logicalPath: config/e54-xpro/driver/winc/include
+  logicalPath: config/e54_xpro/driver/winc/include
   name: wdrv_winc_httpprovctx.h
   physicalPath: driver/winc/include
   security: NON_SECURE
   type: HEADER
   userChecksum: C44FEE06CF9D7796C6736E1FE5018876
 - generatedChecksum: 6D8663694E91681409832090DCF4A883
-  logicalPath: config/e54-xpro/driver/winc/include
+  logicalPath: config/e54_xpro/driver/winc/include
   name: wdrv_winc_nvm.h
   physicalPath: driver/winc/include
   security: NON_SECURE
   type: HEADER
   userChecksum: 6D8663694E91681409832090DCF4A883
 - generatedChecksum: BB29E3755A067138F9A41BB5C23D4423
-  logicalPath: config/e54-xpro/driver/winc/include
+  logicalPath: config/e54_xpro/driver/winc/include
   name: wdrv_winc_powersave.h
   physicalPath: driver/winc/include
   security: NON_SECURE
   type: HEADER
   userChecksum: BB29E3755A067138F9A41BB5C23D4423
 - generatedChecksum: F70714D3F24AAC58E9C6D457DD9C3383
-  logicalPath: config/e54-xpro/driver/winc/include
+  logicalPath: config/e54_xpro/driver/winc/include
   name: wdrv_winc_socket.h
   physicalPath: driver/winc/include
   security: NON_SECURE
   type: HEADER
   userChecksum: F70714D3F24AAC58E9C6D457DD9C3383
 - generatedChecksum: E5AF59122D8CB3058702BE143FD19B91
-  logicalPath: config/e54-xpro/driver/winc/include
+  logicalPath: config/e54_xpro/driver/winc/include
   name: wdrv_winc_softap.h
   physicalPath: driver/winc/include
   security: NON_SECURE
   type: HEADER
   userChecksum: E5AF59122D8CB3058702BE143FD19B91
 - generatedChecksum: D6499F908C8F6253A65EC8A2BFDFD131
-  logicalPath: config/e54-xpro/driver/winc/include/dev
+  logicalPath: config/e54_xpro/driver/winc/include/dev
   name: wdrv_winc_spi.h
   physicalPath: driver/winc/include/dev
   security: NON_SECURE
   type: HEADER
   userChecksum: D6499F908C8F6253A65EC8A2BFDFD131
 - generatedChecksum: 2570CBAD686F31AC11168A7D364DD929
-  logicalPath: config/e54-xpro/driver/winc/include
+  logicalPath: config/e54_xpro/driver/winc/include
   name: wdrv_winc_ssl.h
   physicalPath: driver/winc/include
   security: NON_SECURE
   type: HEADER
   userChecksum: 2570CBAD686F31AC11168A7D364DD929
 - generatedChecksum: 5F1F038052B3DF272C98FD6B9FA63139
-  logicalPath: config/e54-xpro/driver/winc/include
+  logicalPath: config/e54_xpro/driver/winc/include
   name: wdrv_winc_sta.h
   physicalPath: driver/winc/include
   security: NON_SECURE
   type: HEADER
   userChecksum: 5F1F038052B3DF272C98FD6B9FA63139
 - generatedChecksum: 1AA3F541AE8FC4E3D38E558DE8AD6FDA
-  logicalPath: config/e54-xpro/driver/winc/include
+  logicalPath: config/e54_xpro/driver/winc/include
   name: wdrv_winc_systime.h
   physicalPath: driver/winc/include
   security: NON_SECURE
   type: HEADER
   userChecksum: 1AA3F541AE8FC4E3D38E558DE8AD6FDA
 - generatedChecksum: 864E55BD2393FAB02C5879ED5EFC940F
-  logicalPath: config/e54-xpro/driver/winc/include
+  logicalPath: config/e54_xpro/driver/winc/include
   name: wdrv_winc_wps.h
   physicalPath: driver/winc/include
   security: NON_SECURE
@@ -2051,7 +2065,7 @@ files:
   type: HEADER
   userChecksum: B6135BB39F8EA90F3E68BA243F429CE8
 - generatedChecksum: 7273D96796B104217B3D0E2B05456324
-  logicalPath: config/e54-xpro
+  logicalPath: config/e54_xpro
   name: ATSAME54P20A.ld
   physicalPath: ''
   security: NON_SECURE
@@ -2065,61 +2079,61 @@ settings:
   delimiter: ;
   key: extra-include-directories
   security: NON_SECURE
-  value: ../src/config/e54-xpro/driver/winc/include/;
+  value: ../src/config/e54_xpro/driver/winc/include/;
 - append: true
   category: C32
   delimiter: ;
   key: extra-include-directories
   security: NON_SECURE
-  value: ../src/config/e54-xpro/driver/winc/include/dev;
+  value: ../src/config/e54_xpro/driver/winc/include/dev;
 - append: true
   category: C32
   delimiter: ;
   key: extra-include-directories
   security: NON_SECURE
-  value: ../src/config/e54-xpro/driver/winc/include/drv/bsp/include;
+  value: ../src/config/e54_xpro/driver/winc/include/drv/bsp/include;
 - append: true
   category: C32
   delimiter: ;
   key: extra-include-directories
   security: NON_SECURE
-  value: ../src/config/e54-xpro/driver/winc/include/drv/bsp;
+  value: ../src/config/e54_xpro/driver/winc/include/drv/bsp;
 - append: true
   category: C32
   delimiter: ;
   key: extra-include-directories
   security: NON_SECURE
-  value: ../src/config/e54-xpro/driver/winc/include/drv/common;
+  value: ../src/config/e54_xpro/driver/winc/include/drv/common;
 - append: true
   category: C32
   delimiter: ;
   key: extra-include-directories
   security: NON_SECURE
-  value: ../src/config/e54-xpro/driver/winc/include/drv/driver;
+  value: ../src/config/e54_xpro/driver/winc/include/drv/driver;
 - append: true
   category: C32
   delimiter: ;
   key: extra-include-directories
   security: NON_SECURE
-  value: ../src/config/e54-xpro/driver/winc/include/drv/socket;
+  value: ../src/config/e54_xpro/driver/winc/include/drv/socket;
 - append: true
   category: C32
   delimiter: ;
   key: extra-include-directories
   security: NON_SECURE
-  value: ../src/config/e54-xpro/driver/winc/include/drv/spi_flash;
+  value: ../src/config/e54_xpro/driver/winc/include/drv/spi_flash;
 - append: true
   category: C32
   delimiter: ;
   key: extra-include-directories
   security: NON_SECURE
-  value: ../src;../src/config/e54-xpro;../src/packs/ATSAME54P20A_DFP;../src/packs/CMSIS/CMSIS/Core/Include;../src/packs/CMSIS/
+  value: ../src;../src/config/e54_xpro;../src/packs/ATSAME54P20A_DFP;../src/packs/CMSIS/CMSIS/Core/Include;../src/packs/CMSIS/
 - append: true
   category: C32
   delimiter: ;
   key: extra-include-directories
   security: NON_SECURE
-  value: ;../src/config/e54-xpro/system/fs/fat_fs/file_system;../src/config/e54-xpro/system/fs/fat_fs/hardware_access
+  value: ;../src/config/e54_xpro/system/fs/fat_fs/file_system;../src/config/e54_xpro/system/fs/fat_fs/hardware_access
 - append: false
   category: C32-LD
   delimiter: ''
@@ -2143,13 +2157,13 @@ settings:
   delimiter: ;
   key: extra-include-directories
   security: NON_SECURE
-  value: ../src;../src/config/e54-xpro;../src/packs/ATSAME54P20A_DFP;../src/packs/CMSIS/CMSIS/Core/Include;../src/packs/CMSIS/
+  value: ../src;../src/config/e54_xpro;../src/packs/ATSAME54P20A_DFP;../src/packs/CMSIS/CMSIS/Core/Include;../src/packs/CMSIS/
 - append: true
   category: C32CPP
   delimiter: ;
   key: extra-include-directories
   security: NON_SECURE
-  value: ;../src/config/e54-xpro/system/fs/fat_fs/file_system;../src/config/e54-xpro/system/fs/fat_fs/hardware_access
+  value: ;../src/config/e54_xpro/system/fs/fat_fs/file_system;../src/config/e54_xpro/system/fs/fat_fs/hardware_access
 - append: false
   category: C32Global
   delimiter: ''

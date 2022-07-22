@@ -7,7 +7,7 @@ The [Microchip WINC1500 "Wifi System On Chip"](https://www.microchip.com/en-us/p
 
 The WINC1500 has a long history, which also means that there have been many firmware updates.  To date, the most widely supported mechanism for updating the WINC firmware has been to use a dedicated SAMD21 processor, communicating via USB to a PC which in turn runs a suite of batch files.  This is somewhat complicated and requires a dedicated set of tools.
 
-This `winc-update` repository takes a different approach.  It implements an application for the [SAME54 XPRO development system](https://www.microchip.com/en-us/development-tool/ATSAME54-XPRO) with [WINC1500 XPRO](https://www.microchip.com/en-us/development-tool/ATWINC1500-XPRO) and [IO1 XPRO](https://www.microchip.com/en-us/development-tool/ATIO1-XPRO) extension boards.  The application has three main functions:
+This `winc-update` repository takes a different approach.  It implements an application for the [SAME54 XPRO development system](https://www.microchip.com/en-us/development-tool/ATSAMe54_xpro) with [WINC1500 XPRO](https://www.microchip.com/en-us/development-tool/ATWINC1500-XPRO) and [IO1 XPRO](https://www.microchip.com/en-us/development-tool/ATIO1-XPRO) extension boards.  The application has three main functions:
 * It can extract the contents of the WINC1500 firmware into a file on a microSD card
 * It can update the WINC1500 firmware from a file on a microSD card.
 * It can compare and verify the existing WINC1500 firmware against a file on a microSD card.
@@ -15,7 +15,7 @@ This `winc-update` repository takes a different approach.  It implements an appl
 # Prerequisites
 
 To run `winc-update` you will need:
-* [SAME54 XPRO development system](https://www.microchip.com/en-us/development-tool/ATSAME54-XPRO)
+* [SAME54 XPRO development system](https://www.microchip.com/en-us/development-tool/ATSAMe54_xpro)
 * [WINC1500 XPRO](https://www.microchip.com/en-us/development-tool/ATWINC1500-XPRO)
 * [IO1 XPRO](https://www.microchip.com/en-us/development-tool/ATIO1-XPRO)
 * A PC or Laptop with a serial terminal program such as CoolTerm, TeraTerm or puTTY.

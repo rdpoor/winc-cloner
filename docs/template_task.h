@@ -1,5 +1,5 @@
 /**
- * @file app.h
+ * @file template_task.h
  *
  * MIT License
  *
@@ -24,16 +24,18 @@
  * SOFTWARE.
  */
 
- /**
-  * @brief Main application initialization and loop
-  */
+/**
+ * @brief template_task is a canonical template for any state-driven task.
+ */
 
-#ifndef _APP_H_
-#define _APP_H_
+#ifndef _TEMPLATE_TASK_H_
+#define _TEMPLATE_TASK_H_
 
 // *****************************************************************************
 // Includes
 
+#include <stdbool.h>
+#include <stddef.h>
 #include <stdint.h>
 
 // *****************************************************************************
@@ -46,20 +48,39 @@ extern "C" {
 // *****************************************************************************
 // Public types and definitions
 
-#define WINC_IMAGER_VERSION "0.0.1"
+/**
+ * @brief Signature for the callback function.
+ */
+typedef void (*template_task_callback_fn)(uintptr_t arg);
 
 // *****************************************************************************
 // Public declarations
 
 /**
- * @brief Called once at initialization.
+ * @brief Initialize the template_task.  Called once at startup.
  */
-void APP_Initialize(void);
+void template_task_init(void);
 
 /**
- * @brief Called repeatedly from main super-loop.
+ * @brief Step the template_task internal state.  Called frequently.
  */
-void APP_Tasks(void);
+void template_task_step(void);
+
+/**
+ * @brief Set a callback to be triggered when the template_task completes.
+ */
+void template_task_set_callback(template_task_callback_fn callback_fn,
+                                uintptr_t callback_arg);
+
+/**
+ * @brief Return true if the template_task is idle.
+ */
+bool template_task_is_idle(void);
+
+/**
+ * @brief Return true if the template_task has encountered an error.
+ */
+bool template_task_has_error(void);
 
 // *****************************************************************************
 // End of file
@@ -68,4 +89,4 @@ void APP_Tasks(void);
 }
 #endif
 
-#endif /* #ifndef _APP_H_ */
+#endif /* #ifndef _TEMPLATE_TASK_H_ */

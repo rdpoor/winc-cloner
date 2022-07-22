@@ -1,5 +1,5 @@
 /**
- * @file app.h
+ * @file template.h
  *
  * MIT License
  *
@@ -25,11 +25,11 @@
  */
 
  /**
-  * @brief Main application initialization and loop
+  * @brief
   */
 
-#ifndef _APP_H_
-#define _APP_H_
+#ifndef _TEMPLATE_H_
+#define _TEMPLATE_H_
 
 // *****************************************************************************
 // Includes
@@ -46,20 +46,8 @@ extern "C" {
 // *****************************************************************************
 // Public types and definitions
 
-#define WINC_IMAGER_VERSION "0.0.1"
-
 // *****************************************************************************
 // Public declarations
-
-/**
- * @brief Called once at initialization.
- */
-void APP_Initialize(void);
-
-/**
- * @brief Called repeatedly from main super-loop.
- */
-void APP_Tasks(void);
 
 // *****************************************************************************
 // End of file
@@ -68,4 +56,4 @@ void APP_Tasks(void);
 }
 #endif
 
-#endif /* #ifndef _APP_H_ */
+#endif /* #ifndef _TEMPLATE_H_ */
