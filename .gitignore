@@ -1,52 +1,32 @@
-# Prerequisites
-*.d
+# ============
+# Atmel Studio
 
-# Object files
+# Build Directories
+[Dd]ebug/
+[Rr]elease/
+*.zip
+
+# Build Artifacts
 *.o
-*.ko
-*.obj
+*.d
+*.eep
 *.elf
-
-# Linker output
-*.ilk
-*.map
-*.exp
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
-
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
-
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
 *.hex
+*.map
+*.srec
 
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
+# User Specific Files
+*.atsuo
 
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
+# Debugger artifacts
+jlink*.log
+
+# Sandbox for playing in
+Sandbox/
+
+# ==========
+# MPLAB.X
+
+**/.generated_files
+**/nbproject/private
+**/nbproject/Makefile-*
