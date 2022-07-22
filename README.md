@@ -20,12 +20,13 @@ To run `winc-update` you will need:
 * [IO1 XPRO](https://www.microchip.com/en-us/development-tool/ATIO1-XPRO)
 * A PC or Laptop with a serial terminal program such as CoolTerm, TeraTerm or puTTY.
 * A USB A to USB micro cable
-* A microSD card
+* A microSD card, formatted for FATFS
 * [Microchip MPLAB.X](https://www.microchip.com/en-us/tools-resources/develop/mplab-x-ide) or some means to load a .hex file into the SAME54
 
 Connect the components as shown, with:
 * the WINC XPRO on the EXT1 connector 
 * the IO1 XPRO on EXT2
 * the USB cable connecting the "Debug USB" port to your PC or laptop
+* the microSD card plugged into the socket of the IO1 XPRO board
 
 ![Physical Setup](/docs/IMG_5907.jpg)
