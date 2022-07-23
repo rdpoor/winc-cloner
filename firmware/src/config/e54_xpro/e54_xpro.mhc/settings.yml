@@ -1,9 +1,9 @@
 configName: e54_xpro
-folderName: winc-update-e54_xpro
+folderName: winc-cloner-e54_xpro
 format_version: v1.0
 frameworkPath: ..\Harmony3
 processor: ATSAME54P20A
-projectName: winc-update-e54_xpro
+projectName: winc-cloner-e54_xpro
 settings:
   PackageFilter: audio;bootloader;bootloader_apps_uart;bsp;core;core_apps_sam_d21_da1;core_apps_sam_d5x_e5x;core_apps_sam_e70_s70_v70_v71;core_apps_sam_l22;crypto;cryptoauthlib;csp;csp_apps_sam_d11;csp_apps_sam_d21_da1;csp_apps_sam_d5x_e5x;csp_apps_sam_e70_s70_v70_v71;csp_apps_sam_l22;Devices;dev_packs;gfx;gfx_apps;gfx_apps_sam_d5x_e5x;gfx_apps_sam_e70_s70_v70_v71;gfx_aria;harmony-services;MPLAB-Harmony-Reference-Apps;net;net_apps_sam_e5x;net_apps_sam_e70_v71;quick_docs;touch;usb;wireless_apps_winc1500;wireless_wifi
   FORCE_OPTIMIZATION: 'false'

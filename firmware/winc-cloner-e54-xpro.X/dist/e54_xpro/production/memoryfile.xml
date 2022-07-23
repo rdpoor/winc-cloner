@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-  <executable name="dist/e54_xpro/production/winc-update-e54-xpro.X.production.elf">
+  <executable name="dist/e54_xpro/production/winc-cloner-e54-xpro.X.production.elf">
     <memory name="program">
       <units>bytes</units>
       <length>1048576</length>
