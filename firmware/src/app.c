@@ -31,20 +31,17 @@
 #include "app.h"
 
 #include "definitions.h"
+#include "dir_reader.h"
 #include <stdbool.h>
 
 // *****************************************************************************
 // Private types and definitions
 
-#define SD_DEVICE_NAME "/dev/mmcblka1"
-#define SD_MOUNT_NAME "/mnt/mydrive"
-
 #define APP_STATES(M)                                                          \
   M(APP_STATE_IDLE)                                                            \
   M(APP_STATE_AWAIT_FILESYSTEM)                                                \
-  M(APP_STATE_OPENING_DIRECTORY)                                               \
-  M(APP_STATE_READING_DIRECTORY)                                               \
-  M(APP_STATE_CLOSING_DIRECTORY)                                               \
+  M(APP_STATE_AWAIT_DIRECTORY)                                                 \
+  M(APP_STATE_DISPLAY_IMG_FILES)                                               \
   M(APP_STATE_COMPLETE)                                                        \
   M(APP_STATE_ERROR)
 
@@ -54,7 +51,6 @@ typedef enum { APP_STATES(EXPAND_STATE_IDS) } app_state_t;
 typedef struct {
   app_state_t state;
   uint32_t mount_retries;
-  SYS_FS_HANDLE dir_handle;
 } app_ctx_t;
 
 // *****************************************************************************
@@ -78,8 +74,6 @@ static const char *s_state_names[] = {APP_STATES(EXPAND_STATE_NAMES)};
 
 #define N_STATES (sizeof(s_state_names) / sizeof(s_state_names[0]))
 
-char s_filename[100];    // to hold long file names
-
 static app_ctx_t s_app_ctx;
 
 // *****************************************************************************
@@ -88,12 +82,12 @@ static app_ctx_t s_app_ctx;
 void APP_Initialize(void) {
   s_app_ctx.state = APP_STATE_IDLE;
   s_app_ctx.mount_retries = 0;
-  s_app_ctx.dir_handle = SYS_FS_HANDLE_INVALID;
   SYS_CONSOLE_PRINT(
       "\n####################"
       "\n# winc-imager v%s (https://github.com/rdpoor/winc-imager)"
       "\n####################\n",
       WINC_IMAGER_VERSION);
+  dir_reader_init();
 }
 
 void APP_Tasks(void) {
@@ -119,7 +113,8 @@ void APP_Tasks(void) {
                         SYS_FS_Error());
         set_state(APP_STATE_ERROR);
       } else {
-        set_state(APP_STATE_OPENING_DIRECTORY);
+        dir_reader_read_directory(); // start reading directory
+        set_state(APP_STATE_AWAIT_DIRECTORY);
       }
 
     } else if (s_app_ctx.mount_retries % 100000 == 0) {
@@ -130,44 +125,25 @@ void APP_Tasks(void) {
     }
   } break;
 
-  case APP_STATE_OPENING_DIRECTORY: {
-    s_app_ctx.dir_handle = SYS_FS_DirOpen(SD_MOUNT_NAME "/");
-    if (s_app_ctx.dir_handle != SYS_FS_HANDLE_INVALID) {
-      SYS_CONSOLE_MESSAGE("\nsize (bytes) filename");
-      set_state(APP_STATE_READING_DIRECTORY);
-    } else {
-      SYS_DEBUG_PRINT(
-          SYS_ERROR_ERROR, "\nUnable to open directory %s", SD_MOUNT_NAME "/");
+  case APP_STATE_AWAIT_DIRECTORY: {
+    dir_reader_step();
+    if (dir_reader_is_complete()) {
+      set_state(APP_STATE_DISPLAY_IMG_FILES);
+    } else if (dir_reader_has_error()) {
       set_state(APP_STATE_ERROR);
+    } else {
+      // remain in this state until dir_reader completes
     }
   } break;
 
-  case APP_STATE_READING_DIRECTORY: {
-    // remain in this state until all directory entries are read and printed
-    SYS_FS_FSTAT stat;
-
-    stat.lfname = s_filename;
-    stat.lfsize = sizeof(s_filename);
-    if (SYS_FS_DirRead(s_app_ctx.dir_handle, &stat) == SYS_FS_RES_FAILURE) {
-      SYS_DEBUG_PRINT(
-          SYS_ERROR_ERROR, "\nUnable to read directory %s", SD_MOUNT_NAME "/");
-      set_state(APP_STATE_ERROR);
-
-    } else if ((stat.lfname[0] == '\0') && (stat.fname[0] == '\0')) {
-      SYS_CONSOLE_MESSAGE("\nDirectory listing complete");
-      set_state(APP_STATE_CLOSING_DIRECTORY);
-    } else {
-      // read succeeded.  Print entry and read next.
-      SYS_CONSOLE_PRINT("\n%12ld %s", stat.fsize, stat.fname);
+  case APP_STATE_DISPLAY_IMG_FILES: {
+    // Here when dir_reader has completed successfully
+    uint8_t count = dir_reader_filename_count();
+    SYS_CONSOLE_PRINT("\nFound %d image file%s", count, count == 1 ? "" : "s");
+    // TODO: may need to split this for loop across states
+    for (uint8_t idx = 0; idx < count; idx++) {
+      SYS_CONSOLE_PRINT("\n%2d: %s", idx, dir_reader_filename_ref(idx));
     }
-  } break;
-
-  case APP_STATE_CLOSING_DIRECTORY: {
-    if (SYS_FS_DirClose(s_app_ctx.dir_handle) != SYS_FS_RES_SUCCESS) {
-      SYS_DEBUG_PRINT(
-          SYS_ERROR_ERROR, "\nClosing directory %s failed", SD_MOUNT_NAME "/");
-    }
-    s_app_ctx.dir_handle = SYS_FS_HANDLE_INVALID;
     set_state(APP_STATE_COMPLETE);
   } break;
 

@@ -1,5 +1,5 @@
 /**
- * @file app.h
+ * @file dir_reader.h
  *
  * MIT License
  *
@@ -25,15 +25,17 @@
  */
 
 /**
- * @brief Main application initialization and loop
+ * @brief dir_reader lists the available .img files in the root directory.
  */
 
-#ifndef _APP_H_
-#define _APP_H_
+#ifndef _DIR_READER_H_
+#define _DIR_READER_H_
 
 // *****************************************************************************
 // Includes
 
+#include <stdbool.h>
+#include <stddef.h>
 #include <stdint.h>
 
 // *****************************************************************************
@@ -46,24 +48,66 @@ extern "C" {
 // *****************************************************************************
 // Public types and definitions
 
-#define WINC_IMAGER_VERSION "0.0.1"
-
-// TODO: consider functional interface
-#define SD_DEVICE_NAME "/dev/mmcblka1"
-#define SD_MOUNT_NAME "/mnt/mydrive"
+/**
+ * @brief Signature for the callback function.
+ */
+typedef void (*dir_reader_callback_fn)(uintptr_t arg);
 
 // *****************************************************************************
 // Public declarations
 
 /**
- * @brief Called once at initialization.
+ * @brief Initialize the dir_reader.  Called once at startup.
  */
-void APP_Initialize(void);
+void dir_reader_init(void);
 
 /**
- * @brief Called repeatedly from main super-loop.
+ * @brief Step the dir_reader internal state.  Called frequently.
  */
-void APP_Tasks(void);
+void dir_reader_step(void);
+
+/**
+ * @brief Set a callback to be triggered when the dir_reader completes.
+ */
+void dir_reader_set_callback(dir_reader_callback_fn callback_fn,
+                             uintptr_t callback_arg);
+
+/**
+ * @brief Read the rood directory to discover the .img files.
+ *
+ * Note: this is asynchronous.  The results are avaiable after
+ * dir_reader_is_complete() returns true.
+ */
+void dir_reader_read_directory(void);
+
+/**
+ * @brief Return the number of .img files found in the root directory.
+ *
+ * Note: valid only after dir_reader_is_complete() returns true.
+ */
+uint8_t dir_reader_filename_count(void);
+
+/**
+ * @brief Return the idx'th image filename, or NULL if idx is out of bounds.
+ *
+ * Note: valid only after dir_reader_is_complete() returns true.
+ */
+const char *dir_reader_filename_ref(uint8_t idx);
+
+/**
+ * @brief Return true if the dir_reader is idle.
+ */
+bool dir_reader_is_idle(void);
+
+/**
+ * @brief Return true if the dir_reader completed successfully
+ */
+bool dir_reader_is_complete(void);
+
+/**
+ * @brief Return true if the dir_reader has encountered an error.
+ */
+bool dir_reader_has_error(void);
 
 // *****************************************************************************
 // End of file
@@ -72,4 +116,4 @@ void APP_Tasks(void);
 }
 #endif
 
-#endif /* #ifndef _APP_H_ */
+#endif /* #ifndef _DIR_READER_H_ */
