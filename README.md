@@ -24,9 +24,90 @@ To run `winc-cloner` you will need:
 * [Microchip MPLAB.X](https://www.microchip.com/en-us/tools-resources/develop/mplab-x-ide) or some means to load a .hex file into the SAME54
 
 Connect the components as shown, with:
-* the WINC XPRO on the EXT1 connector 
+* the WINC XPRO on the EXT1 connector
 * the IO1 XPRO on EXT2
 * the USB cable connecting the "Debug USB" port to your PC or laptop
 * the microSD card plugged into the socket of the IO1 XPRO board
 
 ![Physical Setup](/docs/IMG_5907.jpg)
+
+# Running `winc-cloner`
+
+On your laptop or PC, launch your serial terminal emulator and connect it to
+the serial port corresponding to the SAME54's EDBG output.
+
+Use MPLAB or the JTAG tool of your choice to load the `winc-cloner` firmware
+into the SAME54.
+
+When the program runs, you will see something like this:
+```
+==========
+WINC firmware cloning tool
+==========
+Found 2 files
+   m2m_aio_3a0_v19_5_4.img
+   m2m_aio_3a0_v19_7_7.img
+Commands:
+h: print this help
+e: extract WINC firmware to a file
+u: update WINC firmware from a file
+c: compare WINC firmware against a file
+>
+```
+At this point, you can type:
+## `h` for help
+This will simply repeat the help instructions.
+## `e` to extract the WINC firmware to a file
+For example:
+```
+Commands:
+h: print this help
+e: extract WINC firmware to a file
+u: update WINC firmware from a file
+c: compare WINC firmware against a file
+>
+Extract WINC firmware into filename: test.img
+Extracting WINC firmware into test.img
+Chip ID 1503a0
+................................................................................................................................................................................................................................................................
+Successfully extracted WINC contents into test.img
+```
+Each '.' represents one sector of data (FLASH_SECTOR_SZ) read from the WINC and
+written to `test.img`.
+## `u` to update the WINC firmware from a file
+For example:
+```
+Commands:
+h: print this help
+e: extract WINC firmware to a file
+u: update WINC firmware from a file
+c: compare WINC firmware against a file
+>
+Update WINC firmware from filename: m2m_aio_3a0_v19_5_4.img
+Updating WINC firmware from m2m_aio_3a0_v19_5_4.img
+Chip ID 1503a0
+Flash Size 8 Mb
+.!.......!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!.!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!................................................................................................................................
+Successfully updated WINC contents from m2m_aio_3a0_v19_5_4.img
+```
+A '.' indicates a sector that is identical in the file and in the WINC; these
+sectors are left untouched.  Each '!' represents a sector that is erased in the
+WINC memory and then written from the file data.
+## `c` to compare the WINC firmware against a file
+For example:
+```
+Commands:
+h: print this help
+e: extract WINC firmware to a file
+u: update WINC firmware from a file
+c: compare WINC firmware against a file
+>
+Compare WINC firmware against filename: m2m_aio_3a0_v19_7_7.img
+Comparing WINC firmware against m2m_aio_3a0_v19_7_7.img
+Chip ID 1503a0
+.
+WINC and file differ at sector 0x1000.......
+WINC and file differ at sector 0x9000
+WINC and file differ at sector 0xa000
+etc...
+```

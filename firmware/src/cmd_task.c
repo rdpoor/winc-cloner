@@ -159,7 +159,7 @@ void cmd_task_step(void) {
         break;
       case 'c':
         line_reader_start();
-        SYS_CONSOLE_MESSAGE("\nCompare WINC firmware agasinst filename: ");
+        SYS_CONSOLE_MESSAGE("\nCompare WINC firmware against filename: ");
         set_state(CMD_TASK_STATE_START_COMPARING);
         break;
       default:
@@ -179,7 +179,7 @@ void cmd_task_step(void) {
 
     } else if (line_reader_succeeded()) {
       const char *filename = line_reader_get_line();
-      SYS_CONSOLE_PRINT("\nExtracting WINC firmare into %s", filename);
+      SYS_CONSOLE_PRINT("\nExtracting WINC firmware into %s", filename);
       winc_cloner_extract(filename);
       set_state(CMD_TASK_STATE_PRINTING_HELP);
 
@@ -196,7 +196,7 @@ void cmd_task_step(void) {
 
     } else if (line_reader_succeeded()) {
       const char *filename = line_reader_get_line();
-      SYS_CONSOLE_PRINT("\nUpdating WINC firmare from %s", filename);
+      SYS_CONSOLE_PRINT("\nUpdating WINC firmware from %s", filename);
       winc_cloner_update(filename);
       set_state(CMD_TASK_STATE_PRINTING_HELP);
 
@@ -213,7 +213,7 @@ void cmd_task_step(void) {
 
     } else if (line_reader_succeeded()) {
       const char *filename = line_reader_get_line();
-      SYS_CONSOLE_PRINT("\nComparing WINC firmare against %s", filename);
+      SYS_CONSOLE_PRINT("\nComparing WINC firmware against %s", filename);
       winc_cloner_compare(filename);
       set_state(CMD_TASK_STATE_PRINTING_HELP);
 
