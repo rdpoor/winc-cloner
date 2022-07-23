@@ -31,6 +31,7 @@
 #include "app.h"
 
 #include "definitions.h"
+#include "cmd_task.h"
 #include "dir_reader.h"
 #include "winc_cloner.h"
 #include <stdbool.h>
@@ -41,10 +42,7 @@
 #define APP_STATES(M)                                                          \
   M(APP_STATE_IDLE)                                                            \
   M(APP_STATE_AWAIT_FILESYSTEM)                                                \
-  M(APP_STATE_AWAIT_DIRECTORY)                                                 \
-  M(APP_STATE_LIST_FILES)                                                      \
-  M(APP_STATE_TEST_EXTRACT)                                                    \
-  M(APP_STATE_TEST_COMPARE)                                                    \
+  M(APP_STATE_PROCESSING_COMMANDS)                                             \
   M(APP_STATE_SUCCESS)                                                         \
   M(APP_STATE_ERROR)
 
@@ -87,10 +85,12 @@ void APP_Initialize(void) {
   s_app_ctx.mount_retries = 0;
   SYS_CONSOLE_PRINT(
       "\n####################"
-      "\n# winc-imager v%s (https://github.com/rdpoor/winc-imager)"
+      "\n# winc-cloner v%s (https://github.com/rdpoor/winc-cloner)"
       "\n####################\n",
       WINC_IMAGER_VERSION);
+  cmd_task_init();
   dir_reader_init();
+  winc_cloner_init();
 }
 
 void APP_Tasks(void) {
@@ -116,8 +116,7 @@ void APP_Tasks(void) {
                         SYS_FS_Error());
         set_state(APP_STATE_ERROR);
       } else {
-        dir_reader_read_directory(); // start reading directory
-        set_state(APP_STATE_AWAIT_DIRECTORY);
+        set_state(APP_STATE_PROCESSING_COMMANDS);
       }
 
     } else if (s_app_ctx.mount_retries % 100000 == 0) {
@@ -128,41 +127,12 @@ void APP_Tasks(void) {
     }
   } break;
 
-  case APP_STATE_AWAIT_DIRECTORY: {
-    dir_reader_step();
-    if (dir_reader_is_complete()) {
-      set_state(APP_STATE_LIST_FILES);
-    } else if (dir_reader_has_error()) {
+  case APP_STATE_PROCESSING_COMMANDS: {
+    cmd_task_step();
+    if (cmd_task_has_error()) {
       set_state(APP_STATE_ERROR);
     } else {
-      // remain in this state until dir_reader completes
-    }
-  } break;
-
-  case APP_STATE_LIST_FILES: {
-    // Here when dir_reader has completed successfully
-    uint8_t count = dir_reader_filename_count();
-    SYS_CONSOLE_PRINT("\nFound %d file%s", count, count == 1 ? "" : "s");
-    // TODO: may need to split this for loop across states
-    for (uint8_t idx = 0; idx < count; idx++) {
-      SYS_CONSOLE_PRINT("\n%2d: %s", idx + 1, dir_reader_filename_ref(idx));
-    }
-    set_state(APP_STATE_TEST_EXTRACT);
-  } break;
-
-  case APP_STATE_TEST_EXTRACT: {
-    if (winc_cloner_extract("winc_test.img")) {
-      set_state(APP_STATE_TEST_COMPARE);
-    } else {
-      set_state(APP_STATE_ERROR);
-    }
-  } break;
-
-  case APP_STATE_TEST_COMPARE: {
-    if (winc_cloner_compare("winc_test.img")) {
-      set_state(APP_STATE_SUCCESS);
-    } else {
-      set_state(APP_STATE_ERROR);
+      // remain in this state processing user commands.
     }
   } break;
 
