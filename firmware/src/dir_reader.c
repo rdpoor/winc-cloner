@@ -84,6 +84,7 @@ static void endgame(dir_reader_state_t final_state);
 /**
  * @brief Return true if the last chars of str equal suffix.
  */
+__attribute__((unused))
 static bool string_ends_with(const char *str, const char *suffix);
 
 // *****************************************************************************
@@ -147,16 +148,14 @@ void dir_reader_step(void) {
     } else if ((stat.lfname[0] == '\0') && (stat.fname[0] == '\0')) {
       set_state(DIR_READER_STATE_CLOSING_DIRECTORY);
 
-    } else if (string_ends_with(stat.fname, IMAGE_EXTENSION)) {
-      if (s_dir_reader_ctx.file_count >= MAX_IMG_FILENAMES) {
+    } else if (s_dir_reader_ctx.file_count >= MAX_IMG_FILENAMES) {
         SYS_DEBUG_PRINT(
             SYS_ERROR_ERROR, "\ndirectory full, skipping %s", stat.fname);
-      } else {
-        // read succeeded and has a ".img" suffix.  Record it.
-        strncpy((char *)dir_reader_filename_ref(s_dir_reader_ctx.file_count++),
-                (const char *)stat.fname,
-                MAX_FILENAME_LENGTH);
-      }
+    } else {
+      // read succeeded.  Record it.
+      strncpy((char *)dir_reader_filename_ref(s_dir_reader_ctx.file_count++),
+              (const char *)stat.fname,
+              MAX_FILENAME_LENGTH);
     }
     // remain in this state to read more filenames
   } break;
@@ -237,6 +236,7 @@ static void endgame(dir_reader_state_t final_state) {
   }
 }
 
+__attribute__((unused))
 static bool string_ends_with(const char *str, const char *suffix) {
   if (str == NULL) {
     return false;

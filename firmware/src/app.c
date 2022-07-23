@@ -32,6 +32,7 @@
 
 #include "definitions.h"
 #include "dir_reader.h"
+#include "winc_cloner.h"
 #include <stdbool.h>
 
 // *****************************************************************************
@@ -41,8 +42,10 @@
   M(APP_STATE_IDLE)                                                            \
   M(APP_STATE_AWAIT_FILESYSTEM)                                                \
   M(APP_STATE_AWAIT_DIRECTORY)                                                 \
-  M(APP_STATE_DISPLAY_IMG_FILES)                                               \
-  M(APP_STATE_COMPLETE)                                                        \
+  M(APP_STATE_LIST_FILES)                                                      \
+  M(APP_STATE_TEST_EXTRACT)                                                    \
+  M(APP_STATE_TEST_COMPARE)                                                    \
+  M(APP_STATE_SUCCESS)                                                         \
   M(APP_STATE_ERROR)
 
 #define EXPAND_STATE_IDS(_name) _name,
@@ -128,7 +131,7 @@ void APP_Tasks(void) {
   case APP_STATE_AWAIT_DIRECTORY: {
     dir_reader_step();
     if (dir_reader_is_complete()) {
-      set_state(APP_STATE_DISPLAY_IMG_FILES);
+      set_state(APP_STATE_LIST_FILES);
     } else if (dir_reader_has_error()) {
       set_state(APP_STATE_ERROR);
     } else {
@@ -136,18 +139,34 @@ void APP_Tasks(void) {
     }
   } break;
 
-  case APP_STATE_DISPLAY_IMG_FILES: {
+  case APP_STATE_LIST_FILES: {
     // Here when dir_reader has completed successfully
     uint8_t count = dir_reader_filename_count();
-    SYS_CONSOLE_PRINT("\nFound %d image file%s", count, count == 1 ? "" : "s");
+    SYS_CONSOLE_PRINT("\nFound %d file%s", count, count == 1 ? "" : "s");
     // TODO: may need to split this for loop across states
     for (uint8_t idx = 0; idx < count; idx++) {
-      SYS_CONSOLE_PRINT("\n%2d: %s", idx, dir_reader_filename_ref(idx));
+      SYS_CONSOLE_PRINT("\n%2d: %s", idx + 1, dir_reader_filename_ref(idx));
     }
-    set_state(APP_STATE_COMPLETE);
+    set_state(APP_STATE_TEST_EXTRACT);
   } break;
 
-  case APP_STATE_COMPLETE: {
+  case APP_STATE_TEST_EXTRACT: {
+    if (winc_cloner_extract("winc_test.img")) {
+      set_state(APP_STATE_TEST_COMPARE);
+    } else {
+      set_state(APP_STATE_ERROR);
+    }
+  } break;
+
+  case APP_STATE_TEST_COMPARE: {
+    if (winc_cloner_compare("winc_test.img")) {
+      set_state(APP_STATE_SUCCESS);
+    } else {
+      set_state(APP_STATE_ERROR);
+    }
+  } break;
+
+  case APP_STATE_SUCCESS: {
     // here upon successful completion.
   } break;
 
