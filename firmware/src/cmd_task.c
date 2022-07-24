@@ -72,6 +72,8 @@ static void set_state(cmd_task_state_t state);
  */
 static const char *state_name(cmd_task_state_t state);
 
+static void flush_serial_input(void);
+
 // *****************************************************************************
 // Private (static) storage
 
@@ -129,6 +131,7 @@ void cmd_task_step(void) {
                         "\nu: update WINC firmware from a file"
                         "\nc: compare WINC firmware against a file"
                         "\n> ");
+    flush_serial_input();
     set_state(CMD_TASK_STATE_AWAIT_COMMAND);
   } break;
 
@@ -176,6 +179,7 @@ void cmd_task_step(void) {
 
     if (line_reader_has_error()) {
       SYS_DEBUG_MESSAGE(SYS_ERROR_ERROR, "\ncould not read filename");
+      set_state(CMD_TASK_STATE_PRINTING_HELP);  // restart...
 
     } else if (line_reader_succeeded()) {
       const char *filename = line_reader_get_line();
@@ -193,6 +197,7 @@ void cmd_task_step(void) {
 
     if (line_reader_has_error()) {
       SYS_DEBUG_MESSAGE(SYS_ERROR_ERROR, "\ncould not read filename");
+      set_state(CMD_TASK_STATE_PRINTING_HELP);  // restart...
 
     } else if (line_reader_succeeded()) {
       const char *filename = line_reader_get_line();
@@ -210,6 +215,7 @@ void cmd_task_step(void) {
 
     if (line_reader_has_error()) {
       SYS_DEBUG_MESSAGE(SYS_ERROR_ERROR, "\ncould not read filename");
+      set_state(CMD_TASK_STATE_PRINTING_HELP);  // restart...
 
     } else if (line_reader_succeeded()) {
       const char *filename = line_reader_get_line();
@@ -249,6 +255,13 @@ static void set_state(cmd_task_state_t state) {
 static const char *state_name(cmd_task_state_t state) {
   SYS_ASSERT(state < N_STATES, "cmd_task_state_t out of bounds");
   return s_state_names[state];
+}
+
+static void flush_serial_input(void) {
+  char ch;
+  while (SYS_CONSOLE_Read(SYS_CONSOLE_DEFAULT_INSTANCE, &ch, sizeof(ch)) > 0) {
+    // eat any stray characters in the input buffer.
+  }
 }
 
 // *****************************************************************************

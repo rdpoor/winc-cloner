@@ -123,6 +123,11 @@ void line_reader_step(void) {
           dst[i] = '\0';  // null terminate
           set_state(LINE_READER_STATE_SUCCESS);
           break;
+        } else if (dst[i] == '\e') {
+          // User typed escape -- abort this command.
+          dst[i] = '\0';
+          set_state(LINE_READER_STATE_ERROR);
+          break;
         }
       }
       s_line_reader_ctx.n_read += n_read;

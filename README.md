@@ -111,3 +111,12 @@ WINC and file differ at sector 0x9000
 WINC and file differ at sector 0xa000
 etc...
 ```
+
+## Other Notes
+The images/ directory of this repository contains some "All In One" WINC images,
+currently including:
+* m2m_aio_3a0_v19_5_4
+* m2m_aio_3a0_v19_7_7
+
+You can insert the microSD card into your PC and copy these files to it as a way
+to get started.
