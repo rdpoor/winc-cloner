@@ -7,7 +7,7 @@ The [Microchip WINC1500 "Wifi System On Chip"](https://www.microchip.com/en-us/p
 
 The WINC1500 has a long history, which also means that there have been many firmware updates.  To date, the most widely supported mechanism for updating the WINC firmware has been to use a dedicated SAMD21 processor, communicating via USB to a PC which in turn runs a suite of batch files.  This is somewhat complicated and requires a dedicated set of tools.
 
-This `winc-cloner` repository takes a different approach.  It implements an application for the [SAME54 XPRO development system](https://www.microchip.com/en-us/development-tool/ATSAMe54_xpro) with [WINC1500 XPRO](https://www.microchip.com/en-us/development-tool/ATWINC1500-XPRO) and [IO1 XPRO](https://www.microchip.com/en-us/development-tool/ATIO1-XPRO) extension boards.  The application has three main functions:
+This `winc-cloner` repository takes a different approach.  It implements an application for the [SAME54 XPRO development system](https://www.microchip.com/en-us/development-tool/ATSAMe54_xpro) with [WINC1500 XPRO](https://www.microchip.com/en-us/development-tool/ATWINC1500-XPRO) and [IO1 XPRO](https://www.microchip.com/en-us/development-tool/ATIO1-XPRO) extension boards.  `winc-cloner` has three main functions:
 * It can extract the contents of the WINC1500 firmware into a file on a microSD card
 * It can update the WINC1500 firmware from a file on a microSD card.
 * It can compare and verify the existing WINC1500 firmware against a file on a microSD card.
@@ -34,9 +34,10 @@ Connect the components as shown, with:
 # Running `winc-cloner`
 
 On your laptop or PC, launch your serial terminal emulator and connect it to
-the serial port corresponding to the SAME54's EDBG output.
+the serial port corresponding to the SAME54's EDBG output.  Set the terminal
+emulator to 115200 baud, 8n1 framing.
 
-Use MPLAB or the JTAG tool of your choice to load the `winc-cloner` firmware
+Use MPLAB or the tool of your choice to load the `winc-cloner` firmware
 into the SAME54.
 
 When the program runs, you will see something like this:
