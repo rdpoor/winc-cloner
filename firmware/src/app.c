@@ -97,6 +97,7 @@ void APP_Tasks(void) {
   switch (s_app_ctx.state) {
   case APP_STATE_IDLE: {
     // here on idle state.
+    SYS_CONSOLE_MESSAGE("\nWaiting for SD file system");
     set_state(APP_STATE_AWAIT_FILESYSTEM);
   } break;
 
@@ -106,9 +107,8 @@ void APP_Tasks(void) {
     if (SYS_FS_Mount(SD_DEVICE_NAME, SD_MOUNT_NAME, FAT, 0, NULL) ==
         SYS_FS_RES_SUCCESS) {
       // file system mounted.
-      SYS_DEBUG_PRINT(SYS_ERROR_DEBUG,
-                      "\nSD card mounted after %ld attempts",
-                      s_app_ctx.mount_retries);
+      SYS_CONSOLE_PRINT("mounted after %ld attempts",
+                        s_app_ctx.mount_retries);
       // Set current drive so that we do not have to use absolute path.
       if (SYS_FS_CurrentDriveSet(SD_MOUNT_NAME) == SYS_FS_RES_FAILURE) {
         SYS_DEBUG_PRINT(SYS_ERROR_ERROR,
@@ -119,11 +119,9 @@ void APP_Tasks(void) {
         set_state(APP_STATE_PROCESSING_COMMANDS);
       }
 
-    } else if (s_app_ctx.mount_retries % 100000 == 0) {
-      // still waiting for file system to mount...
-      SYS_DEBUG_PRINT(SYS_ERROR_INFO,
-                      "\nSD card not ready after %ld attempts",
-                      s_app_ctx.mount_retries);
+    } else if (s_app_ctx.mount_retries % 10000 == 0) {
+      // waiting for file system to mount...
+      SYS_CONSOLE_MESSAGE(".");
     }
   } break;
 
