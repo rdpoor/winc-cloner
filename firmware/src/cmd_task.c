@@ -30,6 +30,7 @@
 
 #include "cmd_task.h"
 
+#include "app.h"
 #include "definitions.h"
 #include "dir_reader.h"
 #include "line_reader.h"
@@ -100,9 +101,7 @@ void cmd_task_step(void) {
   } break;
 
   case CMD_TASK_STATE_PRINTING_HELP: {
-    SYS_CONSOLE_PRINT("\n=========="
-                      "\nWINC firmware cloning tool"
-                      "\n==========");
+    APP_PrintBanner();
     dir_reader_read_directory();
     set_state(CMD_TASK_STATE_READING_DIRECTORY);
   } break;

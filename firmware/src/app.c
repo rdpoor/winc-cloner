@@ -83,11 +83,7 @@ static app_ctx_t s_app_ctx;
 void APP_Initialize(void) {
   s_app_ctx.state = APP_STATE_IDLE;
   s_app_ctx.mount_retries = 0;
-  SYS_CONSOLE_PRINT(
-      "\n####################"
-      "\n# winc-cloner v%s (https://github.com/rdpoor/winc-cloner)"
-      "\n####################\n",
-      WINC_IMAGER_VERSION);
+  APP_PrintBanner();
   cmd_task_init();
   dir_reader_init();
   winc_cloner_init();
@@ -143,6 +139,14 @@ void APP_Tasks(void) {
   } break;
 
   } // switch
+}
+
+void APP_PrintBanner(void) {
+  SYS_CONSOLE_PRINT(
+      "\n\n####################"
+      "\n# winc-cloner v%s (https://github.com/rdpoor/winc-cloner)"
+      "\n####################\n",
+      WINC_IMAGER_VERSION);
 }
 
 // *****************************************************************************

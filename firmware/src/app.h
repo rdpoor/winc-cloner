@@ -46,7 +46,7 @@ extern "C" {
 // *****************************************************************************
 // Public types and definitions
 
-#define WINC_IMAGER_VERSION "0.0.2"
+#define WINC_IMAGER_VERSION "0.0.3"
 
 // TODO: consider functional interface
 #define SD_DEVICE_NAME "/dev/mmcblka1"
@@ -64,6 +64,11 @@ void APP_Initialize(void);
  * @brief Called repeatedly from main super-loop.
  */
 void APP_Tasks(void);
+
+/**
+ * @brief Print welcoming banner.
+ */
+void APP_PrintBanner(void);
 
 // *****************************************************************************
 // End of file
