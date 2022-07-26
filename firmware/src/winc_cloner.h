@@ -62,7 +62,9 @@ void winc_cloner_init(void);
 bool winc_cloner_extract(const char *filename);
 
 /**
- * @brief Update the entire contents of the WINC firmware image from a file.
+ * @brief Update the contents of the WINC firmware image from a file.
+ *
+ * Note: winc_cloner_update() does not touch the PLL and GAIN tables.
  *
  * @return true on success
  */
@@ -74,6 +76,14 @@ bool winc_cloner_update(const char *filename);
  * @return true on if the WINC firmware is identical to the file contents.
  */
 bool winc_cloner_compare(const char *filename);
+
+/**
+ * @brief Rebuild the PLL tables.  Required if gain table have changed, or if
+ * the PLL tables were clobbered by winc-cloner v 0.0.3 or earlier.
+ *
+ * @return true on success
+ */
+bool winc_cloner_rebuild_pll(void);
 
 // *****************************************************************************
 // End of file

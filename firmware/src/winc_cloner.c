@@ -41,9 +41,9 @@ Including:
  sint8 spi_flash_erase(uint32 u32Offset, uint32 u32Sz)
  sint8 spi_flash_write(uint8* pu8Buf, uint32 u32Offset, uint32 u32Sz)
 
-Since we're cloning the contents of the WINC1500, we don't need or want the
-error checking that the WDRV_WINC_xxx() functions provide.  In fact, they won't
-work with older versions of the WINC firmware.
+Since we're cloning the contents of the WINC1500, we neither need or want the
+error checking that the WDRV_WINC_xxx() functions provide.  In fact, that error
+checking prevents the driver from working with older WINC firmware.
 
 Code example from the user guide:
 
@@ -99,18 +99,57 @@ int main() {
 #include "winc_cloner.h"
 
 #include "definitions.h"
+#include "efuse.h"
 #include "m2m_wifi.h"
 #include "spi_flash.h"
 #include "spi_flash_map.h"
+#include <math.h>
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
+#include <string.h>
 
 // *****************************************************************************
 // Private types and definitions
 
+#define PLL_MAGIC_NUMBER 0x12345675
+#define NUM_CHANNELS 14
+#define NUM_FREQS 84
+
+typedef struct {
+  uint32_t u32PllInternal1;
+  uint32_t u32PllInternal4;
+  uint32_t WlanRx1;
+  uint32_t WlanRx2;
+  uint32_t WlanRx3;
+  uint32_t WlanTx1;
+  uint32_t WlanTx2;
+  uint32_t WlanTx3;
+} tstrChannelParm;
+
 // *****************************************************************************
 // Private (static, forward) declarations
+
+/**
+ * @brief Read one sector from WINC flash memory into dst.
+ *
+ * NOTE: addr must fall on a FLASH_SECTOR_SZ boundary.
+ * NOTE: dst must be at least FLASH_SECTOR_SZ bytes big.
+ */
+static bool winc_sector_read(uint8_t *dst, uint32_t src_addr);
+
+/**
+ * @brief Write one sector to WINC flash memory from src.
+ *
+ * NOTE: addr must fall on a FLASH_SECTOR_SZ boundary.
+ * NOTE: src must be at least FLASH_SECTOR_SZ bytes big.
+ *
+ * This function first reads a sector of data into a static buffer,
+ * compares it against the src data.  If they differ, it erases the
+ * sector and writes the src data to the WINC.  Otherwise, it leaves
+ * the WINC flash untouched.
+ */
+static bool winc_sector_write(uint8_t *src, uint32_t dst_addr);
 
 static bool cloner_aux(const char *filename,
                        SYS_FS_FILE_OPEN_ATTRIBUTES file_mode,
@@ -123,11 +162,16 @@ static bool compare_loop(SYS_FS_HANDLE file_handle, size_t n_bytes);
 
 static bool buffers_are_equal(uint8_t *buf_a, uint8_t *buf_b, size_t n_bytes);
 
+static int32_t winc3400_pll_table_build(uint8_t *pBuffer, uint32_t freqOffset);
+
 // *****************************************************************************
 // Private (static) storage
 
 uint8_t s_xfer_buf[FLASH_SECTOR_SZ];  // transfer between WINC flash and file
 uint8_t s_xfer_buf2[FLASH_SECTOR_SZ]; // transfer between WINC flash and file
+
+EFUSEProdStruct efuseStruct = {0};
+uint8_t pllFlashSector[M2M_PLL_FLASH_SZ] = {0};
 
 // *****************************************************************************
 // Public code
@@ -164,8 +208,128 @@ bool winc_cloner_compare(const char *filename) {
   return ret;
 }
 
+bool winc_cloner_rebuild_pll(void) {
+
+// fetch a copy of the PLL / GAIN tables
+if (!winc_sector_read(s_xfer_buf, M2M_PLL_FLASH_OFFSET)) {
+  SYS_DEBUG_PRINT(
+    SYS_ERROR_ERROR,
+    "Could not read existing PLL / GAIN sector from WINC\r\n");
+  return false;
+}
+
+// Read XO offset
+if (read_efuse_struct(&efuseStruct, 0) != EFUSE_SUCCESS) {
+    SYS_DEBUG_PRINT(
+      SYS_ERROR_ERROR,
+      "Failed to read the efuse table\r\n");
+    return false;
+}
+
+  int32_t ret = 0;
+  // Overwrite the PLL section of in-RAM sectir with newly computed PLL data.
+  ret = winc3400_pll_table_build(s_xfer_buf, efuseStruct.FreqOffset);
+  if (ret <= 0) {
+    SYS_DEBUG_PRINT(
+      SYS_ERROR_ERROR,
+      "Failed to construct PLL table, err=%d\r\n",
+      ret);
+    return false;
+  } else {
+    SYS_DEBUG_PRINT(
+      SYS_ERROR_INFO,
+      "Successfully constructed PLL table with size %d bytes\r\n",
+      ret);
+  }
+
+  // Write the PLL / DATA sector to the WINC
+  if (!winc_sector_write(s_xfer_buf, M2M_PLL_FLASH_OFFSET)) {
+    SYS_DEBUG_PRINT(
+      SYS_ERROR_ERROR,
+      "Failed to write PLL / DATA sector to the WINC\r\n");
+    return false;
+  }
+
+  return true;
+}
+
 // *****************************************************************************
 // Private (static) code
+
+static bool winc_sector_read(uint8_t *dst, uint32_t src_addr) {
+  if ((src_addr % FLASH_SECTOR_SZ) != 0) {
+    SYS_DEBUG_PRINT(SYS_ERROR_ERROR,
+                    "\nAddress 0x%lx not aligned with FLASH_SECTOR_SZ",
+                    src_addr);
+    return false;
+  }
+  uint8_t ret = spi_flash_read(dst, src_addr, FLASH_SECTOR_SZ);
+  if (ret != M2M_SUCCESS) {
+    // WINC read failed.
+    SYS_DEBUG_PRINT(SYS_ERROR_ERROR,
+                    "\nFailed to read %ld WINC bytes at 0x%lx",
+                    FLASH_SECTOR_SZ,
+                    src_addr);
+    return false;
+  }
+  SYS_DEBUG_MESSAGE(SYS_ERROR_INFO, ".");
+  return true;
+}
+
+static bool winc_sector_write(uint8_t *src, uint32_t dst_addr) {
+  static uint8_t buf2[FLASH_SECTOR_SZ];
+
+  if ((dst_addr % FLASH_SECTOR_SZ) != 0) {
+    SYS_DEBUG_PRINT(SYS_ERROR_ERROR,
+                    "\nAddress 0x%lx not aligned with FLASH_SECTOR_SZ",
+                    dst_addr);
+    return false;
+  }
+
+  // if ((dst_addr >= M2M_PLL_FLASH_OFFSET) &&
+  //     (dst_addr < M2M_PLL_FLASH_OFFSET + M2M_CONFIG_SECT_TOTAL_SZ)) {
+  //   // do not overwrite PLL and GAIN settings: see spi_flash_map.h
+  //   SYS_DEBUG_MESSAGE(SYS_ERROR_INFO, "x");
+  //   return true;
+  // }
+
+  uint8_t ret = spi_flash_read(buf2, dst_addr, FLASH_SECTOR_SZ);
+  if (ret != M2M_SUCCESS) {
+    SYS_DEBUG_PRINT(SYS_ERROR_ERROR,
+                    "\nFailed to read %ld WINC bytes at 0x%lx",
+                    FLASH_SECTOR_SZ,
+                    dst_addr);
+    return false;
+  }
+
+  if (buffers_are_equal(src, buf2, FLASH_SECTOR_SZ)) {
+    // buffers are equal: return immediately
+    SYS_DEBUG_MESSAGE(SYS_ERROR_INFO, "=");
+    return true;
+  }
+
+  // buffer differ: erase the sector and write from src
+  if (spi_flash_erase(dst_addr, FLASH_SECTOR_SZ) != M2M_SUCCESS) {
+    // winc erase failed
+    SYS_DEBUG_PRINT(SYS_ERROR_ERROR,
+                    "\nFailed to erase %ld WINC bytes at 0x%lx",
+                    FLASH_SECTOR_SZ,
+                    dst_addr);
+    return false;
+  }
+
+  // Sector has been erased.  Now write the data.
+  if (spi_flash_write(src, dst_addr, FLASH_SECTOR_SZ) != M2M_SUCCESS) {
+    // winc write failed
+    SYS_DEBUG_PRINT(SYS_ERROR_ERROR,
+                    "\nFailed to write %ld WINC bytes at 0x%lx",
+                    FLASH_SECTOR_SZ,
+                    dst_addr);
+    return false;
+  }
+  SYS_DEBUG_MESSAGE(SYS_ERROR_INFO, "!");
+  return true;
+}
 
 static bool cloner_aux(const char *filename,
                        SYS_FS_FILE_OPEN_ATTRIBUTES file_mode,
@@ -196,20 +360,13 @@ static bool cloner_aux(const char *filename,
 
 static bool extract_loop(SYS_FS_HANDLE file_handle, size_t n_bytes) {
   uint32_t src_addr = 0;
-  uint8_t ret;
 
   while (n_bytes > 0) {
     size_t to_xfer = n_bytes;
     if (to_xfer > FLASH_SECTOR_SZ) {
       to_xfer = FLASH_SECTOR_SZ;
     }
-    ret = spi_flash_read(s_xfer_buf, src_addr, to_xfer);
-    if (ret != M2M_SUCCESS) {
-      // WINC read failed.
-      SYS_DEBUG_PRINT(SYS_ERROR_ERROR,
-                      "\nFailed to read %ld WINC bytes at 0x%lx",
-                      to_xfer,
-                      src_addr);
+    if (!winc_sector_read(s_xfer_buf, src_addr)) {
       return false;
     }
     if (SYS_FS_FileWrite(file_handle, s_xfer_buf, to_xfer) < 0) {
@@ -228,57 +385,28 @@ static bool extract_loop(SYS_FS_HANDLE file_handle, size_t n_bytes) {
 
 static bool update_loop(SYS_FS_HANDLE file_handle, size_t n_bytes) {
   uint32_t dst_addr = 0;
-  uint8_t ret;
 
   while (n_bytes > 0) {
     size_t to_xfer = n_bytes;
     if (to_xfer > FLASH_SECTOR_SZ) {
       to_xfer = FLASH_SECTOR_SZ;
     }
-    // Read a sector of data from the file and from the WINC.  If they differ,
-    // erase the sector and write the file data to the WINC.
-    if (SYS_FS_FileRead(file_handle, s_xfer_buf, to_xfer) < 0) {
-      // file read failed.
-      SYS_DEBUG_PRINT(
-          SYS_ERROR_ERROR, "\nFailed to read %ld bytes from file", to_xfer);
-      return false;
-    }
-    ret = spi_flash_read(s_xfer_buf2, dst_addr, to_xfer);
-    if (ret != M2M_SUCCESS) {
-      SYS_DEBUG_PRINT(SYS_ERROR_ERROR,
-                      "\nFailed to read %ld WINC bytes at 0x%lx",
-                      to_xfer,
-                      dst_addr);
-      return false;
-    }
     if ((dst_addr >= M2M_PLL_FLASH_OFFSET) &&
-               (dst_addr < M2M_PLL_FLASH_OFFSET + M2M_CONFIG_SECT_TOTAL_SZ)) {
+        (dst_addr < M2M_PLL_FLASH_OFFSET + M2M_CONFIG_SECT_TOTAL_SZ)) {
       // do not overwrite PLL and GAIN settings: see spi_flash_map.h
       SYS_DEBUG_MESSAGE(SYS_ERROR_INFO, "x");
-
-    } else if (buffers_are_equal(s_xfer_buf, s_xfer_buf2, to_xfer)) {
-      // buffers are equal: just proceed to the next...
-      SYS_DEBUG_MESSAGE(SYS_ERROR_INFO, ".");
-
     } else {
-      // buffer differ: erase the sector and write from file
-      if (spi_flash_erase(dst_addr, to_xfer) != M2M_SUCCESS) {
-        // winc erase failed
-        SYS_DEBUG_PRINT(SYS_ERROR_ERROR,
-                        "\nFailed to erase %ld WINC bytes at 0x%lx",
-                        to_xfer,
-                        dst_addr);
+      // Read a sector of data from the file and from the WINC.  If they differ,
+      // erase the sector and write the file data to the WINC.
+      if (SYS_FS_FileRead(file_handle, s_xfer_buf, to_xfer) < 0) {
+        // file read failed.
+        SYS_DEBUG_PRINT(
+            SYS_ERROR_ERROR, "\nFailed to read %ld bytes from file", to_xfer);
         return false;
       }
-      if (spi_flash_write(s_xfer_buf, dst_addr, to_xfer) != M2M_SUCCESS) {
-        // winc write failed
-        SYS_DEBUG_PRINT(SYS_ERROR_ERROR,
-                        "\nFailed to write %ld WINC bytes at 0x%lx",
-                        to_xfer,
-                        dst_addr);
+      if (winc_sector_write(s_xfer_buf, dst_addr)) {
         return false;
       }
-      SYS_DEBUG_MESSAGE(SYS_ERROR_INFO, "!");
     }
     // advance to next sector
     n_bytes -= to_xfer;
@@ -290,7 +418,6 @@ static bool update_loop(SYS_FS_HANDLE file_handle, size_t n_bytes) {
 
 static bool compare_loop(SYS_FS_HANDLE file_handle, size_t n_bytes) {
   uint32_t dst_addr = 0;
-  uint8_t ret;
 
   while (n_bytes > 0) {
     size_t to_xfer = n_bytes;
@@ -304,12 +431,7 @@ static bool compare_loop(SYS_FS_HANDLE file_handle, size_t n_bytes) {
           SYS_ERROR_ERROR, "\nFailed to read %ld bytes from file", to_xfer);
       return false;
     }
-    ret = spi_flash_read(s_xfer_buf2, dst_addr, to_xfer);
-    if (ret != M2M_SUCCESS) {
-      SYS_DEBUG_PRINT(SYS_ERROR_ERROR,
-                      "\nFailed to read %ld WINC bytes at 0x%lx",
-                      to_xfer,
-                      dst_addr);
+    if (!winc_sector_read(s_xfer_buf2, dst_addr)) {
       return false;
     }
     if (buffers_are_equal(s_xfer_buf, s_xfer_buf2, to_xfer)) {
@@ -334,6 +456,107 @@ static bool buffers_are_equal(uint8_t *buf_a, uint8_t *buf_b, size_t n_bytes) {
     }
   }
   return true;
+}
+
+static int32_t winc3400_pll_table_build(uint8_t *pBuffer, uint32_t freqOffset) {
+  uint32_t val32;
+  uint32_t magic[2];
+  tstrChannelParm strChnParm[NUM_CHANNELS];
+  uint32_t
+      strFreqParam[NUM_FREQS + 1]; /* 1 extra (1920.0) for cpll compensate */
+  uint8_t ch, freq;
+  int32_t i32xo_offset;
+  double xo_offset;
+  double xo_to_VCO;
+  double lo;
+
+  if (NULL == pBuffer) {
+    SYS_DEBUG_PRINT(SYS_ERROR_ERROR,
+                    "error: '%s' invalid parameters supplied\r\n",
+                    __FUNCTION__);
+    return -1;
+  }
+
+  i32xo_offset = (freqOffset > (1 << 14)) ? freqOffset - (1 << 15) : freqOffset;
+  xo_offset = ((double)i32xo_offset) / (1 << 6);
+  xo_to_VCO = 2 * 26.0 * (1 + (xo_offset / 1000000.0));
+
+  SYS_CONSOLE_PRINT("Creating WiFi channel lookup table for PLL with "
+                    "xo_offset = %3.4lf\r\n",
+                    xo_offset);
+
+  for (ch = 0, lo = 4824.0; ch < NUM_CHANNELS; ch++, lo += 10) {
+    uint32_t n2, f, m, g;
+    double lo_actual;
+    double n1, dec, inv;
+    double gMoG;
+
+    if (ch == 13)
+      lo = 4968.0;
+
+    n2 = (uint32_t)(lo / xo_to_VCO);
+    f = (uint32_t)(((lo / xo_to_VCO) - n2) * (1 << 19) + 0.5);
+
+    lo_actual = (double)xo_to_VCO * (double)(n2 + ((double)f / (1 << 19)));
+
+    val32 = ((n2 & 0x1fful) << 19) | ((f & 0x7fffful) << 0);
+    val32 |= (1ul << 31);
+
+    strChnParm[ch].u32PllInternal1 = val32;
+
+    m = (uint32_t)(lo_actual / 80.0);
+    g = (uint32_t)((lo_actual / 80.0 - m) * (1 << 19));
+    gMoG = (double)(m + ((double)g / (1 << 19)));
+
+    val32 = ((m & 0x1fful) << 19) | ((g & 0x7fffful) << 0);
+    val32 &= ~(1ul << 28); /* Dither must be disbled */
+
+    strChnParm[ch].u32PllInternal4 = val32;
+
+    n1 = (uint32_t)trunc(((60.0 / gMoG) * (1ul << 22)));
+    dec = (uint32_t)round((((60.0 / gMoG) * (1ul << 22)) - n1) * (1ul << 31));
+    inv = (uint32_t)trunc(((1ul << 22) / (n1 / (1ul << 11))) + 0.5);
+
+    strChnParm[ch].WlanRx1 = (uint32_t)n1;
+    strChnParm[ch].WlanRx3 = (uint32_t)dec;
+    strChnParm[ch].WlanRx2 = (uint32_t)inv;
+
+    n1 = (uint32_t)trunc(((gMoG / 60.0) * (1ul << 22)));
+    dec = (uint32_t)round((((gMoG / 60.0) * (1ul << 22)) - n1) * (1ul << 31));
+    inv = (uint32_t)trunc(((1ul << 22) / (n1 / (1ul << 11))) + 0.5);
+
+    strChnParm[ch].WlanTx1 = (uint32_t)n1;
+    strChnParm[ch].WlanTx3 = (uint32_t)dec;
+    strChnParm[ch].WlanTx2 = (uint32_t)inv;
+  }
+
+  SYS_CONSOLE_PRINT(
+      "Creating frequency lookup table for PLL with xo_offset = %3.4f.\r\n",
+      xo_offset);
+
+  for (freq = 0, lo = 3840.0; freq < NUM_FREQS + 1; freq++, lo += 2) {
+    uint32_t n2, f;
+
+    if (freq == 1)
+      lo = 4802.0;
+
+    n2 = (uint32_t)(lo / xo_to_VCO);
+    f = (uint32_t)(((lo / xo_to_VCO) - n2) * (1 << 19) + 0.5);
+
+    strFreqParam[freq] = ((n2 & 0x1fful) << 19) | ((f & 0x7fffful) << 0);
+  }
+
+  magic[0] = PLL_MAGIC_NUMBER;
+  magic[1] = freqOffset;
+
+  memcpy(pBuffer, &magic, sizeof(magic));
+  pBuffer += sizeof(magic);
+
+  memcpy(pBuffer, &strChnParm, sizeof(strChnParm));
+  pBuffer += sizeof(strChnParm);
+
+  memcpy(pBuffer, &strFreqParam, sizeof(strFreqParam));
+  return sizeof(magic) + sizeof(strChnParm) + sizeof(strFreqParam);
 }
 
 // *****************************************************************************

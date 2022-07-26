@@ -51,6 +51,7 @@
   M(CMD_TASK_STATE_START_EXTRACTING)                                           \
   M(CMD_TASK_STATE_START_UPDATING)                                             \
   M(CMD_TASK_STATE_START_COMPARING)                                            \
+  M(CMD_TASK_STATE_START_REBUILDING)                                           \
   M(CMD_TASK_STATE_ERROR)
 
 #define EXPAND_STATE_IDS(_name) _name,
@@ -129,6 +130,7 @@ void cmd_task_step(void) {
                         "\ne: extract WINC firmware to a file"
                         "\nu: update WINC firmware from a file"
                         "\nc: compare WINC firmware against a file"
+                        "\nr: recompute / rebuild WINC PLL tables"
                         "\n> ");
     flush_serial_input();
     set_state(CMD_TASK_STATE_AWAIT_COMMAND);
@@ -151,18 +153,22 @@ void cmd_task_step(void) {
         break;
       case 'e':
         line_reader_start();
-        SYS_CONSOLE_MESSAGE("\nExtract WINC firmware into filename: ");
+        SYS_CONSOLE_MESSAGE("extract WINC firmware into filename: ");
         set_state(CMD_TASK_STATE_START_EXTRACTING);
         break;
       case 'u':
         line_reader_start();
-        SYS_CONSOLE_MESSAGE("\nUpdate WINC firmware from filename: ");
+        SYS_CONSOLE_MESSAGE("update WINC firmware from filename: ");
         set_state(CMD_TASK_STATE_START_UPDATING);
         break;
       case 'c':
         line_reader_start();
-        SYS_CONSOLE_MESSAGE("\nCompare WINC firmware against filename: ");
+        SYS_CONSOLE_MESSAGE("compare WINC firmware against filename: ");
         set_state(CMD_TASK_STATE_START_COMPARING);
+        break;
+      case 'r':
+        SYS_CONSOLE_MESSAGE("recompute / rebuild WINC PLL tables");
+        set_state(CMD_TASK_STATE_START_REBUILDING);
         break;
       default:
         SYS_CONSOLE_PRINT("\nUnrecognized command '%c'", buf[0]);
@@ -225,6 +231,12 @@ void cmd_task_step(void) {
     } else {
       // remain in this state until line_reader completes.
     }
+  } break;
+
+  case CMD_TASK_STATE_START_REBUILDING: {
+    // Arrive here to rebuild / repair the PLL tables based on the gain tables.
+    winc_cloner_rebuild_pll();
+    set_state(CMD_TASK_STATE_PRINTING_HELP);
   } break;
 
   case CMD_TASK_STATE_ERROR: {

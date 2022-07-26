@@ -325,6 +325,7 @@
       <itemPath>../src/winc_cloner.h</itemPath>
       <itemPath>../src/cmd_task.h</itemPath>
       <itemPath>../src/line_reader.h</itemPath>
+      <itemPath>../src/efuse.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -506,6 +507,7 @@
       <itemPath>../src/winc_cloner.c</itemPath>
       <itemPath>../src/cmd_task.c</itemPath>
       <itemPath>../src/line_reader.c</itemPath>
+      <itemPath>../src/efuse.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
