@@ -101,6 +101,7 @@ int main() {
 #include "definitions.h"
 #include "m2m_wifi.h"
 #include "spi_flash.h"
+#include "spi_flash_map.h"
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
@@ -250,8 +251,15 @@ static bool update_loop(SYS_FS_HANDLE file_handle, size_t n_bytes) {
                       dst_addr);
       return false;
     }
-    if (buffers_are_equal(s_xfer_buf, s_xfer_buf2, to_xfer)) {
+    if ((dst_addr >= M2M_PLL_FLASH_OFFSET) &&
+               (dst_addr < M2M_PLL_FLASH_OFFSET + M2M_CONFIG_SECT_TOTAL_SZ)) {
+      // do not overwrite PLL and GAIN settings: see spi_flash_map.h
+      SYS_DEBUG_MESSAGE(SYS_ERROR_INFO, "x");
+
+    } else if (buffers_are_equal(s_xfer_buf, s_xfer_buf2, to_xfer)) {
+      // buffers are equal: just proceed to the next...
       SYS_DEBUG_MESSAGE(SYS_ERROR_INFO, ".");
+
     } else {
       // buffer differ: erase the sector and write from file
       if (spi_flash_erase(dst_addr, to_xfer) != M2M_SUCCESS) {
