@@ -76,6 +76,8 @@ static const char *state_name(cmd_task_state_t state);
 
 static void flush_serial_input(void);
 
+static uint8_t downcase(uint8_t ch);
+
 // *****************************************************************************
 // Private (static) storage
 
@@ -147,7 +149,7 @@ void cmd_task_step(void) {
       SYS_DEBUG_MESSAGE(SYS_ERROR_ERROR, "\nError while reading from console");
       set_state(CMD_TASK_STATE_ERROR);
     } else if (n_read > 0) {
-      switch (buf[0]) {
+      switch (downcase(buf[0])) {
       case 'h':
         set_state(CMD_TASK_STATE_PRINTING_HELP);
         break;
@@ -273,6 +275,13 @@ static void flush_serial_input(void) {
   while (SYS_CONSOLE_Read(SYS_CONSOLE_DEFAULT_INSTANCE, &ch, sizeof(ch)) > 0) {
     // eat any stray characters in the input buffer.
   }
+}
+
+static uint8_t downcase(uint8_t ch) {
+  if ((ch >= 'A') && (ch <= 'Z')) {
+    ch += 'a' - 'A';
+  }
+  return ch;
 }
 
 // *****************************************************************************
