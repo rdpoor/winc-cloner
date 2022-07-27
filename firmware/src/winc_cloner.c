@@ -127,6 +127,14 @@ typedef struct {
   uint32_t WlanTx3;
 } tstrChannelParm;
 
+typedef enum {
+  SECTOR_OKAY,
+  SECTOR_ERROR,
+  SECTOR_EQUAL,
+  SECTOR_DIFFER,
+  SECTOR_SKIPPED,
+} sector_result_t;
+
 // *****************************************************************************
 // Private (static, forward) declarations
 
@@ -136,7 +144,7 @@ typedef struct {
  * NOTE: addr must fall on a FLASH_SECTOR_SZ boundary.
  * NOTE: dst must be at least FLASH_SECTOR_SZ bytes big.
  */
-static bool winc_sector_read(uint8_t *dst, uint32_t src_addr);
+static sector_result_t winc_sector_read(uint8_t *dst, uint32_t src_addr);
 
 /**
  * @brief Write one sector to WINC flash memory from src.
@@ -149,7 +157,7 @@ static bool winc_sector_read(uint8_t *dst, uint32_t src_addr);
  * sector and writes the src data to the WINC.  Otherwise, it leaves
  * the WINC flash untouched.
  */
-static bool winc_sector_write(uint8_t *src, uint32_t dst_addr);
+static sector_result_t winc_sector_write(uint8_t *src, uint32_t dst_addr);
 
 static bool cloner_aux(const char *filename,
                        SYS_FS_FILE_OPEN_ATTRIBUTES file_mode,
@@ -210,44 +218,44 @@ bool winc_cloner_compare(const char *filename) {
 
 bool winc_cloner_rebuild_pll(void) {
 
-// fetch a copy of the PLL / GAIN tables
-if (!winc_sector_read(s_xfer_buf, M2M_PLL_FLASH_OFFSET)) {
-  SYS_DEBUG_PRINT(
-    SYS_ERROR_ERROR,
-    "Could not read existing PLL / GAIN sector from WINC\r\n");
-  return false;
-}
-
-// Read XO offset
-if (read_efuse_struct(&efuseStruct, 0) != EFUSE_SUCCESS) {
-    SYS_DEBUG_PRINT(
-      SYS_ERROR_ERROR,
-      "Failed to read the efuse table\r\n");
+  // fetch a copy of the PLL / GAIN tables
+  if (winc_sector_read(s_xfer_buf, M2M_PLL_FLASH_OFFSET) != SECTOR_OKAY) {
+    SYS_DEBUG_PRINT(SYS_ERROR_ERROR,
+                    "Could not read existing PLL / GAIN sector from WINC\r\n");
     return false;
-}
+  }
+
+  // Read XO offset
+  if (read_efuse_struct(&efuseStruct, 0) != EFUSE_SUCCESS) {
+    SYS_DEBUG_PRINT(SYS_ERROR_ERROR, "Failed to read the efuse table\r\n");
+    return false;
+  }
 
   int32_t ret = 0;
   // Overwrite the PLL section of in-RAM sectir with newly computed PLL data.
   ret = winc3400_pll_table_build(s_xfer_buf, efuseStruct.FreqOffset);
   if (ret <= 0) {
     SYS_DEBUG_PRINT(
-      SYS_ERROR_ERROR,
-      "Failed to construct PLL table, err=%d\r\n",
-      ret);
+        SYS_ERROR_ERROR, "Failed to construct PLL table, err=%d\r\n", ret);
     return false;
   } else {
-    SYS_DEBUG_PRINT(
-      SYS_ERROR_INFO,
-      "Successfully constructed PLL table with size %d bytes\r\n",
-      ret);
+    SYS_DEBUG_PRINT(SYS_ERROR_INFO,
+                    "Successfully constructed PLL table with size %d bytes\r\n",
+                    ret);
   }
 
   // Write the PLL / DATA sector to the WINC
-  if (!winc_sector_write(s_xfer_buf, M2M_PLL_FLASH_OFFSET)) {
-    SYS_DEBUG_PRINT(
-      SYS_ERROR_ERROR,
-      "Failed to write PLL / DATA sector to the WINC\r\n");
+  sector_result_t res = winc_sector_write(s_xfer_buf, M2M_PLL_FLASH_OFFSET);
+  if (res == SECTOR_ERROR) {
+    SYS_DEBUG_PRINT(SYS_ERROR_ERROR,
+                    "Failed to write PLL / DATA sector to the WINC\r\n");
     return false;
+
+  } else if (res == SECTOR_EQUAL) {
+    SYS_DEBUG_PRINT(SYS_ERROR_INFO, "PLL / DATA sector up to date\r\n");
+
+  } else if (res == SECTOR_DIFFER) {
+    SYS_DEBUG_PRINT(SYS_ERROR_INFO, "PLL / DATA sector updated\r\n");
   }
 
   return true;
@@ -256,12 +264,12 @@ if (read_efuse_struct(&efuseStruct, 0) != EFUSE_SUCCESS) {
 // *****************************************************************************
 // Private (static) code
 
-static bool winc_sector_read(uint8_t *dst, uint32_t src_addr) {
+static sector_result_t winc_sector_read(uint8_t *dst, uint32_t src_addr) {
   if ((src_addr % FLASH_SECTOR_SZ) != 0) {
     SYS_DEBUG_PRINT(SYS_ERROR_ERROR,
                     "\nAddress 0x%lx not aligned with FLASH_SECTOR_SZ",
                     src_addr);
-    return false;
+    return SECTOR_ERROR;
   }
   uint8_t ret = spi_flash_read(dst, src_addr, FLASH_SECTOR_SZ);
   if (ret != M2M_SUCCESS) {
@@ -270,28 +278,20 @@ static bool winc_sector_read(uint8_t *dst, uint32_t src_addr) {
                     "\nFailed to read %ld WINC bytes at 0x%lx",
                     FLASH_SECTOR_SZ,
                     src_addr);
-    return false;
+    return SECTOR_ERROR;
   }
-  SYS_DEBUG_MESSAGE(SYS_ERROR_INFO, ".");
-  return true;
+  return SECTOR_OKAY;
 }
 
-static bool winc_sector_write(uint8_t *src, uint32_t dst_addr) {
+static sector_result_t winc_sector_write(uint8_t *src, uint32_t dst_addr) {
   static uint8_t buf2[FLASH_SECTOR_SZ];
 
   if ((dst_addr % FLASH_SECTOR_SZ) != 0) {
     SYS_DEBUG_PRINT(SYS_ERROR_ERROR,
                     "\nAddress 0x%lx not aligned with FLASH_SECTOR_SZ",
                     dst_addr);
-    return false;
+    return SECTOR_ERROR;
   }
-
-  // if ((dst_addr >= M2M_PLL_FLASH_OFFSET) &&
-  //     (dst_addr < M2M_PLL_FLASH_OFFSET + M2M_CONFIG_SECT_TOTAL_SZ)) {
-  //   // do not overwrite PLL and GAIN settings: see spi_flash_map.h
-  //   SYS_DEBUG_MESSAGE(SYS_ERROR_INFO, "x");
-  //   return true;
-  // }
 
   uint8_t ret = spi_flash_read(buf2, dst_addr, FLASH_SECTOR_SZ);
   if (ret != M2M_SUCCESS) {
@@ -299,13 +299,12 @@ static bool winc_sector_write(uint8_t *src, uint32_t dst_addr) {
                     "\nFailed to read %ld WINC bytes at 0x%lx",
                     FLASH_SECTOR_SZ,
                     dst_addr);
-    return false;
+    return SECTOR_ERROR;
   }
 
   if (buffers_are_equal(src, buf2, FLASH_SECTOR_SZ)) {
     // buffers are equal: return immediately
-    SYS_DEBUG_MESSAGE(SYS_ERROR_INFO, "=");
-    return true;
+    return SECTOR_EQUAL;
   }
 
   // buffer differ: erase the sector and write from src
@@ -315,7 +314,7 @@ static bool winc_sector_write(uint8_t *src, uint32_t dst_addr) {
                     "\nFailed to erase %ld WINC bytes at 0x%lx",
                     FLASH_SECTOR_SZ,
                     dst_addr);
-    return false;
+    return SECTOR_ERROR;
   }
 
   // Sector has been erased.  Now write the data.
@@ -325,10 +324,9 @@ static bool winc_sector_write(uint8_t *src, uint32_t dst_addr) {
                     "\nFailed to write %ld WINC bytes at 0x%lx",
                     FLASH_SECTOR_SZ,
                     dst_addr);
-    return false;
+    return SECTOR_ERROR;
   }
-  SYS_DEBUG_MESSAGE(SYS_ERROR_INFO, "!");
-  return true;
+  return SECTOR_DIFFER;
 }
 
 static bool cloner_aux(const char *filename,
@@ -366,7 +364,11 @@ static bool extract_loop(SYS_FS_HANDLE file_handle, size_t n_bytes) {
     if (to_xfer > FLASH_SECTOR_SZ) {
       to_xfer = FLASH_SECTOR_SZ;
     }
-    if (!winc_sector_read(s_xfer_buf, src_addr)) {
+    if (winc_sector_read(s_xfer_buf, src_addr) != SECTOR_OKAY) {
+      SYS_DEBUG_PRINT(SYS_ERROR_ERROR,
+                      "\nFailed to read %ld bytes at 0x%ld from WINC",
+                      to_xfer,
+                      src_addr);
       return false;
     }
     if (SYS_FS_FileWrite(file_handle, s_xfer_buf, to_xfer) < 0) {
@@ -385,29 +387,47 @@ static bool extract_loop(SYS_FS_HANDLE file_handle, size_t n_bytes) {
 
 static bool update_loop(SYS_FS_HANDLE file_handle, size_t n_bytes) {
   uint32_t dst_addr = 0;
+  sector_result_t res;
 
   while (n_bytes > 0) {
     size_t to_xfer = n_bytes;
     if (to_xfer > FLASH_SECTOR_SZ) {
       to_xfer = FLASH_SECTOR_SZ;
     }
+    // Read a sector of data from the file and from the WINC.  If they differ,
+    // erase the sector and write the file data to the WINC.
+    if (SYS_FS_FileRead(file_handle, s_xfer_buf, to_xfer) < 0) {
+      // file read failed.
+      SYS_DEBUG_PRINT(
+          SYS_ERROR_ERROR, "\nFailed to read %ld bytes from file", to_xfer);
+      return false;
+    }
+
     if ((dst_addr >= M2M_PLL_FLASH_OFFSET) &&
         (dst_addr < M2M_PLL_FLASH_OFFSET + M2M_CONFIG_SECT_TOTAL_SZ)) {
       // do not overwrite PLL and GAIN settings: see spi_flash_map.h
-      SYS_DEBUG_MESSAGE(SYS_ERROR_INFO, "x");
+      res = SECTOR_SKIPPED;
     } else {
-      // Read a sector of data from the file and from the WINC.  If they differ,
-      // erase the sector and write the file data to the WINC.
-      if (SYS_FS_FileRead(file_handle, s_xfer_buf, to_xfer) < 0) {
-        // file read failed.
-        SYS_DEBUG_PRINT(
-            SYS_ERROR_ERROR, "\nFailed to read %ld bytes from file", to_xfer);
-        return false;
-      }
-      if (winc_sector_write(s_xfer_buf, dst_addr)) {
-        return false;
-      }
+      res = winc_sector_write(s_xfer_buf, dst_addr);
     }
+
+    if (res == SECTOR_ERROR) {
+      SYS_DEBUG_PRINT(SYS_ERROR_ERROR,
+                      "\nFailed to write %ld bytes at address 0x%ld to WINC",
+                      to_xfer,
+                      dst_addr);
+      return false;
+
+    } else if (res == SECTOR_EQUAL) {
+      SYS_CONSOLE_MESSAGE("=");
+
+    } else if (res == SECTOR_DIFFER) {
+      SYS_CONSOLE_MESSAGE("!");
+
+    } else if (res == SECTOR_SKIPPED) {
+      SYS_CONSOLE_MESSAGE("x");
+    }
+
     // advance to next sector
     n_bytes -= to_xfer;
     dst_addr += to_xfer;
@@ -424,6 +444,7 @@ static bool compare_loop(SYS_FS_HANDLE file_handle, size_t n_bytes) {
     if (to_xfer > FLASH_SECTOR_SZ) {
       to_xfer = FLASH_SECTOR_SZ;
     }
+
     // Read a sector of data from the file and from the WINC and compare them.
     if (SYS_FS_FileRead(file_handle, s_xfer_buf, to_xfer) < 0) {
       // file read failed.
@@ -431,15 +452,19 @@ static bool compare_loop(SYS_FS_HANDLE file_handle, size_t n_bytes) {
           SYS_ERROR_ERROR, "\nFailed to read %ld bytes from file", to_xfer);
       return false;
     }
-    if (!winc_sector_read(s_xfer_buf2, dst_addr)) {
+    if (winc_sector_read(s_xfer_buf2, dst_addr) != SECTOR_OKAY) {
+      SYS_DEBUG_PRINT(SYS_ERROR_ERROR,
+                      "\nFailed to read %ld bytes at 0x%lx from WINC",
+                      to_xfer,
+                      dst_addr);
       return false;
     }
     if (buffers_are_equal(s_xfer_buf, s_xfer_buf2, to_xfer)) {
       // buffers are identical
-      SYS_DEBUG_MESSAGE(SYS_ERROR_INFO, ".");
+      SYS_CONSOLE_MESSAGE("=");
     } else {
       // buffers differ
-      SYS_CONSOLE_PRINT("\nWINC and file differ at sector 0x%lx", dst_addr);
+      SYS_CONSOLE_MESSAGE("!");
     }
     // advance to next sector
     n_bytes -= to_xfer;

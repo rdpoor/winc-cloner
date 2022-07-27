@@ -46,7 +46,7 @@ extern "C" {
 // *****************************************************************************
 // Public types and definitions
 
-#define WINC_IMAGER_VERSION "0.0.5"
+#define WINC_IMAGER_VERSION "0.0.6"
 
 // TODO: consider functional interface
 #define SD_DEVICE_NAME "/dev/mmcblka1"
