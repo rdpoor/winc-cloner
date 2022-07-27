@@ -372,5 +372,11 @@ int8_t overwrite_efuse_struct(EFUSEProdStruct *efuse_struct, int bankIdx)
 #endif /* _FIRMWARE_ */
 
 static void efuse_delay_ms(uint32_t ms) {
-  // TODO
+  SYS_TIME_HANDLE timer = SYS_TIME_HANDLE_INVALID;
+
+  SYS_TIME_DelayMS(ms, &timer);
+  while (!SYS_TIME_DelayIsComplete(timer)) {
+    // loop until expired
+    asm("nop");
+  }
 }

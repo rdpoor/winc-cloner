@@ -232,7 +232,7 @@ bool winc_cloner_rebuild_pll(void) {
   }
 
   int32_t ret = 0;
-  // Overwrite the PLL section of in-RAM sectir with newly computed PLL data.
+  // Overwrite the PLL section of in-RAM sector with newly computed PLL data.
   ret = winc3400_pll_table_build(s_xfer_buf, efuseStruct.FreqOffset);
   if (ret <= 0) {
     SYS_DEBUG_PRINT(
