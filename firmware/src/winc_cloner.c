@@ -172,6 +172,10 @@ static bool buffers_are_equal(uint8_t *buf_a, uint8_t *buf_b, size_t n_bytes);
 
 static int32_t winc3400_pll_table_build(uint8_t *pBuffer, uint32_t freqOffset);
 
+static bool open_winc(void);
+
+static void dump_pll_data(uint8_t *buf, const char *msg);
+
 // *****************************************************************************
 // Private (static) storage
 
@@ -181,10 +185,14 @@ uint8_t s_xfer_buf2[FLASH_SECTOR_SZ]; // transfer between WINC flash and file
 EFUSEProdStruct efuseStruct = {0};
 uint8_t pllFlashSector[M2M_PLL_FLASH_SZ] = {0};
 
+static bool s_winc_is_opened;
+
 // *****************************************************************************
 // Public code
 
-void winc_cloner_init(void) {}
+void winc_cloner_init(void) {
+  s_winc_is_opened = false;
+}
 
 bool winc_cloner_extract(const char *filename) {
   bool ret = cloner_aux(filename, SYS_FS_FILE_OPEN_WRITE, extract_loop);
@@ -218,12 +226,19 @@ bool winc_cloner_compare(const char *filename) {
 
 bool winc_cloner_rebuild_pll(void) {
 
+  if (!open_winc()) {
+    SYS_DEBUG_MESSAGE(SYS_ERROR_ERROR, "\nCould not open WINC");
+    return false;
+  }
+
   // fetch a copy of the PLL / GAIN tables
   if (winc_sector_read(s_xfer_buf, M2M_PLL_FLASH_OFFSET) != SECTOR_OKAY) {
     SYS_DEBUG_PRINT(SYS_ERROR_ERROR,
                     "Could not read existing PLL / GAIN sector from WINC\r\n");
     return false;
   }
+
+  dump_pll_data(s_xfer_buf, "before");
 
   // Read XO offset
   if (read_efuse_struct(&efuseStruct, 0) != EFUSE_SUCCESS) {
@@ -243,6 +258,8 @@ bool winc_cloner_rebuild_pll(void) {
                     "Successfully constructed PLL table with size %d bytes\r\n",
                     ret);
   }
+
+  dump_pll_data(s_xfer_buf, "after");
 
   // Write the PLL / DATA sector to the WINC
   sector_result_t res = winc_sector_write(s_xfer_buf, M2M_PLL_FLASH_OFFSET);
@@ -337,11 +354,11 @@ static bool cloner_aux(const char *filename,
   size_t n_bytes;
   uint8_t ret;
 
-  if (m2m_wifi_download_mode() != M2M_SUCCESS) {
-    // Could not enter WINC download mode.
-    SYS_DEBUG_MESSAGE(SYS_ERROR_ERROR, "\nCould not access WINC");
+  if (!open_winc()) {
+    SYS_DEBUG_MESSAGE(SYS_ERROR_ERROR, "\nCould not open WINC");
     return false;
   }
+
   n_bytes = spi_flash_get_size() << 17; // convert megabits to bytes
 
   file_handle = SYS_FS_FileOpen(filename, file_mode);
@@ -350,6 +367,7 @@ static bool cloner_aux(const char *filename,
     SYS_DEBUG_PRINT(SYS_ERROR_ERROR, "\nCould not open file %s", filename);
     return false;
   }
+  SYS_CONSOLE_MESSAGE("\n");
   ret = inner_loop(file_handle, n_bytes);
   SYS_FS_FileClose(file_handle); // assure that the file is closed
 
@@ -582,6 +600,35 @@ static int32_t winc3400_pll_table_build(uint8_t *pBuffer, uint32_t freqOffset) {
 
   memcpy(pBuffer, &strFreqParam, sizeof(strFreqParam));
   return sizeof(magic) + sizeof(strChnParm) + sizeof(strFreqParam);
+}
+
+static bool open_winc(void) {
+  if (!s_winc_is_opened) {
+    if (m2m_wifi_download_mode() != M2M_SUCCESS) {
+      // Could not enter WINC download mode.
+      SYS_DEBUG_MESSAGE(SYS_ERROR_ERROR, "\nCould not access WINC");
+      s_winc_is_opened = true;
+    } else {
+      SYS_DEBUG_MESSAGE(SYS_ERROR_INFO, "\nWINC opened");
+      s_winc_is_opened = true;
+    }
+  }
+  return s_winc_is_opened;
+}
+
+// #define PLL_TABLE_LEN 796
+#define PLL_TABLE_LEN 64
+
+static void dump_pll_data(uint8_t *buf, const char *msg) {
+  SYS_CONSOLE_PRINT("\n%s", msg);
+
+  for (int i=0; i<PLL_TABLE_LEN; i++) {
+    if ((i % 32) == 0) {
+      SYS_CONSOLE_MESSAGE("\n");
+    }
+    SYS_CONSOLE_PRINT(" %02x", buf[i]);
+  }
+  SYS_CONSOLE_MESSAGE("\n");
 }
 
 // *****************************************************************************
