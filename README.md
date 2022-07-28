@@ -116,7 +116,35 @@ WINC and file differ at sector 0x9000
 WINC and file differ at sector 0xa000
 etc...
 ```
+## `r` to recompute and rebuild the WINC PLL tables
+You won't typically need this command: it recomputes and rebuilds the PLL
+tables used by the WINC.  These tables need to be recomputed if the gain
+tables change, or if the firmware has overwritten them.  Earlier versions
+of `winc-cloner` did overwrite the PLL tables, so this command was introduced
+to correct for that error.
 
+For example:
+```
+Commands:
+h: print this help
+e: extract WINC firmware to a file
+u: update WINC firmware from a file
+c: compare WINC firmware against a file
+r: recompute / rebuild WINC PLL tables
+> recompute / rebuild WINC PLL tables
+----------- BEGIN EFUSE DUMP ----------------
+(Efuse)Ver = 0,bank idx = 0,used = 1,invalid = 0
+(Efuse)Valid = 1,MAC = f8:f0:05:e4:5f:15
+(Efuse)Valid = 0,PATxGainCorr = 00
+(Efuse)Valid = 1,FreqOffset = 7f6a
+------------- END EFUSE DUMP ----------------
+Creating WiFi channel lookup table for PLL with xo_offset = -2.3438
+Creating frequency lookup table for PLL with xo_offset = -2.3438.
+Successfully constructed PLL table with size 796 bytes
+PLL / DATA sector up to date
+```
+In this case, "up to date" indicates that the PLL tables were already
+correct and did not need updating.
 ## Other Notes
 The images/ directory of this repository contains some "All In One" WINC images,
 currently including:
