@@ -1,0 +1,6 @@
+format_version: v1.0
+type: UniqueComponent
+attributes: {id: rstc}
+children:
+- type: ElementPosition
+  attributes: {x: '347', y: '161', id: rstc}

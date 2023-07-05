@@ -108,7 +108,7 @@ extern "C" {
 #define SYS_FS_CWD_STRING_LEN             1024
 
 
-#define SYS_FS_FAT_VERSION                "v0.14a"
+#define SYS_FS_FAT_VERSION                "v0.14b"
 #define SYS_FS_FAT_READONLY               false
 #define SYS_FS_FAT_CODE_PAGE              437
 #define SYS_FS_FAT_MAX_SS                 SYS_FS_MEDIA_MAX_BLOCK_SIZE
@@ -147,8 +147,7 @@ extern "C" {
 
 
 /*** WiFi WINC Driver Configuration ***/
-#define WDRV_WINC_EIC_SOURCE                EIC_PIN_7
-#define WDRV_WINC_SPI_INDEX                 DRV_SPI_INDEX_0
+#define WDRV_WINC_EIC_SOURCE
 #define WDRV_WINC_NETWORK_MODE_SOCKET
 #define WDRV_WINC_DEVICE_WINC1500
 #define WDRV_WINC_DEVICE_SPLIT_INIT
@@ -165,6 +164,7 @@ extern "C" {
 #define WDRV_WINC_DEVICE_URL_TYPE           unsigned char
 #define WDRV_WINC_DEVICE_SCAN_STOP_ON_FIRST
 #define WDRV_WINC_DEVICE_DEPRECATE_WEP
+#define WDRV_WINC_DEVICE_OTA_SSL_OPTIONS
 #define WDRV_WINC_DEVICE_OTA_STATUS_EXTENDED
 #define WDRV_WINC_DEVICE_SCAN_SSID_LIST
 #define WDRV_WINC_DEVICE_USE_SYS_DEBUG
